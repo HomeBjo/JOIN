@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: js/summary.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: js/summary.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let currentTaskInfo = [];
+
+
+
+/**
+ * Load all importats fetshs and functions
+ */
+async function init() {
+    await includeHTML();
+    highlightTitle('summary');
+    highlightTitleMobile('summary-mobile');
+    loggedInUser = await getLoggedInUser();
+    updateGreeting();
+    greetUser(loggedInUser);
+    showProfileInitials(loggedInUser);
+    loadUsers();
+    generateUserName(loggedInUser);
+    let info = await getItem('newTask');
+    let getTask = JSON.parse(info);
+    currentTaskInfo.push(getTask);
+    getAmountOfTasks();
+    upcomingDate();
+}
+
+
+/**
+ * The function greets you with the time of day after you log in
+ */
+function updateGreeting() {
+    const greeting = document.getElementById('greeting');
+    const currentTime = new Date();
+    const currentHour = currentTime.getHours();
+    let greetingMessage = '';
+
+    if (currentHour >= 5 &amp;&amp; currentHour &lt; 12) {
+        greetingMessage = 'Good morning, ';
+    } else if (currentHour >= 12 &amp;&amp; currentHour &lt; 18) {
+        greetingMessage = 'Good afternoon, ';
+    } else {
+        greetingMessage = 'Good evening, ';
+    }
+
+    greeting.textContent = greetingMessage;
+}
+
+
+/**
+ * The function greets logged in User
+ */
+function generateUserName(loggedInUser){
+    let getName = document.getElementById('greet-name');
+    getName.innerHTML = /*html*/`
+        &lt;h1 class="showName">${loggedInUser.username}&lt;/h1 >`;
+}   
+
+
+/**
+ * The function filters the 4 parameters toDo, progress, FeedBack and done from the tasks and forwards the information
+ */
+function getAmountOfTasks() {
+    let tasks = currentTaskInfo[0];
+    let valueToDo = 0;
+    let valueProgress = 0;
+    let valueFeedBack = 0;
+    let valueDone = 0;
+
+    tasks.forEach(task => {
+        if (task.category === "toDo") {
+            valueToDo++;
+        } else if (task.category === "progress") {
+            valueProgress++;
+        } else if (task.category === "feedBack") {
+            valueFeedBack++;
+        } else if (task.category === "done") {
+            valueDone++;
+        }});
+    
+    let currentValues = getCurrentValues(valueToDo, valueProgress, valueFeedBack,valueDone);
+    renderNumbers(currentValues);
+    calcAllTogether(currentValues);
+    getPriority();
+}
+
+
+/**
+ * Here the values ​​are packed into an array and returned
+ */
+function  getCurrentValues(valueToDo, valueProgress, valueFeedBack,valueDone){
+    let currentValues = {
+        todo: valueToDo,
+        progress: valueProgress,
+        feedBack: valueFeedBack,
+        done: valueDone
+    };
+    return currentValues;
+};
+
+
+/**
+ * Here the parameters are displayed, how many tasks are in each category
+ */
+function renderNumbers(currentValues){
+    let toTo = document.getElementById('showNumberToDo');
+    let progress = document.getElementById('showNumberProgress');
+    let feedBack = document.getElementById('showNumberAwaitingFeedback');
+    let done = document.getElementById('showNumberTasksDone');
+
+    toTo.innerHTML = '';
+    progress.innerHTML = '';
+    feedBack.innerHTML = '';
+    done.innerHTML = '';
+
+    toTo.innerHTML = /*html*/`&lt;p class="showTheNumbers">${currentValues.todo}&lt;/p>`;
+    progress.innerHTML = /*html*/`&lt;p class="showTheNumbers">${currentValues.progress}&lt;/p>`;
+    feedBack.innerHTML = /*html*/`&lt;p class="showTheNumbers">${currentValues.feedBack}&lt;/p>`;
+    done.innerHTML = /*html*/`&lt;p class="showTheNumbers">${currentValues.done}&lt;/p>`;
+    renderNumverMobile(currentValues);
+}
+
+
+
+/** (mobile version)
+ * Here the parameters are displayed, how many tasks are in each category
+ */
+function renderNumverMobile(currentValues){
+    let toTo = document.getElementById('showNumberToDo2');
+    let progress = document.getElementById('showNumberProgress2');
+    let feedBack = document.getElementById('showNumberAwaitingFeedback2');
+    let done = document.getElementById('showNumberTasksDone2');
+
+    toTo.innerHTML = '';
+    progress.innerHTML = '';
+    feedBack.innerHTML = '';
+    done.innerHTML = '';
+
+    toTo.innerHTML = /*html*/`&lt;p class="showTheNumbers">${currentValues.todo}&lt;/p>`;
+    progress.innerHTML = /*html*/`&lt;p class="showTheNumbers">${currentValues.progress}&lt;/p>`;
+    feedBack.innerHTML = /*html*/`&lt;p class="showTheNumbers">${currentValues.feedBack}&lt;/p>`;
+    done.innerHTML = /*html*/`&lt;p class="showTheNumbers">${currentValues.done}&lt;/p>`;
+}
+
+
+/** (mobile + normal version)
+ * All tasks are summarized here and the total number is displayed
+ */
+function calcAllTogether(currentValues){
+    let result = currentValues.todo + currentValues.progress + currentValues.feedBack + currentValues.done;
+    let resultBox = document.getElementById('showTaskInBoardNumber');
+    let resultBox2 = document.getElementById('showTaskInBoardNumber2');
+    resultBox.innerHTML = '';
+    resultBox2.innerHTML = '';
+    resultBox.innerHTML = /*html*/`&lt;p class="showTheNumbers">${result}&lt;/p>`;
+    resultBox2.innerHTML = /*html*/`&lt;p class="showTheNumbers">${result}&lt;/p>`;
+}
+
+
+/**
+ * Filter out the priority under all tasks in board
+ */
+function getPriority(){
+    let tasks = currentTaskInfo[0];
+    let valuePriority = 0;
+
+    tasks.forEach(task => {
+        if (task.priority === "high") {
+            valuePriority++;
+        }});
+
+    let valueHighDiv = document.getElementById('showUrgentTasks');
+    let valueHighDiv2 = document.getElementById('showUrgentTasks2');
+    valueHighDiv.innerHTML = '';
+    valueHighDiv2.innerHTML = '';
+    valueHighDiv.innerHTML = /*html*/`&lt;p class="showNumber">${valuePriority}&lt;/p>`;
+    valueHighDiv2.innerHTML = /*html*/`&lt;p class="showNumber">${valuePriority}&lt;/p>`;
+}
+
+
+/**
+ * Here, the date that is closer to the current day is selected under all tasks and displayed
+ */
+function upcomingDate() {
+    let tasks = currentTaskInfo[0];
+    let date = document.getElementById('date');
+    let dateMobile = document.getElementById('dateMobile');
+    upcomingDateIfStatement(tasks.length);
+    let urgentDate = new Date(tasks[0].date); // Initialize with the date of the first task
+
+    tasks.forEach(task => {
+        const taskDate = new Date(task.date);
+
+        if (taskDate &lt; urgentDate) {
+            urgentDate = taskDate;
+        }
+    });
+
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    const formattedUrgentDate = urgentDate.toLocaleDateString('en-EN', options);
+    date.innerHTML = /*html*/`&lt;div class="showTheNumbers">${formattedUrgentDate}&lt;/div>`;
+    dateMobile.innerHTML = /*html*/`&lt;div class="showTheNumbers">${formattedUrgentDate}&lt;/div>`;
+}
+
+
+function upcomingDateIfStatement(tasks){
+    if (tasks === 0) {
+        console.log("No tasks available.");
+        return;
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="Backdrop.html">Backdrop</a></li><li><a href="BaseComponent.html">BaseComponent</a></li><li><a href="Button.html">Button</a></li><li><a href="Carousel.html">Carousel</a></li><li><a href="Collapse.html">Collapse</a></li><li><a href="Config.html">Config</a></li><li><a href="Dropdown.html">Dropdown</a></li><li><a href="FocusTrap.html">FocusTrap</a></li><li><a href="Modal.html">Modal</a></li><li><a href="Offcanvas.html">Offcanvas</a></li><li><a href="Popover.html">Popover</a></li><li><a href="ScrollBarHelper.html">ScrollBarHelper</a></li><li><a href="ScrollSpy.html">ScrollSpy</a></li><li><a href="Swipe.html">Swipe</a></li><li><a href="Tab.html">Tab</a></li><li><a href="TemplateFactory.html">TemplateFactory</a></li><li><a href="Toast.html">Toast</a></li><li><a href="Tooltip.html">Tooltip</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ARIA_ATTRIBUTE_PATTERN">ARIA_ATTRIBUTE_PATTERN</a></li><li><a href="global.html#MAX_UID">MAX_UID</a></li><li><a href="global.html#NAME">NAME</a></li><li><a href="global.html#NAME$1">NAME$1</a></li><li><a href="global.html#NAME$2">NAME$2</a></li><li><a href="global.html#NAME$3">NAME$3</a></li><li><a href="global.html#NAME$4">NAME$4</a></li><li><a href="global.html#NAME$5">NAME$5</a></li><li><a href="global.html#NAME$6">NAME$6</a></li><li><a href="global.html#NAME$7">NAME$7</a></li><li><a href="global.html#NAME$8">NAME$8</a></li><li><a href="global.html#NAME$9">NAME$9</a></li><li><a href="global.html#NAME$a">NAME$a</a></li><li><a href="global.html#NAME$b">NAME$b</a></li><li><a href="global.html#NAME$c">NAME$c</a></li><li><a href="global.html#NAME$d">NAME$d</a></li><li><a href="global.html#NAME$e">NAME$e</a></li><li><a href="global.html#NAME$f">NAME$f</a></li><li><a href="global.html#SAFE_URL_PATTERN">SAFE_URL_PATTERN</a></li><li><a href="global.html#SELECTOR_FIXED_CONTENT">SELECTOR_FIXED_CONTENT</a></li><li><a href="global.html#VERSION">VERSION</a></li><li><a href="global.html#addContactAnimation">addContactAnimation</a></li><li><a href="global.html#addContactToUserContacts">addContactToUserContacts</a></li><li><a href="global.html#calcAllTogether">calcAllTogether</a></li><li><a href="global.html#createNewContact">createNewContact</a></li><li><a href="global.html#deleteContact">deleteContact</a></li><li><a href="global.html#editContact">editContact</a></li><li><a href="global.html#elementMap">elementMap</a></li><li><a href="global.html#enableDismissTrigger">enableDismissTrigger</a></li><li><a href="global.html#generateContactInSmall">generateContactInSmall</a></li><li><a href="global.html#generateRandomColor">generateRandomColor</a></li><li><a href="global.html#generateUserName">generateUserName</a></li><li><a href="global.html#getAmountOfTasks">getAmountOfTasks</a></li><li><a href="global.html#getContact4Delete">getContact4Delete</a></li><li><a href="global.html#getCurrentValues">getCurrentValues</a></li><li><a href="global.html#getInitialContacts">getInitialContacts</a></li><li><a href="global.html#getNextActiveElement">getNextActiveElement</a></li><li><a href="global.html#getPriority">getPriority</a></li><li><a href="global.html#getSelector">getSelector</a></li><li><a href="global.html#getUID">getUID</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#loadMoreVert">loadMoreVert</a></li><li><a href="global.html#makeEventUid">makeEventUid</a></li><li><a href="global.html#namespaceRegex">namespaceRegex</a></li><li><a href="global.html#normalizeData">normalizeData</a></li><li><a href="global.html#parseSelector">parseSelector</a></li><li><a href="global.html#pushContactInfo">pushContactInfo</a></li><li><a href="global.html#reflow">reflow</a></li><li><a href="global.html#renderNumbers">renderNumbers</a></li><li><a href="global.html#renderNumverMobile">renderNumverMobile</a></li><li><a href="global.html#resetForm">resetForm</a></li><li><a href="global.html#saveEditContactWindow">saveEditContactWindow</a></li><li><a href="global.html#saveVariable">saveVariable</a></li><li><a href="global.html#setValueInIput">setValueInIput</a></li><li><a href="global.html#showAssignetContacts2">showAssignetContacts2</a></li><li><a href="global.html#showDetailsOfContact">showDetailsOfContact</a></li><li><a href="global.html#sortByFirstLetter">sortByFirstLetter</a></li><li><a href="global.html#startAnimation">startAnimation</a></li><li><a href="global.html#upcomingDate">upcomingDate</a></li><li><a href="global.html#updateGreeting">updateGreeting</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Dec 05 2023 13:20:34 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+.leftWhiteBox{
+    width: 232px;
+    height: calc(100vh - 98px);
+    border:  1px ;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.positionCategory{
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BoxOfCategory{
+    display: flex;
+    flex-direction: column;
+}
+
+.positionTaskIcons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    box-sizing: content-box !important;
+}
+
+.positionTaskIcons a {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-decoration: none;
+    color: rgba(66, 82, 110, 1);
+    padding: 8px 30px;
+    gap: 15px;
+    width: 108px;
+    box-sizing: content-box !important;
+}
+
+.positionTaskIcons:hover {
+    background-color: #D2E3FF;
+    border-radius: 8px;
+    transform: scale(1.1); 
+}
+
+.positionFooterBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 66px;
+}
+
+.footerBox{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.linksFooter{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.linksFooter:hover {
+    color: #2756ff;
+}
+
+.footerBox a {
+    text-decoration: none;
+    color: rgba(66, 82, 110, 1);
+    border-radius: 10px;
+}
+
+.footerBox a:hover {
+    cursor: pointer;
+    color: rgb(13,110,253);
+}
+
+.highlighted {
+    background-color: #D2E3FF;
+    border-radius: 8px;
+    transform: scale(1.1); 
+}
+
+.highlighted2 {
+    background-color: #2756ff;
+    border-radius: 8px;
+    transform: scale(1.1); 
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+.highlighted2 a:hover {
+    color: white !important;
+}
+
+@media(max-width: 1260px) {
+    .leftWhiteBox {
+        display: none;
+    }
+
+    .highlighted-mobile {
+        background-color: white;
+        border-radius: 0;
+        transform: none;
+    }
+
+    .highlighted-mobile a {
+        filter: invert(60%) sepia(55%) saturate(5707%) hue-rotate(201deg) brightness(101%) contrast(101%);
+    }
+}

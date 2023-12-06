@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif !important;
+}
+
+.d-none {
+    display: none;
+}
+
+.mobile-header {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 96px;
+    background-color: rgba(69, 137, 255, 1);
+    width: 100vw;
+}
+
+.icon {
+    margin-left: 25px;
+} 
+
+.profile-div{
+    width: 56px;
+    height: 56px;
+    border-radius: 50px;
+    background-color: white;
+    margin: 16px 25px 16px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-div div {
+    width: 46px;
+    height: 46px;
+    border: 2px solid rgba(69, 137, 255, 1);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-div span {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(69, 137, 255, 1);
+}
+
+/* .profile-settings {
+    position: absolute;
+    right: 4px;
+    top: 96px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    text-align: end;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.20);
+}
+
+.profile-settings a {
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(66, 82, 110, 1);
+    text-decoration: none;
+    padding: 4px 20px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.profile-settings a:hover {
+    background-color: rgba(200, 222, 255, 0.315);
+}
+
+.profile-settings button {
+    border: none;
+    background-color: white;
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(66, 82, 110, 1);
+    text-decoration: none;
+    padding: 4px 20px;
+    width: auto;
+    border-radius: 8px;
+    text-align: end;
+}
+
+.profile-settings button:hover {
+    background-color: rgba(200, 222, 255, 0.315);
+    cursor: pointer;
+}
+
+.initials-div:hover {
+    background-color: rgba(200, 222, 255, 0.404) !important;
+} */
+
+.test-content {
+    height: 900px;
+}
+
+.mobile-navbar {
+    position: fixed;
+    z-index: 50;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 76px;
+    width: 100%;
+    background-color: white;
+}
+
+.link-box a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(66, 82, 110, 1);
+}
+
+.link-box a img {
+    height: 24px;
+    width: 24px;
+    margin-bottom: 3px;
+}
+
+.mobile_template {
+    display: none;
+}
+
+@media(max-width: 1260px) {
+    .mobile_template {
+        display: flex;
+    }
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summary</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/img/join_logo.svg"
+      type="image/x-icon"
+    />
+    <script defer src="../js/include.js"></script>
+    <script defer src="../js/storage.js"></script>
+    <script defer src="../js/profile.js"></script>
+    <script defer src="../js/register.js"></script>
+    <script defer src="../js/board.js"></script>
+    <script defer src="../js/summary.js"></script>    
+    <link rel="stylesheet" href="../css/desktop_template_header.css" />
+    <link rel="stylesheet" href="../css/desktop_template_footer.css" />
+    <link rel="stylesheet" href="../css/mobile_template.css" />
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="stylesheet" href="../css/summary.css" />
+  </head>
+
+  <body onload="init()">
+    <div w3-include-html="../assets/templates/desktop_template_header.html"></div>
+    <div w3-include-html="../assets/templates/mobile_template.html"></div>
+    <div id="generateContent"></div>
+    <div class="dislayRowBody">
+      <div class="positionMainBox">
+        <div class="boxForBoxes">
+          <div class="positionGreed">
+            <h1 class="showGreed" id="greeting">Good morning,</h1>
+            <div class="showName" id="greet-name"></div>
+          </div>
+          <div class="positionTime">
+            <a class="showDate" href="../html/board.html">
+              <div>
+                <div class="displayFlex">
+                  <img src="../assets/img/ellipse3.svg" class="clockCircle" />
+                  <div id="showUrgentTasks"></div>
+                </div>
+                <p class="tasksUrgent">Tasks Urgent</p>
+              </div>
+              <div class="whiteLine"></div>
+              <div class="deadlineBox">
+                <p class="dateDeadline" id="date">monat 01.01.2023</p>
+                <p class="tasksUrgentX">Upcoming Deadline</p>
+              </div>
+            </a>
+            <a class="showTasksInBoard displayRow" href="../html/board.html">
+              <div class="displayFlex">
+                <img
+                  src="../assets/img/ellipse3.svg"
+                  class="showTaskInBoardImg"/>
+                <div id="showTaskInBoardNumber"></div>
+              </div>
+              <p class="TaskOnBoard">Task on Board</p>
+            </a>
+          </div>
+          <div class="positionTasksCards">
+            <a class="tasksInBoard displayRow" href="../html/board.html">
+              <div class="displayFlex">
+                <img src="../assets/img/ellipse3.svg" class="showTo-doImg" />
+                <div id="showNumberToDo"></div>
+              </div>
+              <p class="textInBoxes">Tasks<br />To-do</p>
+            </a>
+            <a class="tasksInBoard displayRow" href="../html/board.html">
+              <div class="displayFlex">
+                <img
+                  src="../assets/img/ellipse3.svg"
+                  class="showTaskInProgressImg"/>
+                <div id="showNumberProgress"></div>
+              </div>
+              <p class="textInBoxes">Task in Progress</p>
+            </a>
+            <a class="tasksInBoard displayRow" href="../html/board.html">
+              <div class="displayFlex">
+                <img
+                  src="../assets/img/ellipse3.svg"
+                  class="showAwaitingFeedbackImg"
+                />
+                <div id="showNumberAwaitingFeedback"></div>
+              </div>
+              <p class="textInBoxes">Awaiting Feedback</p>
+            </a>
+            <a class="tasksInBoard displayRow" href="../html/board.html">
+              <div class="displayFlex">
+                <img
+                  src="../assets/img/ellipse3.svg"
+                  class="showTasksDoneImg"
+                />
+                <div id="showNumberTasksDone"></div>
+              </div>
+              <p class="textInBoxes">
+                Tasks <br />
+                Done
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div w3-include-html="../assets/templates/desktop_template_footer.html"></div>
+    </div>
+
+    <div class="summary-mobile">
+      <div class="flex-column">
+        <a class="showDate" href="../html/board.html">
+          <div class="positionTaskUrgent">
+            <div class="displayFlex">
+              <img src="../assets/img/ellipse3.svg" class="clockCircle" />
+              <div id="showUrgentTasks2"></div>
+            </div>
+            <p class="tasksUrgent marginLeft marginBottom">Tasks Urgent</p>
+          </div>
+          <div class="whiteLine"></div>
+          <div class="deadlineBox">
+            <p class="dateDeadline" id="dateMobile">monat 01.01.2023</p>
+            <p class="tasksUrgentX">Upcoming Deadline</p>
+          </div>
+        </a>
+        <a class="showTasksInBoard wd" href="../html/board.html">
+          <div class="displayFlex">
+            <img
+              src="../assets/img/ellipse3.svg" class="showTaskInBoardImg"/>
+            <div id="showTaskInBoardNumber2"></div>
+          </div>
+          <p class="TaskOnBoard">Task on Board</p>
+        </a>
+      </div>
+
+
+
+      <div class="flex-row">
+        <a class="tasksInBoard displayRow " href="../html/board.html">
+          <div class="displayFlex">
+            <img src="../assets/img/ellipse3.svg" class="showTo-doImg" />
+            <div id="showNumberToDo2"></div>
+          </div>
+          <div>
+            <p class="textInBoxes">Tasks<br />To-do</p>
+          </div>
+        </a>
+        <div class="tasksInBoard displayRow" href="../html/board.html">
+          <div class="displayFlex">
+            <img src="../assets/img/ellipse3.svg" class="showTaskInProgressImg"/>
+            <div id="showNumberProgress2"></div>
+          </div>
+          <p class="textInBoxes">Task in Progress</p>
+        </div>
+      </div>
+
+      <div class="flex-row">
+        <a class="tasksInBoard displayRow" href="../html/board.html">
+          <div class="displayFlex">
+            <img src="../assets/img/ellipse3.svg" class="showAwaitingFeedbackImg"/>
+            <div id="showNumberAwaitingFeedback2"></div>
+          </div>
+          <p class="textInBoxes">Awaiting Feedback</p>
+        </a>
+        <a class="tasksInBoard displayRow" href="../html/board.html">
+          <div class="displayFlex">
+            <img src="../assets/img/ellipse3.svg" class="showTasksDoneImg"/>
+            <div id="showNumberTasksDone2"></div>
+          </div>
+          <p class="textInBoxes">Tasks <br/> Done</p>
+        </a>
+      </div>
+
+  </body>
+</html>

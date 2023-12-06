@@ -1,0 +1,1209 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.dateContent {
+  display: flex;
+  flex-direction: column;
+  height: 99px;
+  padding-top: 8px;
+}
+.mainContent {
+  width: 100%;
+}
+.boardTopSektion {
+  display: flex;
+  padding: 72px 0px 16px 0px;
+  gap: 48px;
+  flex-direction: column;
+}
+.inputSektion {
+  display: flex;
+  gap: 35px;
+  padding: 0px 64px 0px 64px;
+}
+.inputfieldIconsContainer {
+  display: flex;
+  padding: 8px 16px 8px 16px;
+  border-radius: 10px;
+
+  gap: 10px;
+  border: 1px solid #a8a8a8;
+}
+.boardInputfield {
+  border: 0px;
+  font-size: 16px;
+  font-family: inter;
+}
+.boardInputfield:focus {
+  outline: none;
+}
+.inputfieldDateContainerBoard{
+  border: 0;
+  font-size: 19px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 11px;
+  border-bottom: 1px solid;
+  border-color: rgba(209, 209, 209, 1);
+  width: 440px;
+}
+.inputfieldDateContainerBoard:focus {
+  outline: none;
+}
+.boardButton {
+  background: #4589ff;
+  border: 0;
+  color: white;
+  font-size: 23px;
+  font-weight: 400;
+  height: 51px;
+  width: 138px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+
+.boardCategorysSektion {
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 64px 0px 0px;
+  font-weight: 700;
+  color: #42526e;
+  font-size: 23px;
+}
+.boardCategorysSektionContainer {
+  display: flex;
+  gap: 0px;
+  width: 252px;
+  justify-content: space-between;
+  padding: 0px 16px 0px 16px;
+  
+}
+.boardCategorysSektionIcons {
+  width: 24px;
+  height: 34px;
+  cursor: pointer;
+}
+.scrollContainer {
+  display: flex;
+  height: 72vh;
+  overflow: scroll;
+}
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+.boardBotSektion {
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 64px 0px 0px;
+  padding-bottom: 12px;
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+}
+
+.boardtoDoSektion {
+  width: 252px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  height: fit-content;
+  min-height: 100vh;
+}
+
+.boardtoDoSektion-highlight {
+  background-color: rgba(195, 189, 189, 0.1);
+}
+.boardProgressSektion {
+  width: 252px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  height: fit-content;
+  min-height: 100vh;
+}
+.boardFeedbackSektion {
+  width: 252px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  height: fit-content;
+  min-height: 100vh;
+}
+.boardDoneSektion {
+  width: 252px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  height: fit-content;
+  min-height: 100vh;
+}
+.taskCards {
+  width: 252px;
+  height: 244px;
+  padding: 16px;
+  border-radius: 24px;
+  gap: 10px;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px 3px #00000014;
+  display: flex;
+  transition: transform 0.2s ease-in-out;
+}
+
+.taskCards:hover {
+  
+  transform: rotate(5deg);
+}
+
+.cardContent {
+  gap: 22px;
+  display: grid;
+}
+.cardHeader {
+  width: 110px;
+  height: 27px;
+  border-radius: 8px;
+  background: #ff7a00;
+}
+
+.userStory {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  margin-block-start: 1px;
+  font-weight: 400;
+}
+.cardDescription {
+  display: grid;
+  border-radius: 10px;
+  gap: 8px;
+  width: 220px;
+}
+
+.addContactstoassignBoard {
+  display: flex;
+  height: auto;
+  width: 416px;
+  overflow-y: hidden;
+}
+.addContactstoassignBoard::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 8px;
+  height: 8px;
+}
+.addContactstoassignBoard::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+  width: 8px;
+}
+
+.cardDescriptionHeader {
+  width: 220px;
+  height: 19px;
+  color: #4589ff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.cardDescriptionInfo {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  color: #a8a8a8;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cardSub {
+  width: 220px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.progress {
+  width: 128px;
+}
+.cardSubNumber {
+  font-size: 13px;
+  font-weight: 400;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.cardAddUser {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 17px;
+  align-items: center;
+}
+.cardUserSymbole {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ff5733;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+}
+.inputFieldTitleBoard{
+  color: black(231, 10, 10);
+  width: 440px;
+  height: 64px;
+  border: 0px;
+  border-bottom: 1px solid rgba(209, 209, 209, 1);
+  padding: 0px 0px 0px 0px;
+  gap: 10px;
+  display: flex;
+  font-weight: 400;
+  font-size: 32px;
+}
+.inputFieldTitleBoard:focus{
+  outline: none;
+}
+
+/* SideMenuClass*/
+.header-sideMenu {
+  display: flex;
+  padding: 72px 40px 0px 40px;
+  font-size: 48px;
+  font-weight: 700;
+}
+.header-sideMenuImg {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 24px;
+  left: 462px;
+  cursor: pointer;
+}
+.sideMenuStyle {
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 518px;
+  height: 100vh;
+  z-index: 2;
+  border-radius: 30px 0px 0px 30px;
+  transform: translate(518px);
+  transition: all 225ms ease-in-out;
+}
+.showmenu {
+  transform: translate(0);
+}
+
+.descriptionFailMessage{
+  color: red;
+  font-size: 12px;
+  padding-left: 12px;
+}
+
+.tileFailMessage{
+  color: red;
+  font-size: 12px;
+  padding-left: 12px;
+}
+
+.positionOfButtonsBoard{
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
+  margin: 24px;
+  margin-top: 0;
+  padding-bottom: 24px;
+}
+
+#positionOfButtonsBoard::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 8px;
+  height: 8px;
+}
+#positionOfButtonsBoard::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+  width: 8px;
+}
+
+
+.menuContainer {
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 400;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.display-none {
+  display: none;
+}
+.assignedContentBoard {
+  width: 440px;
+}
+.assignedContent-sideMenu {
+  height: 106px !important;
+  display: flex;
+  flex-direction: column;
+  height: 79px;
+  padding-top: 24px !important;
+}
+.contentContainer-sideMenu {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  height: calc(100vh - 223px) !important;
+  width: 486px;
+}
+.addTask-sideMenu {
+  width: 518px !important;
+  overflow-x: hidden;
+}
+.description-sideMenu {
+  width: 450px !important;
+} 
+
+
+/*openCards*/
+
+.openCardContainer {
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.openCardsDetails {
+  background-color: #f5f5f5;
+  width: 528px;
+
+  z-index: 2;
+  border-radius: 30px 30px 30px 30px;
+  transition: all 225ms ease-in-out;
+  padding: 48px 40px 48px 40px;
+}
+
+.openCardIcons {
+  height: 24px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.openCardIconsImg {
+  height: 18px;
+}
+.openCardIconsImgContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+  gap: 8px;
+}
+.openCardIconsText {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(42, 54, 71, 1);
+}
+
+.userBoxContainer:hover{
+  background-color: #d2e3ff;
+  border-radius: 10px;
+}
+
+.openCardCheckbox {
+  height: 80px;
+  margin-top: 4px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  padding: 6px;
+}
+.openCardCheckbox::-webkit-scrollbar {
+  display: none;
+}
+.subtaskText {
+  font-weight: 400;
+  font-size: 16px;
+  height: 19px;
+}
+.openCardSubtask {
+  margin-top: 20px;
+  height: 25px;
+}
+.openCardAssigned {
+  height: 209px;
+  margin-top: 25px;
+}
+.openCardAssignedAddUser {
+  display: flex;
+  flex-direction: column;
+  height: 178px;
+  overflow: scroll;
+}
+.openCardAssignedAddUser::-webkit-scrollbar {
+  display: none;
+}
+
+.openCardPrio {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  height: 31px;
+  margin-top: 25px;
+}
+.openCardPrioImg {
+  height: 20px;
+  width: 20px;
+  padding-left: 3px;
+}
+.cardsCategoryText {
+  font-size: 21px;
+  font-weight: 700;
+  color: rgba(66, 82, 110, 1);
+}
+.openCardSecondText {
+  font-size: 19px;
+  font-weight: 400;
+  padding-left: 25px;
+}
+
+.openCardDate {
+  height: 25px;
+  margin-top: 25px;
+}
+.openCardText {
+  height: 50px;
+  margin-top: 25px;
+  overflow: auto;
+}
+.openCardSpanText {
+  font-weight: 400;
+  font-size: 19px;
+}
+.openCardDescription{
+  overflow: auto;
+  height: 79px;
+}
+.openCardDescriptionText {
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 73px;
+ 
+}
+.openCardTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.userDetailsTitle {
+  width: 160px;
+  background: rgba(255, 122, 0, 1);
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  padding: 0px 24px 0px 24px;
+  font-weight: 400;
+  font-size: 23px;
+}
+.userDetailsImg {
+  cursor: pointer;
+}
+
+.btnCreateContact{
+  color: white;
+}
+
+.header-EditMenu {
+  display: flex;
+  height: 71px;
+  width: 97%;
+  justify-content: flex-end;
+  z-index: 28;
+  align-items: end;
+}
+.header-editMenuImg {
+  cursor: pointer;
+}
+
+.marginBottom{
+  margin-bottom: 8px;
+}
+
+.openCardsDetailsEdit {
+  background: #ffff;
+  width: 494px;
+  height: 95vh;
+  z-index: 2;
+  border-radius: 30px 30px 30px 30px;
+  transition: all 225ms ease-in-out;
+}
+
+.SubtaskContentBoard{
+  display: flex;
+  flex-direction: column;
+  max-height: 240px;
+  padding-top: 24px !important;
+  width: 440px;
+}
+
+.SubtaskContentEdit {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px !important;
+}
+.buttonContainerEdit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.placeholderTaskContainer {
+  width: 252px;
+  height: 48px;
+  background-color: rgba(168, 168, 168, 0.3);
+  border: 2px dashed rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.cardAddUsersIconsContain {
+  display: flex;
+  height: auto;
+  width: 180px;
+  overflow-y: hidden;
+}
+.cardAddUsersIcons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detaicardsUserContainer {
+  display: flex;
+  padding: 7px 16px 7px 16px;
+
+  height: 56px;
+  align-items: center;
+  gap: 26px;
+}
+.detailVersion {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #ff5733;
+  color: #fff;
+  text-align: center;
+  line-height: 41px;
+}
+.cardUserDetailVersion {
+  font-size: 19px;
+  font-weight: 400;
+}
+.mobileSide{
+  width: 470px!important;
+  height: 148px!important;
+  overflow: auto;
+}
+.subtaskContainerMobile{
+  height: 250px;
+  overflow: scroll;
+  width: 470px;
+
+}
+.subtaskContainerMobile::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 8px;
+  height: 8px;
+}
+.subtaskContainerMobile::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+  width: 8px;
+}
+.mobile{
+  width: 512px!important;
+}
+.mobileScroll{
+  width: 512px!important;
+}
+.selectContainerBoard{
+  overflow: scroll;
+  height: 200px;
+  overflow-x: hidden;
+}
+.selectedSubrasksMobile{
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+
+@media (max-width: 1260px) {
+  .mobile{
+    width: 440px!important;
+  }
+  .editMenu{
+    width: 484px !important;
+  }
+  .scrollContainer {
+    margin: 7px;
+}
+.header-sideMenuImg{
+  left: 347px;
+}
+.header-sideMenu{
+  padding: 72px 40px 0px 8px;
+}
+.subtaskList{
+  width: 384px;
+}
+.mobileSide{
+  width: 350px!important;
+}
+.mobileButtons {
+  margin-right: 90px!important;
+ }
+
+.leftWhiteBox{
+  display: none!important;
+}
+.mainContent {
+  width: 98%;}
+#mobileAdd {
+  display: flex!important;
+  align-items: center;
+  justify-content: space-between;
+}
+.boardCategorysSektion{
+  display: none;
+}
+.boardButton{
+  display: none;
+}
+
+.scrollContainer {
+ flex-direction: column;
+}
+ 
+ .boardBotSektion {
+  flex-direction: column;
+  display: flex;
+  justify-content:start;
+  width: calc(85% - 58px);
+  min-height: unset;
+}
+
+.boardProgressSektion {
+  flex-direction: unset;
+  width: auto;
+  overflow: scroll;
+  min-height: unset;
+}
+
+.boardtoDoSektion {
+  width: auto;
+ flex-direction: unset;
+ overflow: scroll;
+ min-height: unset;
+}
+
+ .contentContainer {
+  padding-top: 100px!important;
+}
+.boardTopSektion {
+  align-items: center;
+}
+.boardDoneSektion{
+flex-direction: unset;
+width: auto;
+overflow: scroll;
+margin-bottom: 146px;
+min-height: unset;
+}
+.boardFeedbackSektion{
+  flex-direction: unset;
+  width: auto;
+  overflow: scroll;
+  min-height: unset;
+}
+
+.mobileSpan{
+  font-weight: 700;
+  color: #42526e;
+  font-size: 23px;
+}
+.taskCards{
+  margin-bottom: 10px;
+  margin-left: 9px;
+  margin: 21px;
+}
+.selectContainerBoard {
+  display: flex;
+  flex-direction: column;
+  height: 152px !important;
+  min-height: 152px !important;
+  overflow: scroll;
+  width: 401px;
+}
+.selectContainerBoard::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 8px;
+  height: 8px;
+}
+.selectContainerBoard::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+  width: 8px;
+}
+.selectContainerX {
+  display: flex;
+  flex-direction: column;
+  height: 152px !important;
+  min-height: 152px !important;
+  overflow: auto;
+  width: 440px;
+}
+.selectContainerX::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 8px;
+  height: 8px;
+}
+.selectContainerX::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+  width: 8px;
+}
+.boardFeedbackSektion {
+  width: calc(97% - 58px);
+  overflow-y: hidden;
+}
+.boardProgressSektion {
+  width: calc(97% - 58px);
+  overflow-y: hidden;
+}
+.boardtoDoSektion {
+  width: calc(97% - 58px);
+  overflow-y: hidden;
+}.boardDoneSektion {
+  width: calc(97% - 58px);
+  overflow-y: hidden;
+}
+.boardFeedbackSektion::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+.boardFeedbackSektion::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+.boardFeedbackSektion::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+}
+
+.boardProgressSektion::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+.boardProgressSektion::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+.boardProgressSektion::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+}
+.boardtoDoSektion::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+.boardtoDoSektion::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+.boardtoDoSektion::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+}
+.boardDoneSektion::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+.boardDoneSektion::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+.boardDoneSektion::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+}
+.sideMenuStyle {
+   width: 420px;
+}
+.inputFieldTitleBoard-sideMenu{
+  width: 400px!important;
+}
+.inputFieldTitleBoard{
+  width: 400px !important;
+}
+.assignedContentBoard{
+  width: 400px;
+}
+.inputfieldDateContainerBoard{
+  width: 400px !important;
+}
+#selectedSubrasks{
+  width: 400px !important;
+}
+.contentContainer-sideMenu{
+  display: unset;
+}
+.textArea{
+  width: 400px!important;
+}
+.dateMobile{
+  width: 400px!important;
+}
+.assignedContent-sideMenu{
+  width: 400px!important;
+}
+.assignedTitleContainer{
+  width: 400px!important;
+}
+.subtaskInput{
+  width: 400px!important;
+}
+.buttonContainerEdit {
+  margin-right: 24px;
+}
+
+.mobileSide{
+  width: 400px!important;
+  height: 148px!important;
+}
+.subtaskContainerMobile{
+  height: 384px;
+  overflow: scroll;
+  width: 400px;
+}
+.addTask-sideMenu{
+  width: 491px;
+}
+.widthOfAddTaskBoardBox{
+  width: 398px;
+}
+.addContactstoassign{
+  width: 398px !important;
+}
+}
+
+@media (max-width: 1700px) {
+  .boardTopSektion{
+    padding-left: 16px!important;
+  }
+  .scrollContainer{
+    padding-left: 16px!important;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 1450px) {
+  .boardBotSektion{
+    padding: 0px 0px 0px 0px;
+    width: auto;
+  }
+  .boardCategorysSektion{
+    padding: 0px 0px 0px 0px;
+  }
+}
+.editMobileDate{
+  width: 350px;
+
+}
+
+
+
+@media (max-width: 1000px) {
+  .mobileInput
+  {
+  width: 330px!important;
+}
+  .mobile{
+    width: 364px!important;
+  }
+  .mobileSide{
+    width: 330px!important;
+    height: 148px!important;
+  }
+  .subtaskContainerMobile{
+    height: 384px;
+    overflow: scroll;
+    width: 330px;
+  
+  }
+  .mobileButtons {
+    margin-right: 138px!important;
+   }
+
+  .mobileButtonContainer{
+    width: 330px!important;
+  }
+  /* .mobileButtons{
+    position: absolute!important;
+  } */
+  /* .editbuttonContainer{
+    width: 330px!important;
+    display: flex;
+    justify-content: space-between;
+  } */
+  .scrollContainer {
+    width: unset;
+  }
+  .editbuttonContainer{
+    width: 400px!important;
+  }
+  .textAreaBoard{
+    width: 330px!important;
+  } 
+  .boardFeedbackSektion {
+    width: auto;
+    overflow-y: hidden;
+  }
+  .boardProgressSektion {
+    width: auto;
+    overflow-y: hidden;
+  }
+  .boardtoDoSektion {
+    width: auto;
+    overflow-y: hidden;
+    gap: 0;
+  }.boardDoneSektion {
+    width: auto;
+    overflow-y: hidden;
+  }
+  /* .assignedContentBoard{
+    width: 300px !important;
+  } */
+  .inputFieldTitleBoardX{
+    width: 330px !important;
+  } 
+  .dateMobile{
+    width: 330px!important;
+  }
+  .assignedContent-sideMenu{
+    width: 330px!important;
+  }
+  .addContactstoassignBoard{
+    width: 300px !important;
+    margin-left: 16px;
+  }
+  /* .subtaskInput{
+    width: 330px !important;
+  }  */
+  .subtaskList{
+    width: 312px;
+  }
+  .widthOfAddTaskBoardBox{
+    width: 330px;
+  } 
+  .addTask-sideMenu {
+    width: 491px ;
+  }
+  .addTask::-webkit-scrollbar {
+    width: 12px;
+    background-color: #f5f5f5;
+  }
+  #selectedSubrasks{
+    height: 120px;
+    overflow: scroll;
+    width: 440px;
+  }
+  .mobileEdit{
+    height: 250px!important;
+    width: 440px;
+  }
+  #selectedSubrasks::-webkit-scrollbar {
+    -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    width: 8px;
+    height: 8px;
+  }
+  #selectedSubrasks::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #a8a8a8;
+    width: 8px;
+  }
+  
+  .addTask::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  
+  .addTask::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #a8a8a8;
+  }
+  .header-sideMenuImg {
+    left: 320px;
+  }
+  .sideMenuStyle{
+    width: 350px;
+  }
+}
+@media (max-width: 560px) {
+  .openCardsDetailsEdit{
+    width: 426px;
+  }
+  #addTastTitel2 {
+    width: 330px!important;
+  }
+  .editMobileDate {
+    width: 330px!important;
+  }
+  .textArea{
+    width: 330px!important;
+  }
+  /* .inputFieldTitleBoard{
+    width: 330px !important;
+  } */
+  .assignedContentBoard{
+    width: 330px;
+  }
+  .inputfieldDateContainerBoard{
+    width: 330px !important;
+  }
+  #selectedSubrasks{
+    width: 330px !important;
+  }
+  .contentContainer-sideMenu{
+    display: unset;
+  }
+  .dateMobile{
+    width: 330px!important;
+  }
+  .assignedTitleContainer{
+    width: 330px!important;
+  }
+  .subtaskInput{
+    width: 330px!important;
+  }
+  .openCardsDetailsEdit{
+    width: 383px;
+  }
+  .prioButtonRedEdit {
+    width: 96px;
+  }
+  .prioButtonYellowEdit {
+    width: 112px;
+  }
+  .prioButtonGreenEdit {
+    width: 88px;
+  }
+  .buttonContainerEdit{
+    width: 290px;
+  }
+  .addContactstoassignBoard{
+    width: 300px;
+  }
+  .selectContainerX{
+    width: 330px !important;
+  }
+  .selectContainerBoard {
+    width: 330px !important;
+  }
+  .prioButtonRedEdit {
+    width: 96px !important;
+  }
+  .prioButtonYellowEdit {
+    width: 112px !important;
+  }
+  .prioButtonGreenEdit {
+    width: 88px !important;
+  }
+  .editbuttonContainer{
+    width: 318px !important;
+  } 
+  .buttonContainer{
+    gap: 23px !important;
+  }
+  .subtaskList{
+    width: 314px;
+  }
+  .mobileButtonContainer{
+    gap: 34px !important;
+  }
+}
+  

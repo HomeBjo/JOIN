@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Board</title>
+      <link rel="shortcut icon" href="../assets/img/join_logo.svg" type="image/x-icon">
+      <link rel="stylesheet" href="../css/board.css" />
+      <link rel="stylesheet" href="../css/desktop_template_header.css" />
+      <link rel="stylesheet" href="../css/desktop_template_footer.css" />
+      <link rel="stylesheet" href="../css/fonts.css" />
+      <link rel="stylesheet" href="../css/mobile_template.css" />
+      <script src="../js/include.js"></script>
+      <script defer src="../js/add_task.js"></script>
+      <script src="../js/board.js" defer></script>
+      <script src="../js/boardHtmlTemplate.js" defer></script>
+      <script src="../js/add_taskHtmlTemplates.js" defer></script>
+      <script src="../js/board2.js" defer></script>
+      <script src="../js/storage.js"></script>
+      <script src="../js/profile.js"></script>
+      <script src="../js/register.js"></script>
+      <script src="../js/summary.js"></script>
+      <link rel="stylesheet" href="../css/contacts.css" />
+      <link rel="stylesheet" href="../css/add_task.css">
+      
+      <!--bootstrap-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+   </head>
+   <body onload="init()">
+      <div
+         w3-include-html="../assets/templates/desktop_template_header.html"
+         ></div>
+      <div w3-include-html="../assets/templates/mobile_template.html"></div>
+      <div class="contentContainer">
+         <div class="mainContent">
+            <div class="boardTopSektion">
+               <div class="inputSektion">
+                  <div class="inputfieldIconsContainer">
+                     <input id="searchInput"
+                        class="boardInputfield"
+                        type="text"
+                        placeholder="Find Task"
+                        />
+                     <img src="../assets/img/vector3.svg" alt="" />
+                     <img onclick="searchTask()" src="../assets/img/search.svg" alt="" />
+                  </div>
+                  <button onclick="showAddTaskMenu()" class="boardButton"> <span> Add task </span>
+                  <img src="../assets/img/plus.svg" /></button>
+               </div>
+               <div class="boardCategorysSektion">
+                  <div class="boardCategorysSektionContainer">
+                     <p>To do</p>
+                     <img onclick ="showAddTaskMenu()"
+                        class="boardCategorysSektionIcons"
+                        src="../assets/img/plus_button.svg"
+                        alt=""
+                        />
+                  </div>
+                  <div class="boardCategorysSektionContainer">
+                     <p>In progress</p>
+                     <img onclick ="showAddTaskMenu()"
+                        class="boardCategorysSektionIcons"
+                        src="../assets/img/plus_button.svg"
+                        alt=""
+                        />
+                  </div>
+                  <div class="boardCategorysSektionContainer">
+                     <p>Await feedback</p>
+                     <img onclick ="showAddTaskMenu()"
+                        class="boardCategorysSektionIcons"
+                        src="../assets/img/plus_button.svg"
+                        alt=""
+                        />
+                  </div>
+                  <div class="boardCategorysSektionContainer">
+                     <p>Done</p>
+                  </div>
+               </div>
+            </div>
+            <div class="scrollContainer">
+               <div class="boardBotSektion">
+                  <div id="mobileAdd" class="boardCategorysSektionContainerMobile d-none">
+                     <span class="mobileSpan">To do</span>
+                     <img onclick ="showAddTaskMenu()"
+                        class="boardCategorysSektionIcons"
+                        src="../assets/img/plus_button.svg"
+                        alt=""
+                        />
+                  </div>
+                  <div 
+                     class="boardtoDoSektion"
+                     id="toDo"
+                     ondragleave="removeHighlight('toDo')"
+                     ondragover="allowDrop(event); highlight('toDo')"
+                     ondrop="moveTo('toDo'); removeHighlight('toDo')">
+                  </div>
+               </div>
+               <div class="boardBotSektion">
+                  <div id="mobileAdd" class="boardCategorysSektionContainerMobile d-none">
+                     <span class="mobileSpan">In progress</span>
+                     <img onclick ="showAddTaskMenu()"
+                        class="boardCategorysSektionIcons"
+                        src="../assets/img/plus_button.svg"
+                        alt=""
+                        />
+                  </div>
+                  <div
+                     class="boardProgressSektion"
+                     id="progress"
+                     ondragleave="removeHighlight('progress')"
+                     ondragover="allowDrop(event); highlight('progress')"
+                     ondrop="moveTo('progress'); removeHighlight('progress')"
+                     ></div>
+                  </div>
+                  <div class="boardBotSektion">
+                     <div id="mobileAdd" class="boardCategorysSektionContainerMobile d-none">
+                        <span class="mobileSpan">Await feedback</span>
+                        <img onclick ="showAddTaskMenu()"
+                           class="boardCategorysSektionIcons"
+                           src="../assets/img/plus_button.svg"
+                           alt=""
+                           />
+                     </div>
+                  <div
+                     class="boardFeedbackSektion"
+                     id="feedBack"
+                     ondragleave="removeHighlight('feedBack')"
+                     ondragover="allowDrop(event); highlight('feedBack')"
+                     ondrop="moveTo('feedBack'); removeHighlight('feedBack')"
+                     ></div></div>
+                     <div class="boardBotSektion">
+                        <div id="mobileAdd" class="boardCategorysSektionContainerMobile d-none">
+                           <span class="mobileSpan">Done</span>
+                           <img onclick ="showAddTaskMenu()"
+                              class="boardCategorysSektionIcons"
+                              src="../assets/img/plus_button.svg"
+                              alt=""
+                              />
+                        </div>
+                  <div
+                     class="boardDoneSektion"
+                     id="done"
+                     ondragleave="removeHighlight('done')"
+                     ondragover="allowDrop(event); highlight('done')"
+                     ondrop="moveTo('done'); removeHighlight('done')"
+                     ></div></div>
+               
+            </div>
+         </div>
+         <div
+            w3-include-html="../assets/templates/desktop_template_footer.html"
+            ></div>
+         <!-- open Cards -->
+         <div id="FirstCardRenderContainer2" class="d-none"></div>
+      <!--add Task Sidemenu -->
+      <div id="FirstCardRenderContainer" class="d-none"></div>
+      
+      <!--edit task menu -->
+      <div id="secondCardRenderContainer" class="d-none"></div>
+      </div>
+      </div>
+      <div id="animation" class="d-none">
+         <span>Task added to board <img src="../assets/img/vectorInWhite.svg" style="margin-left: 8px;"></span>
+      </div>
+   </body>
+</html>

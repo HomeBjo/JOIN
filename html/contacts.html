@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts</title>
+    <link rel="shortcut icon" href="../assets/img/join_logo.svg" type="image/x-icon">
+    <script src="../js/include.js" defer></script>
+    <script src="../js/storage.js" defer></script>
+    <script src="../js/register.js" defer></script>
+    <script src="../js/profile.js" defer></script>
+    <script src="../js/login.js" defer></script>
+    <script src="../js/contacts.js" defer></script>
+    <script src="../js/contactsHtmlTemplate.js" defer></script>
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="stylesheet" href="../css/desktop_template_header.css" />
+    <link rel="stylesheet" href="../css/desktop_template_footer.css" />
+    <link rel="stylesheet" href="../css/contacts.css" />
+    <link rel="stylesheet" href="../css/mobile_template.css" />
+  </head>
+
+  <body onload="init()" onclick="closeInfoContainer(event); event.stopPropagation();">
+    <div
+      w3-include-html="../assets/templates/desktop_template_header.html"
+    ></div>
+    <div w3-include-html="../assets/templates/mobile_template.html"></div>
+    <div class="dislayRowBody">
+      <div class="allContacts" id="generateContact">
+        <div class="boxOfAllContacts">
+          <div class="positionBtnAddContact">
+            <button class="btnAddContact" onclick="addNewContactBtn()">
+              <p class="lettersInBtn">Add new contact</p>
+              <img src="../assets/img/person_add.svg" />
+            </button>
+          </div>
+          <div id="generateLatter"></div>
+          <div class="positionNewContact" id="contactInSmall"></div>
+        </div>
+          <div class="boxOfDetailsContacts d-none" id="boxOfDetailsContacts"></div>
+      </div>
+      <!--add contact from here-->
+        <div  id="addBox">
+          <div id="boxOfAddingNewContact" class="boxOfAddingNewContact"></div>
+        </div>
+      <!--edit contact from here-->
+      <div id="addBox">
+        <div class="boxOfEdingContact" id="boxOfEdingContact"></div>
+      </div>
+      <div id="responsiveEdit" class="positionResponsiveEdit slideIn d-none"></div>
+      <div id="successMessage" class="d-none"><span>Contact succesfully created</span></div>
+      <div w3-include-html="../assets/templates/desktop_template_footer.html"></div>
+    </div>
+  </body>
+</html>

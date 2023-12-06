@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+
+    <link rel="shortcut icon" href="../assets/img/join_logo.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="../js/templates.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="../js/login.js" ></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body id="body" onload="init()">
+
+    <div class="login-content">  
+        
+        <div class="loader" id="loader">
+            <div class="logo" id="logo"></div>
+        </div>
+
+        <div class="loader2">
+            <div class="logo2" id="logo2"></div>
+        </div>
+
+        <div id="login-header" class="login-header d-none-js" >
+            <span>Not a Join user?</span>
+            <button onclick="renderSignUpContent()" type="button" class="btn btn-primary mg-l signup-button">Sign up</button>
+        </div>
+        
+        <div class="card login-card-div d-none-js" id="login-card-div">
+            <div class="card-body">
+                <div class="login-card-title" id="login-card-title">
+                    <img onclick="renderLogInContent()" id="arrow-left" class="d-none" src="../assets/img/arrow-left-line.svg" alt="">
+                    <h1 id="title">Log in</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="154" height="3" viewBox="0 0 154 3" fill="none">
+                        <path d="M152 1.5L2 1.5" stroke="#4589FF" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <div id="form-div">
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+        <div id="login-header2" class="login-header2 d-none-js" >
+            <span>Not a Join user?</span>
+            <button onclick="renderSignUpContent()" type="button" class="btn btn-primary mg-l signup-button2">Sign up</button>
+        </div>
+    </div>
+    <div id="overlay" class="overlay d-none"></div>
+    <div id="successMessage" class="d-none">
+        <span>You Signed Up successfully</span>
+    </div>
+
+    <div id="login-footer" class="login-footer d-none-js">
+        <a id="privacy" href="../html/privacy2.html" target="_blank">Privacy Policy</a>
+        <a id="legal" href="../html/legal_notice2.html" target="_blank">Legal Notice</a>
+    </div>
+</body>
+</html>

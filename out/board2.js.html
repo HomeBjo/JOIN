@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: board2.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: board2.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let selectedUsers = [];
+async function editTask(getId) {
+
+  let info = await getItem('newTask');
+  let getTaskInfo = JSON.parse(info);
+  let currentID = Number(getId);
+
+  let taskToEditIndex = getTaskInfo.findIndex(task => task.id === currentID);
+
+  if (taskToEditIndex === -1) {
+    console.error('Task not found for editing');
+    return;
+  }
+
+  let getTitel = document.getElementById('addTastTitel2').value;
+  let getDiscriptionArea = document.getElementById('addTastTextArea2').value;
+  let getCategory = loadCategory2();
+  let getPrio = selectedPriority;
+  let getSubtask = currentSubtasksBoard;
+
+  getValueOfTaskInfo(getTaskInfo, taskToEditIndex, getTitel, getDiscriptionArea, getCategory, getPrio, getSubtask, selectedUsers);
+  
+  await setItem('newTask', JSON.stringify(getTaskInfo));
+  allTask[0][taskToEditIndex] = getTaskInfo[taskToEditIndex];
+  updateHTML(getTaskInfo);
+}
+
+
+function getValueOfTaskInfo(getTaskInfo, taskToEditIndex, getTitel, getDiscriptionArea, getCategory, getPrio, getSubtask, selectedUsers){
+  getTaskInfo[taskToEditIndex].title = getTitel;
+  getTaskInfo[taskToEditIndex].description = getDiscriptionArea;
+  getTaskInfo[taskToEditIndex].workCategory = getCategory;
+  getTaskInfo[taskToEditIndex].priority = getPrio;
+  getTaskInfo[taskToEditIndex].subtasks = getSubtask;
+  getTaskInfo[taskToEditIndex].contacts = selectedUsers;
+}
+
+
+function createNewTask2(getId) {
+  editTask(getId);
+  let selectedContacts = selectedUsers;
+  let usersHTML = "";
+  let contactsHTML = "";
+  for (let i = 0; i &lt; contactData.length; i++) {
+    usersHTML += generateTemplateHtmlCreateNewTask2(contactData, i, selectedContacts);
+  }
+
+  for (let i = 0; i &lt; selectedContacts.length; i++) {
+    contactsHTML += generateTemplateHtmlCreateNewTask22(selectedContacts, i);
+  }
+  document.getElementById("usersDateContent").innerHTML = usersHTML;
+  document.querySelector(".cardAddUsersIcons").innerHTML = contactsHTML;
+  closeEditContainer2();
+}
+
+/**
+ * 
+ * @param {string} loggedInUser -test test  
+ */
+function showAssignetContacts2(loggedInUser) {
+  let box = document.getElementById("selectContainer2");
+
+  for (let i = 0; i &lt; loggedInUser.contacts.length; i++) {
+    let userName = loggedInUser.contacts[i].name;
+    let getInitial = loggedInUser.contacts[i].initial;
+    let getColor = loggedInUser.contacts[i].color;
+
+    let isChecked = selectedUsers.some(user => user.name === userName);
+
+    box.innerHTML += showAssignetContacts2Html(getColor, getInitial, userName, i, isChecked);
+  }
+}
+
+
+function handleCheckboxClick2(i, userName, getInitial, getColor) {
+  let checkbox = document.getElementById(`inputId2${i}`);
+  let userId = `user_${i}`;
+
+  if (checkbox.checked) {
+    if (!selectedUsers.some(user => user.name === userName)) {
+      let selectedUser = getSelectedUser(userName, loggedInUser.contacts[i].email, loggedInUser.contacts[i].phone, getInitial, getColor);
+      selectedUsers.push(selectedUser);
+      console.log(`selectedUsers hat ${selectedUsers.length}`);
+      renderAddedContactBox(selectedUsers);
+    }
+  } else {
+    let indexToRemove = selectedUsers.findIndex(user => user.name === userName);
+    if (indexToRemove !== -1) {
+      selectedUsers.splice(indexToRemove, 1);
+    }
+    renderAddedContactBox(selectedUsers);
+  }
+}
+
+
+function getSelectedUser(userName, userEmail, userPhone, getInitial, getColor){
+  let selectedUser = {
+    name: userName,
+    email: userEmail,
+    phone: userPhone,
+    initial: getInitial,
+    color: getColor
+  };
+  return selectedUser;
+};
+
+
+function renderAddedContactBox(selectedUsers) {
+  let currentUsers = document.getElementById("addContactstoassign2");
+  currentUsers.innerHTML = '';
+  for (let i = 0; i &lt; selectedUsers.length; i++) {
+    const initial = selectedUsers[i].initial;
+    const color = selectedUsers[i].color;
+    currentUsers.innerHTML += /*html*/ `
+      &lt;div class="userBoxContainer displayFlex">
+        &lt;div class="imgPerson displayFlex" style="background-color: ${color};">${initial}&lt;/div>
+      &lt;/div>`;
+  }
+}
+
+
+function loadCategory2() {
+  let getValue = document.getElementById('categorySelect2').textContent.trim();
+  return getValue;
+}
+
+
+async function deleteCard(taskId) {
+  let idToDelete = Number(taskId);
+  let info = await getItem('newTask');
+  let getTaskInfo = JSON.parse(info);
+  let taskToDeleteIndex = getTaskInfo.findIndex(task => task.id === idToDelete);
+  if (taskToDeleteIndex === -1) {
+    console.error('Task not found for deletion');
+    return;
+  }
+  getTaskInfo.splice(taskToDeleteIndex, 1);
+  await setItem('newTask', JSON.stringify(getTaskInfo));
+  updateHTML(getTaskInfo);
+}
+
+function getThePriority2(priority, lowId, mediumId, highId) {
+  const low2 = document.getElementById(`${lowId}2`);
+  const medium2 = document.getElementById(`${mediumId}2`);
+  const urgent2 = document.getElementById(`${highId}2`);
+  const lowIcon2 = document.getElementById("lowPriority2");
+  const mediumIcon2 = document.getElementById("mediumPriority2");
+  const highIcon2 = document.getElementById("urgentPriority2");
+
+  if (`${lowId}2` &amp;&amp; `${mediumId}2` &amp;&amp; `${highId}2` &amp;&amp; lowIcon2 &amp;&amp; mediumIcon2 &amp;&amp; highIcon2) {
+    removeClassesOfGetThePriority2(low2, medium2, urgent2, lowIcon2, mediumIcon2, highIcon2);
+    if (selectedPriority === priority) {
+      selectedPriority = null;
+    } else {
+      selectedPriority = priority;
+      addClassesOfGetThePriority2(selectedPriority, low2, medium2, urgent2, lowIcon2, mediumIcon2, highIcon2);
+    }
+  } else {
+    console.error("Ein oder mehrere Elemente wurden nicht gefunden.");
+  }
+}
+
+
+function removeClassesOfGetThePriority2(low2, medium2, urgent2, lowIcon2, mediumIcon2, highIcon2){
+  low2.classList.remove("active3");
+  medium2.classList.remove("active2");
+  urgent2.classList.remove("active");
+  lowIcon2.classList.remove("colorIcon3");
+  mediumIcon2.classList.remove("colorIcon2");
+  highIcon2.classList.remove("colorIcon");
+}
+
+
+function addClassesOfGetThePriority2(selectedPriority, low2, medium2, urgent2, lowIcon2, mediumIcon2, highIcon2){
+  if (selectedPriority === 'low') {
+    low2.classList.add("active3");
+    lowIcon2.classList.add("colorIcon3");
+  } else if (selectedPriority === 'medium') {
+    medium2.classList.add("active2");
+    mediumIcon2.classList.add("colorIcon2");
+  } else if (selectedPriority === 'high') {
+    urgent2.classList.add("active");
+    highIcon2.classList.add("colorIcon");
+  }
+}
+function clearSideAddTask() {
+  let titleInput = document.getElementById('addTastTitel');
+  let descriptionInput = document.getElementById('addTastTextArea');
+  let dateInput = document.getElementById('dueDateValue');
+  titleInput.value=``;
+  descriptionInput.value=``;
+  dateInput.value=``;
+} 
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addContactAnimation">addContactAnimation</a></li><li><a href="global.html#addContactToUserContacts">addContactToUserContacts</a></li><li><a href="global.html#calcAllTogether">calcAllTogether</a></li><li><a href="global.html#createNewContact">createNewContact</a></li><li><a href="global.html#deleteContact">deleteContact</a></li><li><a href="global.html#editContact">editContact</a></li><li><a href="global.html#generateContactInSmall">generateContactInSmall</a></li><li><a href="global.html#generateRandomColor">generateRandomColor</a></li><li><a href="global.html#generateUserName">generateUserName</a></li><li><a href="global.html#getAmountOfTasks">getAmountOfTasks</a></li><li><a href="global.html#getContact4Delete">getContact4Delete</a></li><li><a href="global.html#getCurrentValues">getCurrentValues</a></li><li><a href="global.html#getInitialContacts">getInitialContacts</a></li><li><a href="global.html#getPriority">getPriority</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#loadMoreVert">loadMoreVert</a></li><li><a href="global.html#pushContactInfo">pushContactInfo</a></li><li><a href="global.html#renderNumbers">renderNumbers</a></li><li><a href="global.html#renderNumverMobile">renderNumverMobile</a></li><li><a href="global.html#resetForm">resetForm</a></li><li><a href="global.html#saveEditContactWindow">saveEditContactWindow</a></li><li><a href="global.html#saveVariable">saveVariable</a></li><li><a href="global.html#setValueInIput">setValueInIput</a></li><li><a href="global.html#showAssignetContacts2">showAssignetContacts2</a></li><li><a href="global.html#showDetailsOfContact">showDetailsOfContact</a></li><li><a href="global.html#sortByFirstLetter">sortByFirstLetter</a></li><li><a href="global.html#startAnimation">startAnimation</a></li><li><a href="global.html#upcomingDate">upcomingDate</a></li><li><a href="global.html#updateGreeting">updateGreeting</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Dec 05 2023 13:24:01 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

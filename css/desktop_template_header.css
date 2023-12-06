@@ -1,0 +1,133 @@
+.headerBlue{
+    height: 96px;
+    width: 100vw;
+    background-color: #4589FF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon{
+    margin: 16px 16px 16px 39px;
+}
+
+.helpImg{
+    cursor: pointer;
+    margin-right: 25px;
+}
+
+.helpImg:hover {
+    transform: scale(1.2);
+}
+
+#header-title {
+    cursor: pointer;
+    margin-right: 25px;
+}
+
+.profile-div{
+    width: 56px;
+    height: 56px;
+    border-radius: 50px;
+    background-color: white;
+    margin: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-div div {
+    width: 46px;
+    height: 46px;
+    border: 2px solid rgba(69, 137, 255, 1);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-div span {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(69, 137, 255, 1);
+}
+
+.positionRightHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.positionRightHeader p {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.profile-settings {
+    position: absolute;
+    right: 4px;
+    top: 96px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    text-align: end;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.20);
+    background-color: white;
+}
+
+.profile-settings a {
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(66, 82, 110, 1);
+    text-decoration: none;
+    padding: 4px 20px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.profile-settings a:hover {
+    background-color: rgba(200, 222, 255, 0.315);
+}
+
+.profile-settings button {
+    border: none;
+    background-color: white;
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(66, 82, 110, 1);
+    text-decoration: none;
+    padding: 4px 20px;
+    width: auto;
+    border-radius: 8px;
+    text-align: end;
+}
+
+.profile-settings button:hover {
+    background-color: rgba(200, 222, 255, 0.315);
+    cursor: pointer;
+}
+
+.initials-div:hover {
+    background-color: rgba(200, 222, 255, 0.404) !important;
+}
+
+.d-none {
+    display: none;
+}
+
+.bg-colorchange {
+    background-color: rgba(200, 222, 255, 0.404) !important;
+}
+
+@media(max-width: 1000px) {
+    .headerBlue {
+        display: none;
+    }
+}

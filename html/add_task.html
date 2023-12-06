@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Add Task</title>
+      <link rel="shortcut icon" href="../assets/img/join_logo.svg" type="image/x-icon">
+      <link rel="stylesheet" href="../css/desktop_template_header.css">
+      <link rel="stylesheet" href="../css/desktop_template_footer.css">
+      <link rel="stylesheet" href="../css/fonts.css">
+      <link rel="stylesheet" href="../css/add_task.css">
+      <link rel="stylesheet" href="../css/mobile_template.css" />
+      <link rel="stylesheet" href="../css/contacts.css">
+      <script src="../js/board.js"></script>
+      <script src="../js/add_task.js"></script>
+      <script src="../js/add_taskHtmlTemplates.js" defer></script>
+      <script src="../js/boardHtmlTemplate.js" defer></script>
+      <script src="../js/include.js" defer></script>
+      <script src="../js/storage.js"></script>
+      <script src="../js/profile.js"></script>
+      <script src="../js/register.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+   </head>
+   <body onclick="closeSelectContainer(event); closeCategoryContainer(event)"  onload="initAddTask();">
+      <div w3-include-html="../assets/templates/desktop_template_header.html"></div>
+      <div w3-include-html="../assets/templates/mobile_template.html"></div>
+      <div class="contentContainer" >
+         
+         <div class="addTask">
+            <div class="containAddTask">
+               <div class="topSektion">
+                  <div class="titleContainer"><input id="addTastTitel" class="inputFieldTitle" type="" placeholder="Enter a title"></div>
+                  <div class="textfield-fail" id="tile-fail-message"></div>
+                  <div class="description">
+                     <div class="descriptionContent">
+                        <p class="descriptionText">Description
+                        <p class="descriptionText small">(optional)</p>
+                        </p>
+                     </div>
+                     <textarea class="textArea" placeholder="Enter a Description" name="" id="addTastTextArea" cols="30"
+                        rows="10"></textarea>
+                  </div>
+                  <div class="textfield-fail" id="description-fail-message"></div>
+                  <div class="dateContent">
+                     <p class="dateTitle">Due date</p>
+                     <div class="inputfieldDateContainer modal-body">
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                           <div class="modal-dialog curser">
+                             <div class="modal-content curser">
+                               <div class="modal-body curser">
+                                 <div>
+                                    <input required id="dueDateValue" class="inputfieldDate" type="date" placeholder="dd/mm/yyyy">
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                     </div>
+                     <div class="textfield-fail" id="date-fail-message"></div>
+                  </div>
+               </div>
+               <div class="assignedContent" >
+                  <div class="assignedTitleContainer">
+                     <p class="assignedTitle">Priority
+                     <p class="assignedTitle small" >(optional)</p>
+                     </p>
+                  </div>
+                  <div class="buttonContainer"> 
+                     <button id="low" onclick="getThePriority('low', 'low', 'medium', 'high')" class="prioButtonGreen">Low<img id="lowPriority" class="buttonImg" src="../assets/img/prio_baja.svg" alt=""></button>
+                     <button id="medium" onclick="getThePriority('medium', 'low', 'medium', 'high')" class="prioButtonYellow">Medium<img id="mediumPriority" class="buttonImg" src="../assets/img/prio_media.svg" alt=""></button>
+                     <button id="high" onclick="getThePriority('high', 'low', 'medium', 'high')" class="prioButtonRed">Urgent<img id="urgentPriority" class="buttonImg" src="../assets/img/prio_alta.svg" alt=""></button>
+                   </div>
+                   
+ 
+               </div>
+               <div class="assignedContent" >
+                  <div class="assignedTitleContainer">
+                     <p class="assignedTitle">Assignet to
+                     <p class="assignedTitle small" >(optional)</p>
+                     </p>
+                  </div>
+                  <div id="assignedSelect" onclick="addContacts()"class="assignedSelect">
+                     <div >Select contacts to assign</div>
+                  </div>
+               </div>
+               <div id="addContactstoassign" class="addContactstoassign"></div>
+               <div id="selectContainer" class="selectContainer d-none">
+               </div>
+               <div class="assignedContent" >
+                  <div class="assignedTitleContainer">
+                     <p class="assignedTitle">Category</p>
+                  </div>
+                  <div id="categorySelect" onclick="showCategoryContacts()" class="assignedSelect">
+                     <div id="SelectTaskCatergory">Select task catergory</div>
+                  </div>
+               </div>
+               <div id="categoryContainer" class="categoryContainer d-none">
+                  <div class="userBoxContainer">
+                     <span class="userPosition technicalTask" id="technicalTaskID" onclick="loadTechnicalTask()">Technical Task</span>
+                  </div>
+                  <div class="userBoxContainer">
+                     <span class="userPosition" id="userStoryID" onclick="loadUserStory()">User Story</span>
+                  </div>
+               </div>
+               <div class="SubtaskContent" >
+                  <div class="assignedTitleContainer">
+                     <p class="assignedTitle">Subtask
+                     <p class="assignedTitle small" >(optional)</p>
+                     </p>
+                  </div>
+                  <input id="subtaskInput" onclick="addSubTask()" placeholder="Add new subtask" class="subtaskInput">
+                  <div id="subtaskContainer"></div>
+                  <div class="positionOfButtons">
+                     <!-- <button onclick="clearTasksArray()">clear BoardTaskArray</button> -->
+                     <button onclick="clearInputFields()" class="ClearBtn">Clear <img src="../assets/img/vector.svg" class="clearBtnImg"></button>
+                     <button onclick="createNewTask()" id="buttonCreateTask" class="createTaskBtn">Create Task <img src="../assets/img/check.svg"></button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="animation" class="d-none">
+            <span>Task added to board <img src="../assets/img/vectorInWhite.svg" style="margin-left: 8px;"></span>
+         </div>
+         <div w3-include-html="../assets/templates/desktop_template_footer.html"></div>
+      </div>
+   </body>
+</html>

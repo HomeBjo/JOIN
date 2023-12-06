@@ -1,0 +1,794 @@
+body {
+  margin: 0;
+  overflow-y: hidden;
+  font-family: "Open Sans", sans-serif;
+}
+.active {
+  background-color: rgb(255, 66, 6) !important;
+  color: white;
+}
+.active2 {
+  background-color: rgb(255, 168, 0) !important;
+  color: white;
+}
+.active3 {
+  background-color: rgb(154, 233, 93) !important;
+  color: rgb(255, 255, 255);
+}
+
+.colorIcon{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(534%) hue-rotate(78deg) brightness(112%) contrast(101%);
+}
+
+.colorIcon2{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(534%) hue-rotate(78deg) brightness(112%) contrast(101%);
+}
+
+.colorIcon3{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(534%) hue-rotate(78deg) brightness(112%) contrast(101%);
+}
+.containAddTask {
+  width: 440px;
+}
+.d-none {
+  display: none !important;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.addTask {
+  width: 452px;
+  padding: 24px;
+  gap: 24px;
+  display: flex;
+  overflow-y: scroll;
+  height: calc(100vh - 144px);
+  margin-top: 0 !important;
+}
+
+.addTask::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+.addTask::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+.addTask::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+}
+
+.topSektion {
+  gap: 12px;
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titletitleContainer {
+  display: flex;
+  gap: 4px;
+  width: 440px;
+  height: 84px;
+}
+
+.inputFieldTitle {
+  color: black(231, 10, 10);
+  width: 440px;
+  height: 64px;
+  border: 0px;
+  border-bottom: 1px solid rgba(209, 209, 209, 1);
+  padding: 0px 0px 0px 0px;
+  gap: 10px;
+  display: flex;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.inputFieldTitle::placeholder {
+  padding: 16px;
+}
+
+.description {
+  height: 154px;
+  width: 440px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.descriptionContent {
+  display: flex;
+  height: 23px;
+  gap: 5px;
+}
+
+.descriptionText {
+  font-size: 19px;
+  font-weight: 700;
+  color: rgba(66, 82, 110, 1);
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.textArea {
+  border: 1px solid;
+  border-color: rgba(209, 209, 209, 1);
+  border-radius: 0px 10px 10px 10px;
+  padding: 18px;
+  font-size: 19px;
+  color: black;
+  font-family: "Open Sans" !important;
+}
+
+.small {
+  font-weight: 400 !important;
+}
+
+.inputFieldTitle:focus {
+  outline: none;
+}
+
+.textArea:focus {
+  outline: none;
+}
+
+.dateContent {
+  display: flex;
+  flex-direction: column;
+  height: 99px;
+  padding-top: 8px;
+}
+
+.dateTitle {
+  font-size: 19px;
+  font-weight: 700;
+  color: rgba(66, 82, 110, 1);
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.inputfieldDateContainer {
+  height: 48px;
+  border-bottom: 1px solid;
+  border-color: rgba(209, 209, 209, 1);
+  margin-inline-start: 0px;
+  gap: 4px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px 0px 16px;
+  align-items: center;
+  color: black;
+}
+
+.inputfieldDate {
+  border: 0;
+  font-size: 19px;
+  font-weight: 400;
+  width: 400px;
+  cursor: pointer;
+}
+
+.curser {
+  cursor: pointer;
+}
+
+.inputfieldDate:focus {
+  outline: none;
+}
+
+.dateImg {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.assignedContent {
+  display: flex;
+  flex-direction: column;
+  height: 79px;
+  padding-top: 24px !important;
+}
+
+.assignedTitleContainer {
+  display: flex;
+  height: 23px;
+  gap: 5px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.prioButtonRed {
+  gap: 10px;
+  display: flex;
+  width: 136px;
+  height: 51px;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  font-weight: 400;
+  cursor: pointer;
+  background: white;
+  border: 0px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.prioButtonRed:hover {
+  box-shadow: 0 3px rgb(255, 66, 6), 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.prioButtonYellow {
+  gap: 10px;
+  display: flex;
+  width: 136px;
+  height: 51px;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  font-weight: 400;
+  cursor: pointer;
+  background: white;
+  border: 0px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.prioButtonYellow:hover {
+  box-shadow: 0 3px rgb(255, 168, 0), 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.prioButtonGreen {
+  gap: 10px;
+  display: flex;
+  width: 136px;
+  height: 51px;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  font-weight: 400;
+  cursor: pointer;
+  background: white;
+  border: 0px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.prioButtonGreen:hover {
+  box-shadow: 0px 3px rgb(154, 233, 93), 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.buttonImg {
+  width: 20px;
+  height: 20px;
+}
+
+.assignedTitle {
+  font-size: 19px;
+  font-weight: 700;
+  color: rgba(66, 82, 110, 1);
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.assignedSelect {
+  display: flex;
+  padding-left: 16px;
+  border: 0;
+  margin-top: 16px;
+  font-size: 19px;
+  appearance: none;
+  background: url("../assets/img/arrow_drop_down.svg") 97% / 5% no-repeat #ffff;
+  border-bottom: 1px solid rgba(209, 209, 209, 1);
+  line-height: 39px;
+  cursor: pointer;
+}
+
+.assignedSelect:focus {
+  outline: none;
+}
+
+.assignedImg {
+  width: 26px;
+  height: 26px;
+  margin-top: 16px;
+}
+
+.SubtaskContent {
+  display: flex;
+  flex-direction: column;
+  height: 222px;
+  padding-top: 24px !important;
+}
+
+.subtaskInput {
+  display: flex;
+  padding-left: 16px;
+  border: 0;
+  margin-top: 16px;
+  font-size: 19px;
+  appearance: none;
+  background: url("../assets/img/subtask_icons.svg") 97% / 5% no-repeat #ffff;
+  border-bottom: 1px solid rgba(209, 209, 209, 1);
+  line-height: 39px;
+  cursor: pointer;
+}
+
+.subtaskInput:focus {
+  outline: none;
+}
+
+.textfield-fail {
+  color: red;
+  font-size: 12px;
+  padding-left: 12px;
+}
+
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  height: 152px !important;
+  min-height: 152px !important;
+  overflow: auto;
+  width: 440px;
+}
+.selectContainer::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 8px;
+  height: 8px;
+}
+.selectContainer::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+  width: 8px;
+}
+
+.selectOverContainer {
+  display: flex;
+}
+
+.userPosition {
+  width: 70%;
+  font-size: 19px;
+  color: black;
+  padding: 6px;
+  margin: 4px;
+  margin-left: 12px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+/* .userPosition:hover {
+  background-color: #d2e3ff;
+  border-radius: 10px;
+} */
+
+.userBoxContainer {
+  display: flex;
+}
+
+.categoryContainer {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+  width: auto;
+}
+
+.subtaskList {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 8px;
+}
+
+.positionOfButtons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 24px;
+}
+
+.ClearBtn {
+  width: 120px;
+  height: 61px;
+  border-radius: 10px;
+  border: 1px solid #647188;
+  color: #647188;
+  background-color: white;
+  font-size: 22px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.ClearBtn:hover {
+  border: 2px solid #4589ff;
+  color: #4589ff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.ClearBtn:hover .clearBtnImg{
+  filter: invert(47%) sepia(53%) saturate(6716%) hue-rotate(208deg) brightness(101%) contrast(101%);
+}
+
+.createTaskBtn {
+  width: 174px;
+  height: 61px;
+  border-radius: 10px;
+  border: 1px solid #4589ff;
+  background-color: #4589ff;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.createTaskBtn:hover {
+  background-color: #176cff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.subtaskEditImg {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.subtaskEditImg:hover {
+  transform: scale(1.1);
+}
+
+.subtaskDeleteImg {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-right: 12px;
+  margin-bottom: 4px;
+}
+
+.subtaskDeleteImg:hover {
+  transform: scale(1.1);
+}
+
+.displayFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: grey;
+}
+
+#subtaskContainer {
+  margin-bottom: 24px;
+}
+
+.imgPerson {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: white;
+  margin-right: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.addContactstoassign {
+  display: flex;
+  height: auto;
+  width: 442px;
+  overflow-y: hidden;
+}
+
+.addContactstoassign::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 8px;
+  height: 8px;
+}
+.addContactstoassign::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+  width: 8px;
+}
+
+.cardAddUsersIcons {
+  margin-left: 6px;
+}
+
+.cardUserSymbole {
+  margin-left: -6px;
+  border: 1px solid white;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#animation {
+  position: absolute;
+  top: 100vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(69, 137, 255, 1);
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  animation: slideUp 0.3s ease-in forwards;
+  font-size: 23px;
+  height: 60px;
+  width: 334px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 520;
+}
+
+.slideUpDown {
+  animation: slideUpDown 0.5s ease-out forwards !important;
+}
+
+@keyframes slideUp {
+    from {
+        top: 100%;
+    }
+    to {
+        top: 50%;
+    }
+}
+
+@keyframes slideUpDown {
+  0% {
+      top: 50%;
+  }
+  100% {
+      top: 100%;
+  }
+}
+
+/* .addContactstoassign  {
+  für container bilder übereinander
+  display: flex;
+  height: auto;
+  width: 82%;
+  overflow: scroll;
+}
+
+.subtaskList{
+  margin-top: 0;
+  margin-bottom: 16px;
+}*/
+@media (max-width: 1260px) {
+  .contentContainer{
+    display: flex;
+    justify-content: center;
+  }
+  .positionOfButtons {
+    display: inline-flex;
+    bottom: 144px;
+    margin: 24px;
+    position: unset;
+  }
+  .addTask{
+    width: 100vw;
+    height: calc(100vh - 172px) !important;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  .positionOfButtons{
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 1000px) {
+  .addTask{
+    height: calc(100vh - 172px) !important;
+  }
+  .contentContainer{
+    margin-top: 96px;
+  }
+  .containAddTask {
+    width: 440px;
+  }
+  .ClearBtn {
+    display: none;
+  }
+  .buttonContainer{
+    width: 440px;
+  }
+  .assignedContent{
+    width: 440px;
+  }
+  .assignedContent{
+    width: 440px;
+  }
+  .SubtaskContent{
+    width: 440px;
+  }
+  .positionOfButtons{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .addTask{
+    margin-top: 0;
+  }
+  .buttonContainer{
+    width: 350px;
+  }
+  .topSektion {
+    width: 340px;
+  }
+  .inputFieldTitle {
+    width: 350px;
+  }
+  .description {
+    width: 350px;
+  }
+  .inputfieldDate {
+    width: 327px;
+  }
+  .assignedContent {
+    width: 350px;
+  }
+  .prioButtonRed {
+    width: 107px;
+  }
+
+  .SubtaskContent {
+    width: 350px;
+  }
+
+  .positionOfButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    justify-content: center;
+    width: 290px;
+  }
+  .ClearBtn {
+    display: none;
+  }
+  .containAddTask {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .addContactstoassign {
+    width: 340px;
+  }
+  .textArea{
+    width: 310px;
+  }
+  .inputfieldDateContainer{
+    width: 310px;
+  }
+  .selectContainer{
+    width: 352px !important;
+    height: auto;
+  }
+  .technicalTask{
+    width: 70vw;
+  }
+  .inputfieldDateContainer{
+    width: 320px;
+  }
+}
+
+@media (max-width: 390px) {
+  .selectContainer{
+    width: 290px !important;
+    height: auto;
+  }
+  .contentContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  .textArea {
+    width: 242px;
+  }
+  .topSektion {
+    width: 280px;
+  }
+  .inputFieldTitle {
+    width: 280px;
+  }
+  .inputfieldDateContainer{
+    width: 262px;
+  }
+  .description {
+    width: 280px;
+  }
+  .inputfieldDate {
+    width: 260px;
+  }
+  .assignedContent {
+    width: 280px;
+  }
+  .prioButtonRed {
+    width: 96px;
+  }
+  .prioButtonYellow {
+    width: 112px;
+  }
+  .prioButtonGreen {
+    width: 88px;
+  }
+
+  .SubtaskContent {
+    width: 280px;
+  }
+  .positionOfButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+    width: 280px;
+  }
+  .addContactstoassign {
+    width: 280px;
+  }
+  .prioButtonGreen{
+    width: 72px;
+    height: 42px;
+    font-size: 14px;
+  }
+  .prioButtonYellow{
+    width: 114px;
+    height: 42px;
+    margin-left: -12px;
+    font-size: 14px;
+  }
+  .prioButtonRed{
+    width: 96px;
+    height: 42px;
+    margin-left: -12px;
+    font-size: 14px;
+  }
+  .buttonContainer{
+    width: 280px;
+  }
+  .createTaskBtn{
+    width: 136px;
+    height: 44px;
+    font-size: 16px;
+  }
+  .inputfieldDateContainer{
+    width: 248px;
+  }
+}
+
