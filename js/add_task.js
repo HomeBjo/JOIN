@@ -381,7 +381,7 @@ function deleteSubtask(subtaskId) {
   if (subtaskIndex !== -1) {
     currentSubtasks.splice(subtaskIndex, 1);
   }
-  const subtaskElement = document.getElementById(subtaskId);
+  const subtaskElement = document.getElementById(`currenT${subtaskId}`);
   if (subtaskElement) {
     subtaskElement.remove();
   }

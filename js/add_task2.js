@@ -48,3 +48,41 @@ function removeClassesOFgetThePriorityByClean(){
   document.getElementById("mediumPriority").classList.remove("colorIcon2");
   document.getElementById("urgentPriority").classList.remove("colorIcon");
 }
+
+
+function editSubtask(subtaskId){
+    let subtaskElement = document.getElementById(`${subtaskId}`);
+    let editWindowElement = document.getElementById(`subtaskEditWindow${subtaskId}`);
+    document.getElementById(`edit&deleteImgs${subtaskId}`).classList.add('d-none');
+    document.getElementById(`agree&denyImgs${subtaskId}`).classList.remove('d-none');
+    subtaskElement.classList.add('d-none');
+    editWindowElement.classList.remove('d-none');
+
+    let subtaskValue = subtaskElement.innerText;
+    editWindowElement.value = subtaskValue;
+    editWindowElement.focus();
+}
+
+
+function agreeEditSubtask(subtaskId){
+    let editWindowElement = document.getElementById(`subtaskEditWindow${subtaskId}`);
+    let updatedValue = editWindowElement.value;
+
+    let subtaskIndex = currentSubtasks.findIndex(subtask => subtask.id === subtaskId);
+
+    if (subtaskIndex !== -1) {
+        currentSubtasks[subtaskIndex].value = updatedValue;
+    }
+
+    renderSubtasks();
+}
+
+function renderSubtasks() {
+    let addTask = document.getElementById('subtaskContainer');
+    addTask.innerHTML = '';
+
+    currentSubtasks.forEach(subtask => {
+        addTask.innerHTML += addSubTaskHtml(subtask.id, subtask.value);
+    });
+}
+

@@ -17,8 +17,17 @@ function andleCheckboxClickHtml(userId, getInitial, getColor){
 
 
 function addSubTaskHtml(subtaskId, subtaskValue){
-    return`
-        <div class="subtaskList" id="${subtaskId}">${subtaskValue} 
+    return /*html*/`
+        <div class="spaceBetween" id="currenT${subtaskId}">
+          <span class="subtaskList" id="${subtaskId}">${subtaskValue}</span>
+          <input type="text" class="subtaskEditWindow d-none" id="subtaskEditWindow${subtaskId}"> 
+          <div class="positionOfImgsBySubtask" id="edit&deleteImgs${subtaskId}">
+            <img src="../assets/img/edit.svg" onclick="editSubtask('${subtaskId}')" class="subtaskEditImg">|
             <img src="../assets/img/delete.svg" onclick="deleteSubtask('${subtaskId}')" class="subtaskDeleteImg">
+          </div>
+          <div class="positionOfImgsBySubtask d-none" id="agree&denyImgs${subtaskId}">
+            <img src="../assets/img/check.svg" onclick="agreeEditSubtask('${subtaskId}')" class="agreeEditImg">|
+            <img src="../assets/img/vector.svg" onclick="renderSubtasks()" class="denyDeleteImg">
+          </div>
         </div>`;
 }

@@ -400,7 +400,31 @@ body {
 .subtaskList {
   display: flex;
   justify-content: space-between;
-  margin-left: 8px;
+  margin-left: 12px;
+}
+
+.agreeEditImg{
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(41%) sepia(88%) saturate(443%) hue-rotate(180deg) brightness(106%) contrast(108%);
+  transition: all 0.2s ease-in-out;
+  margin-right: 4px;    
+  margin-top: 4px;
+}
+
+.agreeEditImg:hover {
+  transform: scale(1.2);
+}
+
+.denyDeleteImg{
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(41%) sepia(88%) saturate(443%) hue-rotate(180deg) brightness(106%) contrast(108%);
+  transition: all 0.2s ease-in-out;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-right: 16px;
+}
+.denyDeleteImg:hover {
+  transform: scale(1.2);
 }
 
 .positionOfButtons {
@@ -464,7 +488,32 @@ body {
   margin-bottom: 4px;
 }
 
+.subtaskEditImg {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 4px;
+}
+
 .subtaskDeleteImg:hover {
+  transform: scale(1.1);
+}
+
+.subtaskEditWindow{
+  width: 400px;
+  border: none;
+  border-bottom: 1px solid;
+  border-color: rgba(209, 209, 209, 1);
+  color: black;
+  outline: none;
+  font-size: 16px;
+}
+
+.spaceBetween{
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtaskEditImg:hover {
   transform: scale(1.1);
 }
 
@@ -522,6 +571,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.positionOfImgsBySubtask{
+  display: flex;
 }
 
 #animation {
