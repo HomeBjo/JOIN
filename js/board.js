@@ -5,6 +5,8 @@ let selectedSubtaskCounts = [];
 let currentIndex = 0;
 let startDraggingIndex = 0;
 
+
+
 async function init() {
   await includeHTML();
   loggedInUser = await getLoggedInUser();

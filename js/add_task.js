@@ -387,6 +387,7 @@ function deleteSubtask(subtaskId) {
   }
 }
 
+
 function clearInputFields() {
   let titleInput = document.getElementById('addTastTitel');
   let descriptionInput = document.getElementById('addTastTextArea');
@@ -429,7 +430,7 @@ function resetCheckboxes(){
 }
 
 
-function removeClassesOFgetThePriorityByClean(lowId, mediumId, highId){
+function removeClassesOFgetThePriorityByClean(){
   document.getElementById('low').classList.remove("active3");
   document.getElementById('medium').classList.remove("active2");
   document.getElementById('high').classList.remove("active");
