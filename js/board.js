@@ -162,10 +162,12 @@ function generateAddTaskSideMenu() {
 }
 
 
-function showAddTaskMenu() {
+function showAddTaskMenu(category) {
   document.getElementById("FirstCardRenderContainer").classList.remove("d-none");
   document.getElementById("menuContainerBox").classList.add("menuContainer");
   document.getElementById("sideMenu").classList.add("showmenu");
+  selectedCategory2 = category;
+  return selectedCategory2;
 }
 
 
