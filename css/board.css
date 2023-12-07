@@ -1202,8 +1202,89 @@ min-height: unset;
   .subtaskList{
     width: 314px;
   }
-  .mobileButtonContainer{
-    gap: 34px !important;
+}
+@media (max-width: 350px) {
+  .openCardsDetailsEdit{
+    width: 426px;
   }
+  .inputFieldTitleBoardX  {
+    width: 270px!important;
+  }
+  .editMobileDate {
+    width: 270px!important;
+  }
+  .textArea{
+    width: 270px!important;
+  }
+  .assignedContent-sideMenu{
+    width: 270px!important;
+  }
+  .assignedContentBoard{
+    width: 270px;
+  }
+  .inputfieldDateContainerBoard{
+    width: 270px !important;
+  }
+  #selectedSubrasks{
+    width: 270px !important;
+  }
+  .contentContainer-sideMenu{
+    display: unset;
+  }
+  .dateMobile{
+    width: 270px!important;
+  }
+  .assignedTitleContainer{
+    width: 270px!important;
+  }
+  .subtaskInput{
+    width: 270px!important;
+  }
+  .openCardsDetailsEdit{
+    width: 270px;
+  }
+  .prioButtonRedEdit {
+    width: 96px;
+  }
+  .prioButtonYellowEdit {
+    width: 112px;
+  }
+  .prioButtonGreenEdit {
+    width: 88px;
+  }
+  .buttonContainerEdit{
+    width: 270px;
+  }
+  .addContactstoassignBoard{
+    width: 270px;
+  }
+  .selectContainerX{
+    width: 270px !important;
+  }
+  .selectContainerBoard {
+    width: 270px !important;
+  }
+  .prioButtonRedEdit {
+    width: 96px !important;
+  }
+  .prioButtonYellowEdit {
+    width: 112px !important;
+  }
+  .prioButtonGreenEdit {
+    width: 88px !important;
+  }
+  .editbuttonContainer{
+    width: 270px !important;
+  } 
+  .buttonContainer{
+    gap: 23px !important;
+  }
+  .subtaskList{
+    width: 270px;
+  }
+  .sideMenuStyle {
+    width: 315px;
+  }
+
 }
   
