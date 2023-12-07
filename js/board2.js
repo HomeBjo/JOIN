@@ -245,9 +245,15 @@ function openSwitchCategory(event, elementId) {
 
   switchContainer.innerHTML = `
     <div class="switchWindow">
+<<<<<<< Updated upstream
       <div class="switchButtons" onclick="filterByCategory('${elementId}', 'progress', event)">In Progress</div>
       <div class="switchButtons" onclick="filterByCategory('${elementId}', 'done', event)">Done</div>
       <div class="switchButtons" onclick="filterByCategory('${elementId}', 'toDo', event)">To Do</div>
+=======
+      <div class="switchButtons" onclick="filterByCategory('${elementId}', 'progress')">In Progress</div>
+      <div class="switchButtons" onclick="filterByCategory('${elementId}', 'done')">Done</div>
+      <div class="switchButtons" onclick="filterByCategory('${elementId}', 'toDo')">To Do</div>
+>>>>>>> Stashed changes
     </div>`;
 }
 
