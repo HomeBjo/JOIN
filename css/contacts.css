@@ -836,7 +836,7 @@ body{
 
 @media(max-width: 500px) {
     .inputField{
-        width: 246px;
+        width: 208px;
     }
     .closeEditContactBox {
         margin-top: 11vh;
@@ -896,7 +896,7 @@ body{
 
 @media(max-width: 310px) {
     .h1EditContact{
-        font-size: 33px;
+        font-size: 33px !important;
     }
     .inputField {
         width: 208px;
@@ -907,4 +907,5 @@ body{
     .closeEditContactBox{
         margin-right: 5vh;
     } 
+    
 }

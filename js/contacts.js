@@ -5,6 +5,7 @@ let currentContact = null;
 let currentDetails = [];
 
 
+
 /**
  * Load all importats fetshs and functions
  */
@@ -159,6 +160,7 @@ function showDetailsOfContact(newName, newEmail, newPhone, initial, color, i) {
       detailsContact.innerHTML = '';
       removeClassesByShowDetailsOfContact(i);
       currentContact = null;
+      elsePartOfshowDetailsOfContact(newName, newEmail, newPhone, initial, color, i);
     } else {
         elsePartOfshowDetailsOfContact(newName, newEmail, newPhone, initial, color, i);
     }
@@ -197,7 +199,7 @@ function saveVariable(newName, newEmail, newPhone, initial, color){
     };
 }
 
-
+ 
 function returnArrow() {
     document.getElementById('boxOfDetailsContacts').classList.add('d-none');
     document.getElementById('boxOfAddingNewContact').style.backgroundColor = null;
