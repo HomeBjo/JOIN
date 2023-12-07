@@ -176,27 +176,37 @@ function getPriority(){
 
 
 /**
- * Here, the date that is closer to the current day is selected under all tasks and displayed
+ * Here the date that is closest to the current day among all tasks that have a "high" priority is selected and displayed
  */
 function upcomingDate() {
     let tasks = currentTaskInfo[0];
     let date = document.getElementById('date');
     let dateMobile = document.getElementById('dateMobile');
-    upcomingDateIfStatement(tasks.length);
-    let urgentDate = new Date(tasks[0].date); // Initialize with the date of the first task
 
-    tasks.forEach(task => {
+    let highPriorityTasks = tasks.filter(task => task.priority === "high");
+
+    if (highPriorityTasks.length > 0) {
+        let urgentDate = getUrgentDate(highPriorityTasks);
+
+        const options = { month: 'long', day: 'numeric', year: 'numeric' };
+        const formattedUrgentDate = urgentDate.toLocaleDateString('en-EN', options);
+        upcomingDateIfHtml(date, dateMobile, formattedUrgentDate);
+    } else {
+        upcomingDateElseHtml(date, dateMobile);
+    }
+}
+
+
+function getUrgentDate(highPriorityTasks) {
+    let urgentDate = new Date(highPriorityTasks[0].date);
+
+    highPriorityTasks.forEach(task => {
         const taskDate = new Date(task.date);
-
         if (taskDate < urgentDate) {
             urgentDate = taskDate;
         }
     });
-
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    const formattedUrgentDate = urgentDate.toLocaleDateString('en-EN', options);
-    date.innerHTML = /*html*/`<div class="showTheNumbers">${formattedUrgentDate}</div>`;
-    dateMobile.innerHTML = /*html*/`<div class="showTheNumbers">${formattedUrgentDate}</div>`;
+    return urgentDate;
 }
 
 
@@ -205,4 +215,16 @@ function upcomingDateIfStatement(tasks){
         console.log("No tasks available.");
         return;
     }
+}
+
+
+function upcomingDateIfHtml(date, dateMobile, formattedUrgentDate){
+    date.innerHTML = /*html*/`<div class="showTheNumbers">${formattedUrgentDate}</div>`;
+    dateMobile.innerHTML = /*html*/`<div class="showTheNumbers">${formattedUrgentDate}</div>`;
+}
+
+
+function upcomingDateElseHtml(date, dateMobile){
+    date.innerHTML = /*html*/`<div class="showTheNumbers">No high priority tasks</div>`;
+    dateMobile.innerHTML = /*html*/`<div class="showTheNumbers">No high priority tasks</div>`;
 }
