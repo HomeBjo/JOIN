@@ -321,17 +321,18 @@ function showAssignetContacts2Html(getColor, getInitial, userName, i, isChecked)
 }
 
 
-function addSubTask2Html(subtaskId, subtaskValue){
-   return `
-      <span class="subtaskList" id="${subtaskId}">${subtaskValue} 
-          <img src="../assets/img/delete.svg" onclick="deleteSubtask('${subtaskId}')" class="subtaskDeleteImg">
-      </span>`;
-}
-
-
 function rederCurrentTasksHtml(id, value){
    return /*html*/ `
-      <div class="subtaskList" id="${id}">${value}
-        <img src="../assets/img/delete.svg" onclick="deleteSubtaskEdit('${id}')" class="subtaskDeleteImg">
+      <div class="spaceBetween" id="BoardCurrenT${id}">
+         <span class="subtaskList" id="${id}">${value}</span>
+         <input type="text" class="subtaskEditWindow d-none" id="BoardSubtaskEditWindow${id}"> 
+         <div class="positionOfImgsBySubtask" id="BoardEdit&deleteImgs${id}">
+           <img src="../assets/img/edit.svg" onclick="BoardEditSubtask('${id}')" class="subtaskEditImg">|
+           <img src="../assets/img/delete.svg" onclick="BoardDeleteSubtask('${id}')" class="subtaskDeleteImg">
+         </div>
+         <div class="positionOfImgsBySubtask d-none" id="BoardAgree&denyImgs${id}">
+           <img src="../assets/img/check.svg" onclick="BoardEgreeEditSubtask('${id}')" class="agreeEditImg">|
+           <img src="../assets/img/vector.svg" onclick="BoardRenderSubtasksByAddTask()" class="denyDeleteImg">
+         </div>
       </div>`;
 }

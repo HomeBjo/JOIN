@@ -27,7 +27,7 @@ function addSubTaskHtml(subtaskId, subtaskValue){
           </div>
           <div class="positionOfImgsBySubtask d-none" id="agree&denyImgs${subtaskId}">
             <img src="../assets/img/check.svg" onclick="agreeEditSubtask('${subtaskId}')" class="agreeEditImg">|
-            <img src="../assets/img/vector.svg" onclick="renderSubtasks()" class="denyDeleteImg">
+            <img src="../assets/img/vector.svg" onclick="renderSubtasksByAddTask()" class="denyDeleteImg">
           </div>
         </div>`;
 }

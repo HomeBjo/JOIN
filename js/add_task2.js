@@ -74,10 +74,10 @@ function agreeEditSubtask(subtaskId){
         currentSubtasks[subtaskIndex].value = updatedValue;
     }
 
-    renderSubtasks();
+    renderSubtasksByAddTask();
 }
 
-function renderSubtasks() {
+function renderSubtasksByAddTask() {
     let addTask = document.getElementById('subtaskContainer');
     addTask.innerHTML = '';
 
