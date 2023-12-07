@@ -92,7 +92,7 @@ function addNewContactBtnHtml(){
                 <img src="../assets/img/mail.svg" class="imgInInput">
             </div>
             <div class="displayFlex">
-                <input type="tel" class="inputField" placeholder="Phone" pattern="[0-9]+" min="4" id="phoneEditContact" required>
+                <input type="tel" class="inputField" placeholder="Phone" pattern="[0-9]+" min="4" id="phoneAddContact" required>
                 <img src="../assets/img/call.svg" class="imgInInput">
             </div>
             <div class="btnsAddContact">
@@ -132,7 +132,7 @@ function editContactHtml(color, initial, newName, newEmail, newPhone){
                 </div>
             </div>    
             <div class="displayFlex">
-                <input type="text" class="inputField" placeholder="Name" minlength="2" pattern="[a-zA-Z]*" id="nameAddContact" required>
+                <input type="text" class="inputField" placeholder="Name" pattern="[a-zA-Z]*" id="nameEditContact" required>
                 <img src="../assets/img/person.svg" class="imgInInput">
             </div>
             <div class="displayFlex">
@@ -140,7 +140,7 @@ function editContactHtml(color, initial, newName, newEmail, newPhone){
                 <img src="../assets/img/mail.svg" class="imgInInput">
             </div>
             <div class="displayFlex">
-            <input type="tel" class="inputField" placeholder="Phone" pattern="[0-9]+" min="4" id="phoneAddContact" required>
+                <input type="tel" class="inputField" placeholder="Phone" pattern="[0-9]+" min="4" id="phoneEditContact" required>
                 <img src="../assets/img/call.svg" class="imgInInput">
             </div>
             <div class="btnsAddContact">
