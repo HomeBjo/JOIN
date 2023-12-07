@@ -691,9 +691,47 @@ body {
   overflow: scroll;
   overflow-x: hidden;
 }
+.mobileDragSwitch{
+  display: none;
+  height: 27px;
+  width: 27px;
+}
+.switchContainer{
+  width: 67px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-left: 151px;
+
+}
+.switchWindow{
+  position: relative;
+  border: 1px solid grey;
+  border-radius: 15px;
+  background-color: white;
+  height: 65px;
+  width: 83px;
+  text-align: center;
+  padding-top: 11px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+.switchButtons{
+  font-size: 10px;
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 
 
 @media (max-width: 1260px) {
+  .mobileDragSwitch{
+    display: flex;
+    position: absolute;
+    top: 13px;
+    right: 9px;
+  }
   .mobile{
     width: 440px!important;
   }
