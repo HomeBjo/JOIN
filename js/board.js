@@ -167,7 +167,7 @@ function showAddTaskMenu(category) {
   document.getElementById("menuContainerBox").classList.add("menuContainer");
   document.getElementById("sideMenu").classList.add("showmenu");
   selectedCategory2 = category;
-  return selectedCategory2;
+ 
 }
 
 

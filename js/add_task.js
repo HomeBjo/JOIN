@@ -4,7 +4,7 @@ let selectedPriority;
 let currentSubtasks = [];
 let selectedUsers = [];
 let checked = true;
-let selectedCategory2;
+
 
 
 async function initAddTask() {
@@ -58,11 +58,11 @@ async function createNewTaskFromBoard() {
     let getTextArea = document.getElementById('addTastTextArea').value;
     let getDateValue = document.getElementById('dueDateValue').value;
     let getCategory = loadCategory();
-    let getTaskCategory= selectedCategory2;
+
 
     selectedPriority = selectedPriority || 'low';
 
-    await pushTaskInfo(getTitel, getTextArea, getDateValue, selectedUsers, getCategory, selectedPriority,getTaskCategory,currentSubtasks);
+    await pushTaskInfo(getTitel, getTextArea, getDateValue, selectedUsers, getCategory, selectedPriority,currentSubtasks);
     getTitel.value ='';
     getTextArea.value ='';
     getDateValue.value ='';
@@ -91,7 +91,7 @@ function clearTasksArray() {
 }
 
 
-async function pushTaskInfo(getTitle, getDescription, getDateValue, contactData, getCategory, selectedPriority,getTaskCategory,currentSubtasks) {
+async function pushTaskInfo(getTitle, getDescription, getDateValue, contactData, getCategory, selectedPriority,currentSubtasks) {
   getTitle = getTitle.trim();
 
   let existingTasks = [];
@@ -107,7 +107,7 @@ async function pushTaskInfo(getTitle, getDescription, getDateValue, contactData,
   const existingTaskIndex = existingTasks.findIndex((task) => task.title === getTitle);
 
   if (existingTaskIndex === -1) {
-    let newTask = getValues(existingTasks.length, getTitle, getDescription, selectedPriority, getDateValue, contactData, getCategory,getTaskCategory,currentSubtasks, checked);
+    let newTask = getValues(existingTasks.length, getTitle, getDescription, selectedPriority, getDateValue, contactData, getCategory,currentSubtasks, checked);
 
     existingTasks.push(newTask);
     await setItem('newTask', JSON.stringify(existingTasks));
@@ -120,8 +120,8 @@ async function pushTaskInfo(getTitle, getDescription, getDateValue, contactData,
 }
 
 
-function getValues(existingTasks, getTitle, getDescription, selectedPriority, getDateValue, contactData, getCategory,getTaskCategory, currentSubtasks, checked){
-  const categoryC = getTaskCategory || "toDo";
+function getValues(existingTasks, getTitle, getDescription, selectedPriority, getDateValue, contactData, getCategory,currentSubtasks, checked){
+  
   let newTask = {
     id: existingTasks + Date.now(),
     title: getTitle,
@@ -130,7 +130,7 @@ function getValues(existingTasks, getTitle, getDescription, selectedPriority, ge
     date: getDateValue,
     contacts: contactData,
     workCategory: getCategory,
-    category: categoryC,
+    category: "toDo",
     subtasks: currentSubtasks,
     isChecked: checked,
     taskbar: 0,
