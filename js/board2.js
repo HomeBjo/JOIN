@@ -242,23 +242,27 @@ function openSwitchCategory(event, elementId) {
   event.stopPropagation();
 
   let switchContainer = document.getElementById(`switchContainer${elementId}`);
+  let switchWindow = switchContainer.querySelector('.switchWindow');
 
-  switchContainer.innerHTML = `
-    <div class="switchWindow">
-    <div class="switchButtons" onclick="moveToMobile('progress', '${elementId}')">In Progress</div>
-    <div class="switchButtons" onclick="moveToMobile('done', '${elementId}')">Done</div>
-    <div class="switchButtons" onclick="moveToMobile('toDo', '${elementId}')">To Do</div>
-    
-    </div>`;
+  if (switchWindow) {
+    // Wenn das Menü bereits geöffnet ist, schließe es
+    switchContainer.innerHTML = '';
+  } else {
+    // Wenn das Menü nicht geöffnet ist, öffne es
+    switchContainer.innerHTML = `
+      <div class="switchWindow">
+        <div class="switchButtons" onclick="moveToMobile('toDo', '${elementId}', event)">To do</div>
+        <div class="switchButtons" onclick="moveToMobile('progress', '${elementId}', event)">In Progress</div>
+        <div class="switchButtons" onclick="moveToMobile('feedBack', '${elementId}', event)">Await feedback</div>
+        <div class="switchButtons" onclick="moveToMobile('done', '${elementId}', event)">Done</div>
+      </div>`;
+  }
 }
 
-function filterByCategory(elementId, category, event) {
+
+async function moveToMobile(category, elementId, event) {
   event.stopPropagation();
 
- 
-}
-
-async function moveToMobile(category, elementId) {
   let info = await getItem('newTask');
   let getTaskInfo = JSON.parse(info);
 

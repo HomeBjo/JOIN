@@ -709,10 +709,10 @@ body {
   border: 1px solid white;
   border-radius: 15px;
   background-color: white;
-  height: 80px;
-  width: 83px;
+  height: 72px;
+  width: 85px;
   text-align: center;
-  padding-top: 11px;
+  padding-top: 4px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 .switchButtons{
