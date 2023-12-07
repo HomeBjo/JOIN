@@ -192,3 +192,17 @@ function clearSideAddTask() {
   descriptionInput.value=``;
   dateInput.value=``;
 } 
+
+function openSwitchCategory(event, elementId) {
+  event.stopPropagation();
+
+  let switchContainer = document.getElementById(`switchContainer${elementId}`);
+
+  switchContainer.innerHTML = `
+    <div class="switchWindow">
+    <div class="switchButtons" onclick="filterByCategory('progress')">In Progress</div>
+    <div class="switchButtons" onclick="filterByCategory('done')">Done</div>
+    <div class="switchButtons" onclick="filterByCategory('toDo')">To Do</div>
+    </div>`;
+}
+
