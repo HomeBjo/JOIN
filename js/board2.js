@@ -245,9 +245,10 @@ function openSwitchCategory(event, elementId) {
 
   switchContainer.innerHTML = `
     <div class="switchWindow">
-      <div class="switchButtons" onclick="filterByCategory('${elementId}', 'toDo', event)">toDo</div>
-      <div class="switchButtons" onclick="filterByCategory('${elementId}', 'progress', event)">I nprogress</div>
-      <div class="switchButtons" onclick="filterByCategory('${elementId}', 'Await feedback', event)">Await feedback</div>
+    <div class="switchButtons" onclick="moveToMobile('progress', '${elementId}')">In Progress</div>
+    <div class="switchButtons" onclick="moveToMobile('done', '${elementId}')">Done</div>
+    <div class="switchButtons" onclick="moveToMobile('toDo', '${elementId}')">To Do</div>
+    
     </div>`;
 }
 
@@ -255,4 +256,18 @@ function filterByCategory(elementId, category, event) {
   event.stopPropagation();
 
  
+}
+
+async function moveToMobile(category, elementId) {
+  let info = await getItem('newTask');
+  let getTaskInfo = JSON.parse(info);
+
+  const index = getTaskInfo.findIndex(element => String(element.id) === String(elementId));
+
+  if (index !== -1) {
+    getTaskInfo[index]["category"] = category;
+    await setItem('newTask', JSON.stringify(getTaskInfo));
+    updateHTML(getTaskInfo);
+    updateProgressBarOnload();
+  }
 }
