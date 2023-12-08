@@ -23,7 +23,7 @@ async function editTask(getId) {
   
   await setItem('newTask', JSON.stringify(getTaskInfo));
   allTask[0][taskToEditIndex] = getTaskInfo[taskToEditIndex];
-  updateHTML(getTaskInfo);
+  init();
 }
 
 
