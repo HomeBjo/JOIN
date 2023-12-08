@@ -51,5 +51,18 @@ function BoardRenderSubtasksByAddTask() {
 
     currentSubtasksBoard.forEach(subtask => {
         addTask.innerHTML += rederCurrentTasksHtml(subtask.id, subtask.value);
-    });
+    }); 
 }
+
+
+function BoardDeleteSubtask(id) {
+    const subtaskIndex = currentSubtasksBoard.findIndex(task => task.id === id);
+    if (subtaskIndex !== -1) {
+      currentSubtasksBoard.splice(subtaskIndex, 1);
+    }
+    const subtaskElement = document.getElementById(`BoardCurrenT${id}`);
+    if (subtaskElement) {
+      subtaskElement.remove();
+    }
+  
+  }

@@ -24,6 +24,7 @@ async function editTask(getId) {
   await setItem('newTask', JSON.stringify(getTaskInfo));
   allTask[0][taskToEditIndex] = getTaskInfo[taskToEditIndex];
   init();
+  currentSubtasksBoard = [];
 }
 
 
@@ -293,19 +294,6 @@ function rederCurrentTasks(selectedSubrasks) {
     }
     box.innerHTML += rederCurrentTasksHtml(id, value);
   }
-}
-
-
-function deleteSubtaskEdit(id) {
-  const subtaskIndex = currentSubtasksBoard.findIndex(task => task.id === id);
-  if (subtaskIndex !== -1) {
-    currentSubtasksBoard.splice(subtaskIndex, 1);
-  }
-  const subtaskElement = document.getElementById(id);
-  if (subtaskElement) {
-    subtaskElement.remove();
-  }
-
 }
 
 
