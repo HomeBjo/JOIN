@@ -17,6 +17,7 @@ async function init() {
   showProfileInitials(loggedInUser);
   loadUsers();
   generateAddTaskSideMenu();
+  allTask = [];
   allTask.push(getTaskInfo);
   updateHTML(getTaskInfo);
   showAssignetContacts(loggedInUser);
