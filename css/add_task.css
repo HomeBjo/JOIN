@@ -660,7 +660,7 @@ body {
     height: calc(100vh - 172px) !important;
   }
   .contentContainer{
-    margin-top: 96px;
+    
   }
   .containAddTask {
     width: 440px;
