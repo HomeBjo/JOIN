@@ -84,7 +84,7 @@ function addNewContactBtnHtml(){
         <form class="detailsOFAddContact" onsubmit="createNewContact(); return false;">
             <img src="../assets/img/frame79.svg" class="witheBoxAddContactImg">
             <div class="displayFlex">
-                <input type="text" class="inputField" placeholder="Name" minlength="2" pattern="[a-zA-Z]*" id="nameAddContact" required>
+                <input type="text" class="inputField" placeholder="Name" minlength="2" pattern="[a-zA-Z ]+" id="nameAddContact" required>
                 <img src="../assets/img/person.svg" class="imgInInput">
             </div>
             <div class="displayFlex">
@@ -132,7 +132,7 @@ function editContactHtml(color, initial, newName, newEmail, newPhone){
                 </div>
             </div>    
             <div class="displayFlex">
-                <input type="text" class="inputField" placeholder="Name" pattern="[a-zA-Z]*" id="nameEditContact" required>
+                <input type="text" class="inputField" placeholder="Name" pattern="[a-zA-Z ]+" id="nameEditContact" required>
                 <img src="../assets/img/person.svg" class="imgInInput">
             </div>
             <div class="displayFlex">
