@@ -38,6 +38,7 @@ body {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
+  height: calc(100vh - 167px) !important;
 }
 
 .addTask {
@@ -317,7 +318,7 @@ body {
 .SubtaskContent {
   display: flex;
   flex-direction: column;
-  height: 222px;
+  height: 323px;
   padding-top: 24px !important;
 }
 
@@ -525,6 +526,8 @@ body {
 
 #subtaskContainer {
   margin-bottom: 24px;
+  height: 100px;
+  overflow: auto;
 }
 
 .imgPerson {
@@ -646,7 +649,7 @@ body {
     height: calc(100vh - 172px) !important;
     display: flex;
     justify-content: center;
-    padding: 0;
+    padding-left: 50px;
   }
   .positionOfButtons{
     display: flex;
@@ -656,7 +659,7 @@ body {
 
 @media (max-width: 1000px) {
   .addTask{
-    height: calc(90vh - 85px) !important;
+  
   }
   .mobile-header {
     position: relative !important;
@@ -666,6 +669,7 @@ body {
   
   .containAddTask {
     width: 440px;
+    
   }
   .ClearBtn {
     display: none;
@@ -688,7 +692,7 @@ body {
   }
 
 
-@media (max-width: 500px) {
+ @media (max-width: 500px) {
   .contentContainer {
     display: flex;
     flex-direction: column;
@@ -734,11 +738,7 @@ body {
   .ClearBtn {
     display: none;
   }
-  .containAddTask {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+ 
   .addContactstoassign {
     width: 340px;
   }
@@ -750,7 +750,7 @@ body {
   }
   .selectContainer{
     width: 352px !important;
-    height: auto;
+    height: 116px!important;
   }
   .technicalTask{
     width: 70vw;
@@ -758,12 +758,12 @@ body {
   .inputfieldDateContainer{
     width: 320px;
   }
-}
+} 
 
 @media (max-width: 390px) {
   .selectContainer{
     width: 290px !important;
-    height: auto;
+    height: 116px!important;
   }
   .contentContainer {
     display: flex;
