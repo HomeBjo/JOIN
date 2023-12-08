@@ -529,7 +529,8 @@ body {
 }
 .subtaskContainerAddTask{
   height: 300px;
-  overflow: scroll;}
+  overflow: auto
+  ;}
 
 
 .imgPerson {
