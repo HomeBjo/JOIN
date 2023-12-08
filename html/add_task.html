@@ -28,7 +28,7 @@
    <body onclick="closeSelectContainer(event); closeCategoryContainer(event)"  onload="initAddTask();">
       <div w3-include-html="../assets/templates/desktop_template_header.html"></div>
       <div w3-include-html="../assets/templates/mobile_template.html"></div>
-      <div class="contentContainer" >
+      <div class="contentContainer mobileContainer" >
          
          <div class="addTask">
             <div class="containAddTask">
@@ -113,7 +113,7 @@
                      </p>
                   </div>
                   <input id="subtaskInput" onclick="addSubTask()" placeholder="Add new subtask" class="subtaskInput">
-                  <div id="subtaskContainer"></div>
+                  <div id="subtaskContainer" class="subtaskContainerAddTask" ></div>
                   <div class="positionOfButtons">
                      <!-- <button onclick="clearTasksArray()">clear BoardTaskArray</button> -->
                      <button onclick="clearInputFields()" class="ClearBtn">Clear <img src="../assets/img/vector.svg" class="clearBtnImg"></button>

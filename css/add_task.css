@@ -318,7 +318,7 @@ body {
 .SubtaskContent {
   display: flex;
   flex-direction: column;
-  height: 323px;
+  height: 322px;
   padding-top: 24px !important;
 }
 
@@ -526,9 +526,11 @@ body {
 
 #subtaskContainer {
   margin-bottom: 24px;
-  height: 100px;
-  overflow: auto;
 }
+.subtaskContainerAddTask{
+  height: 300px;
+  overflow: scroll;}
+
 
 .imgPerson {
   width: 42px;
@@ -649,7 +651,7 @@ body {
     height: calc(100vh - 172px) !important;
     display: flex;
     justify-content: center;
-    padding-left: 50px;
+    
   }
   .positionOfButtons{
     display: flex;
@@ -658,9 +660,7 @@ body {
 }
 
 @media (max-width: 1000px) {
-  .addTask{
-  
-  }
+ 
   .mobile-header {
     position: relative !important;
     
@@ -697,6 +697,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .mobileContainer{
+   padding-left: 10px;
   }
   .addTask{
     margin-top: 0;
