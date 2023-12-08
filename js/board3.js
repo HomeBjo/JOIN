@@ -18,14 +18,14 @@ function addSubTask2() {
 
 
 function BoardEditSubtask(subtaskId){
-    let subtaskElement = document.getElementById(`${subtaskId}`);
+    let subtaskElement = document.getElementById(`BoarD${subtaskId}`);
     let editWindowElement = document.getElementById(`BoardSubtaskEditWindow${subtaskId}`);
     document.getElementById(`BoardEdit&deleteImgs${subtaskId}`).classList.add('d-none');
     document.getElementById(`BoardAgree&denyImgs${subtaskId}`).classList.remove('d-none');
     subtaskElement.classList.add('d-none');
     editWindowElement.classList.remove('d-none');
 
-    let subtaskValue = subtaskElement.value;
+    let subtaskValue = subtaskElement.innerText;
     editWindowElement.value = subtaskValue;
     editWindowElement.focus();
 }

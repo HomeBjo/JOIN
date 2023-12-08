@@ -324,7 +324,7 @@ function showAssignetContacts2Html(getColor, getInitial, userName, i, isChecked)
 function rederCurrentTasksHtml(id, value){
    return /*html*/ `
       <div class="spaceBetween" id="BoardCurrenT${id}">
-         <span class="subtaskList" id="${id}">${value}</span>
+         <span class="subtaskList" id="BoarD${id}">${value}</span>
          <input type="text" class="subtaskEditWindow d-none" id="BoardSubtaskEditWindow${id}"> 
          <div class="positionOfImgsBySubtask" id="BoardEdit&deleteImgs${id}">
            <img src="../assets/img/edit.svg" onclick="BoardEditSubtask('${id}')" class="subtaskEditImg">|
