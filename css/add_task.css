@@ -347,8 +347,7 @@ body {
 .selectContainer {
   display: flex;
   flex-direction: column;
-  height: 152px !important;
-  min-height: 152px !important;
+  height: 116px !important;
   overflow: auto;
   width: 440px;
 }
@@ -657,11 +656,14 @@ body {
 
 @media (max-width: 1000px) {
   .addTask{
-    height: calc(100vh - 172px) !important;
+    height: calc(90vh - 85px) !important;
   }
-  .contentContainer{
+  .mobile-header {
+    position: relative !important;
     
   }
+  }
+  
   .containAddTask {
     width: 440px;
   }
@@ -684,7 +686,7 @@ body {
     display: flex;
     justify-content: center;
   }
-}
+
 
 @media (max-width: 500px) {
   .contentContainer {
