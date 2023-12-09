@@ -42,7 +42,7 @@ body {
 }
 
 .addTask {
-  width: 452px;
+  width: 466px;
   padding: 24px;
   gap: 24px;
   display: flex;
@@ -443,7 +443,7 @@ body {
 }
 
 .ClearBtn {
-  display: block;
+
   width: 120px;
   height: 61px;
   border-radius: 10px;
@@ -685,12 +685,12 @@ body {
  
   .mobile-header {
     position: relative !important;
-    
-  }
+  
+  
   }
   
   .containAddTask {
-    width: 440px;
+    width: auto;
     
   }
   .ClearBtn {
@@ -712,17 +712,17 @@ body {
     display: flex;
     justify-content: center;
   }
-
+}
 
   @media (max-width: 500px) {
-  .contentContainer {
+  /* .contentContainer {
     display: flex;
     flex-direction: column;
    
-  }
-  .mobileContainer{
+  } */
+  /* .mobileContainer{
    padding-left: 10px;
-  }
+  } */
   .addTask{
     margin-top: 0;
   }
@@ -784,14 +784,17 @@ body {
 }  
 
 @media (max-width: 380px) {
+  .containAddTask{
+    width: 290px;
+  }
   .selectContainer{
     width: 290px !important;
     height: 116px!important;
   }
   .contentContainer {
     display: flex;
-    width: 330px;}
-
+    width: auto;
+  }
   .textArea {
     width: 242px;
   }
@@ -868,8 +871,9 @@ body {
     width: 248px;
   }
   .addTask {
-    width: 452px;
-    padding: 1px;}
+    width: 380px;
+    padding: 0;
+  }
 }
 
 
