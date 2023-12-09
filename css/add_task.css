@@ -718,7 +718,7 @@ body {
   .contentContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
+   
   }
   .mobileContainer{
    padding-left: 10px;
@@ -783,15 +783,13 @@ body {
   }
 }  
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .selectContainer{
     width: 290px !important;
     height: 116px!important;
   }
   .contentContainer {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
     width: 330px;}
 
   .textArea {
