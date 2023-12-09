@@ -18,7 +18,9 @@ async function initAddTask() {
   showAssignetContacts(loggedInUser);
 }
 
-
+/**
+ * This function is used for retrieves all tasks from local storage and updates the global 'allTasks' variable.
+ */
 async function getAllTasks() {
   try {
     allTasks = JSON.parse(await getItem('newTask'));
@@ -27,7 +29,9 @@ async function getAllTasks() {
   }
 }
 
-
+/**
+ * This function is used for  Creates a new task based on user input. Disables the 'Create Task' button during execution.
+ */
 async function createNewTask() {
   let buttonCreateTask = document.getElementById('buttonCreateTask');
   buttonCreateTask.disabled = true;
@@ -49,9 +53,9 @@ async function createNewTask() {
   buttonCreateTask.disabled = false;
 }
 
-
-
-
+/**
+ * This function is used for  Creates a new task from the board view based on user input. Validates input fields using the 'checkInputFields' function.
+ */
 async function createNewTaskFromBoard() {
   if (checkInputFields()) {
     let getTitel = document.getElementById('addTastTitel').value;
@@ -72,12 +76,16 @@ async function createNewTaskFromBoard() {
   
 }
 
-
+/**
+ * This function is used for clearArray.
+ */
 function clearArray() {
   allTasks.splice(0, allTasks.length);
 }
 
-
+/**
+ * This function is used for clearArray.
+ */
 function clearTasksArray() {
   if (confirm('Are you sure you want to clear all tasks?')) {
     clearArray(); 
@@ -91,7 +99,10 @@ function clearTasksArray() {
   }
 }
 
-
+/**
+ * This function is used for  Pushes task information to storage after validating and processing input data.
+ * Checks if a task with the same title already exists. If not, creates a new task object with the provided data.
+ */
 async function pushTaskInfo(getTitle, getDescription, getDateValue, contactData, getCategory, selectedPriority,currentSubtasks,getTaskCategory) {
   getTitle = getTitle.trim();
 
@@ -120,7 +131,9 @@ async function pushTaskInfo(getTitle, getDescription, getDateValue, contactData,
   }
 }
 
-
+/**
+ * This function is used for getvalues from inputfields and set category.
+ */
 function getValues(existingTasks, getTitle, getDescription, selectedPriority, getDateValue, contactData, getCategory,currentSubtasks, checked,getTaskCategory){
   const categoryC = getTaskCategory || "toDo";
   let newTask = {
@@ -139,7 +152,9 @@ function getValues(existingTasks, getTitle, getDescription, selectedPriority, ge
   return newTask;
 }
 
-
+/**
+ * This function is used for displays a success animation to indicate the creation of a new task.
+ */
 async function showCreateAnimation() {
   const successMessage = document.getElementById('animation');
 
@@ -151,7 +166,9 @@ async function showCreateAnimation() {
   successMessage.classList.add('d-none');
 }
 
-
+/**
+ * This function is used for Checks the input fields for creating a new task and displays error messages if necessary.
+ */
 function checkInputFields() {
   let titleInput = document.getElementById('addTastTitel');
   let descriptionInput = document.getElementById('addTastTextArea');
@@ -166,7 +183,9 @@ function checkInputFields() {
   return ifStatementsOfcheckInputFields(titleInput, titleFail, descriptionInput, descriptionFail, dateInput, dateFail);
 }
 
-
+/**
+ * This function is used for performs individual validation statements for input fields when creating a new task.
+ */
 function ifStatementsOfcheckInputFields(titleInput, titleFail, descriptionInput, descriptionFail, dateInput, dateFail) {
   let isValid = true;
 
@@ -188,7 +207,9 @@ function ifStatementsOfcheckInputFields(titleInput, titleFail, descriptionInput,
   return isValid;
 }
 
-
+/**
+ * This function is used for Handles the selection of task priority and toggles priority classes and icons based on user selection.
+ */
 function getThePriority(priority, lowId, mediumId, highId) {
   const low = document.getElementById(lowId);
   const medium = document.getElementById(mediumId);
@@ -209,7 +230,9 @@ function getThePriority(priority, lowId, mediumId, highId) {
   }
 }
 
-
+/**
+ * This function is used for removes active classes and color icons associated with task priority options.
+ */
 function removeClassesOFgetThePriority(low, medium, urgent, lowIcon, mediumIcon, highIcon){
   low.classList.remove("active3");
   medium.classList.remove("active2");
@@ -219,7 +242,9 @@ function removeClassesOFgetThePriority(low, medium, urgent, lowIcon, mediumIcon,
   highIcon.classList.remove("colorIcon");
 }
 
-
+/**
+ * This function is used for sets the color and active state for the selected task priority option.
+ */
 function getColorOfPriority(low, lowIcon, medium, mediumIcon, urgent, highIcon){
   if (selectedPriority === 'low') {
     low.classList.add("active3");
@@ -233,13 +258,17 @@ function getColorOfPriority(low, lowIcon, medium, mediumIcon, urgent, highIcon){
   }
 }
 
-
+/**
+ * This function is used for toggles the visibility of the contact selection container.
+ */
 function addContacts() {
   let box = document.getElementById("selectContainer");
   box.classList.toggle("d-none");
 }
 
-
+/**
+ * This function is used for displays assigned contacts in the contact selection container and retrieves contact information from the logged-in user's data.
+ */
 async function showAssignetContacts(loggedInUser) {
   let box = document.getElementById("selectContainer");
 
@@ -256,7 +285,9 @@ async function showAssignetContacts(loggedInUser) {
   return contactData;
 }
 
-
+/**
+ * This function is used for Creates an object containing user contact data.
+ */
 function getUserContactData(userName, userEmail, userPhone, getInitial, getColor){
   let userContactData = {
     name: userName,
@@ -268,6 +299,9 @@ function getUserContactData(userName, userEmail, userPhone, getInitial, getColor
   return userContactData;
 }
 
+/**
+ * This function is used for handles the click event on a checkbox for user selection.
+ */
 function handleCheckboxClick(i, userName, getInitial, getColor) {
   let checkbox = document.getElementById(`inputId${i}`);
   let addUser = document.getElementById("addContactstoassign");
@@ -288,7 +322,9 @@ function handleCheckboxClick(i, userName, getInitial, getColor) {
   }
 }
 
-
+/**
+ * This function is used for get user selection.
+ */
 function getSelectedUser(userName, userEmail, userPhone, getInitial, getColor){
   let selectedUser = {
     name: userName,
@@ -300,7 +336,9 @@ function getSelectedUser(userName, userEmail, userPhone, getInitial, getColor){
   return selectedUser;
 };
 
-
+/**
+ * This function is used for closes the select container if a click occurs outside of it.
+ */
 function closeSelectContainer(event) {
   let selectContainer = document.getElementById("selectContainer");
   let assignedSelect = document.getElementById("assignedSelect");
@@ -309,12 +347,16 @@ function closeSelectContainer(event) {
   }
 }
 
-
+/**
+ * This function is used for toggle the categoryContainer if a click occurs outside of it.
+ */
 function showCategoryContacts() {
   document.getElementById("categoryContainer").classList.toggle("d-none");
 }
 
-
+/**
+ * This function is used for closes the category container if a click occurs outside of it.
+ */
 function closeCategoryContainer(event) {
   let selectContainer = document.getElementById("categoryContainer");
   let assignedSelect = document.getElementById("categorySelect");
@@ -323,7 +365,9 @@ function closeCategoryContainer(event) {
   }
 }
 
-
+/**
+ * This function is used for adds a subtask to the task with the provided subtask input value.
+ */
 function addSubTask() {
   let subtaskInput = document.getElementById('subtaskInput');
   let addTask = document.getElementById('subtaskContainer');
@@ -342,7 +386,9 @@ function addSubTask() {
   }
 }
 
-
+/**
+ * This function is used for loads the technical task and updates the task category in the SelectTaskCatergory element.
+ */
 function loadTechnicalTask() {
   let Box = document.getElementById('technicalTaskID');
   let currentValue = Box.innerHTML;
@@ -351,7 +397,9 @@ function loadTechnicalTask() {
   }
 }
 
-
+/**
+ * This function is used for loads the userStoryID and updates the task category in the SelectTaskCatergory element.
+ */
 function loadUserStory() {
   let Box = document.getElementById('userStoryID');
   let currentValue = Box.innerHTML;
@@ -360,26 +408,34 @@ function loadUserStory() {
   }
 }
 
-
+/**
+ * This function is used for retrieves the selected category from the categorySelect element and returns its trimmed value.
+ */
 function loadCategory() {
   let getValue = document.getElementById('categorySelect').textContent.trim();
   return getValue;
 }
 
-
+/**
+ * This function is used for retrieves the value of the input element with the id "subtaskValue."
+ */
 function addedSubtask() {
   let box = document.getElementById("subtaskValue").value;
   return box.textContent;
 }
 
-
+/**
+ * This function is used for Retrieves the text content of the element with the provided subtask ID.
+ */
 function editSubtask(subtaskId) {
   let editedValue = document.getElementById(subtaskId).textContent;
   console.log('Edit Subtask:', editedValue);
 
 }
 
-
+/**
+ * This function is used for deletes a subtask with the specified ID from the currentSubtasks array and the DOM.
+ */
 function deleteSubtask(subtaskId) {
   const subtaskIndex = currentSubtasks.findIndex(task => task.id === subtaskId);
   if (subtaskIndex !== -1) {
