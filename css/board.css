@@ -1309,6 +1309,9 @@ min-height: unset;
   }
 }
 @media (max-width: 350px) {
+  .boardTopSektion{
+    padding: 72px 16px 14px 0px;
+  }
   .openCardsDetailsEdit{
     width: 426px;
   }
