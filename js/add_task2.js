@@ -1,3 +1,6 @@
+/**
+ * Clears input fields, selected contacts, and resets task category, subtasks, and checkboxes.
+ */
 function clearInputFields() {
   let titleInput = document.getElementById('addTastTitel');
   let descriptionInput = document.getElementById('addTastTextArea');
@@ -9,7 +12,9 @@ function clearInputFields() {
   clearInputFieldsValues(titleInput, descriptionInput, dateInput, selectedContact, categorySelectBox, subtaskInputBox, subtaskContainer, subtaskContainer);
 }
 
-
+/**
+ * Clears the values of input fields, selected contacts, task category, subtasks, and resets checkboxes.
+ */
 function clearInputFieldsValues(titleInput, descriptionInput, dateInput, selectedContact, categorySelectBox, subtaskInputBox, subtaskContainer, subtaskContainer){
   titleInput.value=``;
   descriptionInput.value=``;
@@ -23,7 +28,9 @@ function clearInputFieldsValues(titleInput, descriptionInput, dateInput, selecte
   removeClassesOFgetThePriorityByClean();
 }
 
-
+/**
+ * Resets all checkboxes and removes selected users from the list.
+ */
 function resetCheckboxes(){
   for (let i = 0; i < loggedInUser.contacts.length; i++) {
     let checkbox = document.getElementById(`inputId${i}`);
@@ -39,7 +46,9 @@ function resetCheckboxes(){
   selectedUsers = [];
 }
 
-
+/**
+ * Removes priority-related classes to reset the priority selection.
+ */
 function removeClassesOFgetThePriorityByClean(){
   document.getElementById('low').classList.remove("active3");
   document.getElementById('medium').classList.remove("active2");
@@ -49,7 +58,10 @@ function removeClassesOFgetThePriorityByClean(){
   document.getElementById("urgentPriority").classList.remove("colorIcon");
 }
 
-
+/**
+ * Displays the edit window for a subtask with the specified ID.
+ * @param {string} subtaskId - The ID of the subtask to be edited.
+ */
 function editSubtask(subtaskId){
     let subtaskElement = document.getElementById(`${subtaskId}`);
     let editWindowElement = document.getElementById(`subtaskEditWindow${subtaskId}`);
@@ -63,7 +75,10 @@ function editSubtask(subtaskId){
     editWindowElement.focus();
 }
 
-
+/**
+ * Updates the value of a subtask with the specified ID after editing.
+ * @param {string} subtaskId - The ID of the subtask to be updated.
+ */
 function agreeEditSubtask(subtaskId){
     let editWindowElement = document.getElementById(`subtaskEditWindow${subtaskId}`);
     let updatedValue = editWindowElement.value;
@@ -77,6 +92,9 @@ function agreeEditSubtask(subtaskId){
     renderSubtasksByAddTask();
 }
 
+/**
+ * Renders the subtasks in the subtaskContainer by adding HTML elements.
+ */
 function renderSubtasksByAddTask() {
     let addTask = document.getElementById('subtaskContainer');
     addTask.innerHTML = '';
