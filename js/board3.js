@@ -1,5 +1,5 @@
 /**
- * Create new subtasks in the edit window at board
+ * Adds a subtask on the side add task section.
  */
 function addSubTask2() {
     let subtaskInput = document.getElementById('subtaskInput2');
@@ -16,7 +16,10 @@ function addSubTask2() {
     }
 }
 
-
+/**
+ * Opens the edit window for a subtask on the board.
+ * @param {string} subtaskId - The ID of the subtask.
+ */
 function BoardEditSubtask(subtaskId){
     let subtaskElement = document.getElementById(`BoarD${subtaskId}`);
     let editWindowElement = document.getElementById(`BoardSubtaskEditWindow${subtaskId}`);
@@ -30,7 +33,10 @@ function BoardEditSubtask(subtaskId){
     editWindowElement.focus();
 }
 
-
+/**
+ * Applies the edited value for a subtask on the board.
+ * @param {string} subtaskId - The ID of the subtask.
+ */
 function BoardEgreeEditSubtask(subtaskId){
     let editWindowElement = document.getElementById(`BoardSubtaskEditWindow${subtaskId}`);
     let updatedValue = editWindowElement.value;
@@ -44,7 +50,9 @@ function BoardEgreeEditSubtask(subtaskId){
     BoardRenderSubtasksByAddTask();
 }
 
-
+/**
+ * Renders the subtasks on the board by adding a task.
+ */
 function BoardRenderSubtasksByAddTask() {
     let addTask = document.getElementById('selectedSubrasks');
     addTask.innerHTML = '';
@@ -54,7 +62,10 @@ function BoardRenderSubtasksByAddTask() {
     }); 
 }
 
-
+/**
+ * Deletes a subtask on the board.
+ * @param {string} id - The ID of the subtask.
+ */
 function BoardDeleteSubtask(id) {
     const subtaskIndex = currentSubtasksBoard.findIndex(task => task.id === id);
     if (subtaskIndex !== -1) {
@@ -66,7 +77,7 @@ function BoardDeleteSubtask(id) {
     }
   
   }
-  
+
   /**
  * Opens the edit container, populates it with the details of the selected task, and hides the openCardContainer.
  * @param {number} element - The index of the selected task in the allTask array.
@@ -98,5 +109,34 @@ function renderContactsSmall(element) {
     <div id="${contact.id}" class="userBoxContainer displayFlex">
       <div class="imgPerson displayFlex" style="background-color: ${contact["color"]};">${contact["initial"]}</div>
     </div>`;
+  }
+}
+
+/**
+ * Toggles the visibility of the category container on the side add task section.
+ */
+function showCategoryContacts2() {
+  document.getElementById("categoryContainer2").classList.toggle("d-none");
+}
+
+/**
+ * Loads the technical task on the side add task section.
+ */
+function loadTechnicalTask2() {
+  let Box = document.getElementById('technicalTaskID2');
+  let currentValue = Box.innerHTML;
+  if (currentValue === "Technical Task") {
+    document.getElementById('SelectTaskCatergory2').innerHTML = currentValue;
+  }
+}
+
+/**
+ * Loads the user story on the side add task section.
+ */
+function loadUserStory2() {
+  let Box = document.getElementById('userStoryID2');
+  let currentValue = Box.innerHTML;
+  if (currentValue === "User Story") {
+    document.getElementById('SelectTaskCatergory2').innerHTML = currentValue;
   }
 }
