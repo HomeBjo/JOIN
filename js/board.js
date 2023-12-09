@@ -5,8 +5,9 @@ let selectedSubtaskCounts = [];
 let currentIndex = 0;
 let startDraggingIndex = 0;
 
-
-
+/**
+ * Initializes the board by loading tasks, highlighting the board title, and displaying user profile initials.
+ */
 async function init() {
   await includeHTML();
   loggedInUser = await getLoggedInUser();
@@ -24,7 +25,11 @@ async function init() {
   updateProgressBarOnload()
 }
 
-
+/**
+ * Gets the image path for the specified priority.
+ * @param {string} priority - The priority value ('high', 'medium', 'low').
+ * @returns {string} - The image path for the priority.
+ */
 function getPriorityImagePath(priority) {
   const priorityPaths = {
     high: "../assets/img/prio_alta.svg",
@@ -39,7 +44,9 @@ function getPriorityImagePath(priority) {
   }
 }
 
-
+/**
+ * Searches for tasks based on the input in the searchInput field and updates the displayed tasks accordingly.
+ */
 function searchTask() {
   const searchInput = document.getElementById('searchInput');
   const searchTerm = searchInput.value.toLowerCase();
@@ -57,6 +64,10 @@ function searchTask() {
 
 }
 
+/**
+ * Updates the progress bar for each task based on the completion status of its subtasks.
+ * @param {Array} taskList - The list of tasks to update progress bars for.
+ */
 function updateProgressBarFiltered(taskList) {
   for (let i = 0; i < taskList.length; i++) {
     const element = taskList[i];
@@ -79,7 +90,11 @@ function updateProgressBarFiltered(taskList) {
   }
 }
 
-
+/**
+ * Updates the HTML container with the specified category and task list.
+ * @param {string} category - The category to update.
+ * @param {Array} taskList - The list of tasks for the category.
+ */
 function updateContainer(category, taskList) {
   let container = document.getElementById(category);
   container.innerHTML = "";
@@ -94,7 +109,10 @@ function updateContainer(category, taskList) {
   }
 }
 
-
+/**
+ * Updates the HTML content for different task categories based on the provided task information.
+ * @param {Array} getTaskInfo - The array containing task information.
+ */
 function updateHTML(getTaskInfo) {
   selectedUsers = [];
 
@@ -111,17 +129,27 @@ function updateHTML(getTaskInfo) {
   updateContainer("done", doneList);
 }
 
-
+/**
+ * Prevents the default behavior of the drag-and-drop operation.
+ * @param {Event} ev - The drag event.
+ */
 function allowDrop(ev) {
   ev.preventDefault();
 }
 
-
+/**
+ * Sets the currentDraggedElement to the provided ID when starting the drag operation.
+ * @param {string} id - The ID of the element being dragged.
+ */
 function startDragging(id) {
   currentDraggedElement = id;
 }
 
-
+/**
+ * Gets the index of the element being dragged in the allTask array.
+ * @param {string} element - The ID of the element being dragged.
+ * @returns {number} - The index of the element in the allTask array.
+ */
 function getStartDraggingIndex(element) {
   let idToDelete = Number(element);
   startDraggingIndex = 0;
@@ -134,7 +162,10 @@ function getStartDraggingIndex(element) {
   }
 }
 
-
+/**
+ * Moves the task with the dragged element ID to the specified category and updates the HTML.
+ * @param {string} category - The target category for the moved task.
+ */
 async function moveTo(category) {
   getStartDraggingIndex(currentDraggedElement);
   let info = await getItem('newTask');
@@ -145,24 +176,33 @@ async function moveTo(category) {
   updateProgressBarOnload();
 }
 
-
+/**
+ * Adds a highlighting effect to the element with the specified ID.
+ */
 function highlight(id) {
   document.getElementById(id).classList.add("boardtoDoSektion-highlight");
 }
 
-
+/**
+ * Removes the highlighting effect from the element with the specified ID after a delay.
+ */
 function removeHighlight(id) {
   setTimeout(function () {
     document.getElementById(id).classList.remove("boardtoDoSektion-highlight");
   }, 100);
 }
 
-
+/**
+ * Generates and displays the side menu for adding tasks.
+ */
 function generateAddTaskSideMenu() {
   document.getElementById('FirstCardRenderContainer').innerHTML = generateTemplateHtmlSideMenu();
 }
 
-
+/**
+ * Displays the add task menu for the specified category.
+ * @param {string} category - The category for which to display the add task menu.
+ */
 function showAddTaskMenu(category) {
   document.getElementById("FirstCardRenderContainer").classList.remove("d-none");
   document.getElementById("menuContainerBox").classList.add("menuContainer");
@@ -171,13 +211,19 @@ function showAddTaskMenu(category) {
  
 }
 
-
+/**
+ * Closes the add task menu.
+ */
 function closeAddTaskMenu() {
   document.getElementById("menuContainerBox").classList.remove("menuContainer");
   document.getElementById("sideMenu").classList.remove("showmenu");
 }
 
-
+/**
+ * Opens the card container and populates it with task details, including priority, user dates, and subtasks.
+ * @param {string} element - The ID of the task element.
+ * @param {string} priorityImagePath - The path to the priority image.
+ */
 function openCardContainer(element, priorityImagePath) {
   let priorityText;
   getCurrentIndex(element);
@@ -198,7 +244,11 @@ function openCardContainer(element, priorityImagePath) {
   updateCheckboxStatus(element);
 }
 
-
+/**
+ * Gets the index of the specified task element in the allTask array.
+ * @param {string} element - The ID of the task element.
+ * @returns {number} - The index of the task element in the allTask array.
+ */
 function getCurrentIndex(element) {
   let idToDelete = Number(element);
   currentIndex = 0;
@@ -211,7 +261,10 @@ function getCurrentIndex(element) {
   }
 }
 
-
+/**
+ * Updates the checkbox status of subtasks for the specified task element.
+ * @param {string} element - The ID of the task element.
+ */
 function updateCheckboxStatus(element) {
   const checkboxes = document.querySelectorAll('.subtaskCheckbox input[type="checkbox"]');
   const subtaskCounts = selectedSubtaskCounts[element];
@@ -226,7 +279,9 @@ function updateCheckboxStatus(element) {
   }
 }
 
-
+/**
+ * Renders user dates for the specified task element.
+ */
 function usersDate() {
   let userDateRender = document.getElementById('usersDateContent');
   let contactsHTML = "";
@@ -238,7 +293,12 @@ function usersDate() {
   userDateRender.innerHTML = contactsHTML;
 }
 
-
+/**
+ * Renders the HTML for subtasks of the specified task element.
+ * @param {string} element - The ID of the task element.
+ * @param {Array} subtasks - The array containing subtask information.
+ * @returns {string} - The HTML content for subtasks.
+ */
 function renderSubtasks(element, subtasks) {
   let subtasksHTML = "";
   for (let i = 0; i < subtasks.length; i++) {
@@ -253,7 +313,11 @@ function renderSubtasks(element, subtasks) {
   return subtasksHTML;
 }
 
-
+/**
+ * Handles the click event for a subtask checkbox and updates the selectedSubtaskCounts.
+ * @param {string} cardElement - The ID of the task element.
+ * @param {string} subtaskId - The ID of the subtask.
+ */
 async function checkboxClicked(cardElement, subtaskId) {
   const checkbox = document.getElementById(subtaskId);
   let numberOfSubtask = document.getElementById(`test${cardElement}`);
@@ -268,7 +332,11 @@ async function checkboxClicked(cardElement, subtaskId) {
   await updateStatus(subtaskId, checkbox.checked);
 }
 
-
+/**
+ * Updates the status of a subtask in the allTask array and triggers updates to the taskbar and progress bar.
+ * @param {string} subtaskIdToUpdate - The ID of the subtask to update.
+ * @param {boolean} newStatusValue - The new status value for the subtask (true if completed, false otherwise).
+ */
 async function updateStatus(subtaskIdToUpdate, newStatusValue) {
 
   for (let j = 0; j < allTask[0].length; j++) {
@@ -284,7 +352,11 @@ async function updateStatus(subtaskIdToUpdate, newStatusValue) {
   updateProgressBarOnload();
 }
 
-
+/**
+ * Updates the progress bar for a specific task element based on its subtask completion status.
+ * @param {string} element - The ID of the task element.
+ * @param {string} subtaskId - The ID of the subtask.
+ */
 async function updateProgressBar(element, subtaskId) {
   const progressBar = document.getElementById(`subtaskProgressBar${element}`);
 
@@ -295,7 +367,9 @@ async function updateProgressBar(element, subtaskId) {
   await setItem('newTask', JSON.stringify(allTask[0][currentIndex].taskbar));
 }
 
-
+/**
+ * Updates the progress bars for all task elements on page load.
+ */
 function updateProgressBarOnload() {
   for (let i = 0; i < allTask[0].length; i++) {
     const element = allTask[0][i];
@@ -313,12 +387,17 @@ function updateProgressBarOnload() {
   }
 }
 
-
+/**
+ * Closes the card container by adding the "d-none" class to the openCardContainer element.
+ */
 function closeCardContainer() {
   document.getElementById("openCardContainer").classList.add("d-none");
 }
 
-
+/**
+ * Opens the edit container, populates it with the details of the selected task, and hides the openCardContainer.
+ * @param {number} element - The index of the selected task in the allTask array.
+ */
 function openEditContainer(element) {
   selectedUsers = allTask[0][element]["contacts"];
   let selectedSubrasks = allTask[0][element]["subtasks"];
@@ -332,7 +411,10 @@ function openEditContainer(element) {
   rederCurrentTasks(selectedSubrasks);
 }
 
-
+/**
+ * Renders small contact boxes in the specified container based on the contacts of a task element.
+ * @param {Object} element - The task element.
+ */
 function renderContactsSmall(element) {
   let box = document.getElementById('addContactstoassign2');
   box.innerHTML = '';
