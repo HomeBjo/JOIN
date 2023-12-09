@@ -400,32 +400,3 @@ function addContacts2() {
   let box = document.getElementById("selectContainer2");
   box.classList.toggle("d-none");
 }
-
-/**
- * Toggles the visibility of the category container on the side add task section.
- */
-function showCategoryContacts2() {
-  document.getElementById("categoryContainer2").classList.toggle("d-none");
-}
-
-/**
- * Loads the technical task on the side add task section.
- */
-function loadTechnicalTask2() {
-  let Box = document.getElementById('technicalTaskID2');
-  let currentValue = Box.innerHTML;
-  if (currentValue === "Technical Task") {
-    document.getElementById('SelectTaskCatergory2').innerHTML = currentValue;
-  }
-}
-
-/**
- * Loads the user story on the side add task section.
- */
-function loadUserStory2() {
-  let Box = document.getElementById('userStoryID2');
-  let currentValue = Box.innerHTML;
-  if (currentValue === "User Story") {
-    document.getElementById('SelectTaskCatergory2').innerHTML = currentValue;
-  }
-}
