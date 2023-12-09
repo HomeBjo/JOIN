@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: board3.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,85 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: board3.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Create new subtasks in the edit window at board
+ */
+function addSubTask2() {
+    let subtaskInput = document.getElementById('subtaskInput2');
+    let addTask = document.getElementById('selectedSubrasks');
+    let subtaskValue = subtaskInput.value;
+    let subtaskId = 'subtask' + Date.now();
+    if (subtaskValue.trim() !== '') {
+      addTask.innerHTML += rederCurrentTasksHtml(subtaskId, subtaskValue, subtaskId);
+      subtaskInput.value = '';
+      currentSubtasksBoard.push({
+        id: subtaskId,
+        value: subtaskValue,
+      });
+    }
+}
 
 
-    <h3> </h3>
+function BoardEditSubtask(subtaskId){
+    let subtaskElement = document.getElementById(`BoarD${subtaskId}`);
+    let editWindowElement = document.getElementById(`BoardSubtaskEditWindow${subtaskId}`);
+    document.getElementById(`BoardEdit&amp;deleteImgs${subtaskId}`).classList.add('d-none');
+    document.getElementById(`BoardAgree&amp;denyImgs${subtaskId}`).classList.remove('d-none');
+    subtaskElement.classList.add('d-none');
+    editWindowElement.classList.remove('d-none');
+
+    let subtaskValue = subtaskElement.innerText;
+    editWindowElement.value = subtaskValue;
+    editWindowElement.focus();
+}
 
 
+function BoardEgreeEditSubtask(subtaskId){
+    let editWindowElement = document.getElementById(`BoardSubtaskEditWindow${subtaskId}`);
+    let updatedValue = editWindowElement.value;
+
+    let subtaskIndex = currentSubtasksBoard.findIndex(subtask => subtask.id === subtaskId);
+
+    if (subtaskIndex !== -1) {
+        currentSubtasksBoard[subtaskIndex].value = updatedValue;
+    }
+
+    BoardRenderSubtasksByAddTask();
+}
 
 
+function BoardRenderSubtasksByAddTask() {
+    let addTask = document.getElementById('selectedSubrasks');
+    addTask.innerHTML = '';
+
+    currentSubtasksBoard.forEach(subtask => {
+        addTask.innerHTML += rederCurrentTasksHtml(subtask.id, subtask.value);
+    }); 
+}
 
 
-
-
-
-
-    
-
-
-
-
-
+function BoardDeleteSubtask(id) {
+    const subtaskIndex = currentSubtasksBoard.findIndex(task => task.id === id);
+    if (subtaskIndex !== -1) {
+      currentSubtasksBoard.splice(subtaskIndex, 1);
+    }
+    const subtaskElement = document.getElementById(`BoardCurrenT${id}`);
+    if (subtaskElement) {
+      subtaskElement.remove();
+    }
+  
+  }</code></pre>
+        </article>
+    </section>
 
 
 

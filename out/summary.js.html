@@ -204,27 +204,37 @@ function getPriority(){
 
 
 /**
- * Here, the date that is closer to the current day is selected under all tasks and displayed
+ * Here the date that is closest to the current day among all tasks that have a "high" priority is selected and displayed
  */
 function upcomingDate() {
     let tasks = currentTaskInfo[0];
     let date = document.getElementById('date');
     let dateMobile = document.getElementById('dateMobile');
-    upcomingDateIfStatement(tasks.length);
-    let urgentDate = new Date(tasks[0].date); // Initialize with the date of the first task
 
-    tasks.forEach(task => {
+    let highPriorityTasks = tasks.filter(task => task.priority === "high");
+
+    if (highPriorityTasks.length > 0) {
+        let urgentDate = getUrgentDate(highPriorityTasks);
+
+        const options = { month: 'long', day: 'numeric', year: 'numeric' };
+        const formattedUrgentDate = urgentDate.toLocaleDateString('en-EN', options);
+        upcomingDateIfHtml(date, dateMobile, formattedUrgentDate);
+    } else {
+        upcomingDateElseHtml(date, dateMobile);
+    }
+}
+
+
+function getUrgentDate(highPriorityTasks) {
+    let urgentDate = new Date(highPriorityTasks[0].date);
+
+    highPriorityTasks.forEach(task => {
         const taskDate = new Date(task.date);
-
         if (taskDate &lt; urgentDate) {
             urgentDate = taskDate;
         }
     });
-
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    const formattedUrgentDate = urgentDate.toLocaleDateString('en-EN', options);
-    date.innerHTML = /*html*/`&lt;div class="showTheNumbers">${formattedUrgentDate}&lt;/div>`;
-    dateMobile.innerHTML = /*html*/`&lt;div class="showTheNumbers">${formattedUrgentDate}&lt;/div>`;
+    return urgentDate;
 }
 
 
@@ -233,6 +243,18 @@ function upcomingDateIfStatement(tasks){
         console.log("No tasks available.");
         return;
     }
+}
+
+
+function upcomingDateIfHtml(date, dateMobile, formattedUrgentDate){
+    date.innerHTML = /*html*/`&lt;div class="showTheNumbers">${formattedUrgentDate}&lt;/div>`;
+    dateMobile.innerHTML = /*html*/`&lt;div class="showTheNumbers">${formattedUrgentDate}&lt;/div>`;
+}
+
+
+function upcomingDateElseHtml(date, dateMobile){
+    date.innerHTML = /*html*/`&lt;div class="showTheNumbers">No high priority tasks&lt;/div>`;
+    dateMobile.innerHTML = /*html*/`&lt;div class="showTheNumbers">No high priority tasks&lt;/div>`;
 }</code></pre>
         </article>
     </section>
@@ -243,13 +265,13 @@ function upcomingDateIfStatement(tasks){
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addContactAnimation">addContactAnimation</a></li><li><a href="global.html#addContactToUserContacts">addContactToUserContacts</a></li><li><a href="global.html#calcAllTogether">calcAllTogether</a></li><li><a href="global.html#createNewContact">createNewContact</a></li><li><a href="global.html#deleteContact">deleteContact</a></li><li><a href="global.html#editContact">editContact</a></li><li><a href="global.html#generateContactInSmall">generateContactInSmall</a></li><li><a href="global.html#generateRandomColor">generateRandomColor</a></li><li><a href="global.html#generateUserName">generateUserName</a></li><li><a href="global.html#getAmountOfTasks">getAmountOfTasks</a></li><li><a href="global.html#getContact4Delete">getContact4Delete</a></li><li><a href="global.html#getCurrentValues">getCurrentValues</a></li><li><a href="global.html#getInitialContacts">getInitialContacts</a></li><li><a href="global.html#getPriority">getPriority</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#loadMoreVert">loadMoreVert</a></li><li><a href="global.html#pushContactInfo">pushContactInfo</a></li><li><a href="global.html#renderNumbers">renderNumbers</a></li><li><a href="global.html#renderNumverMobile">renderNumverMobile</a></li><li><a href="global.html#resetForm">resetForm</a></li><li><a href="global.html#saveEditContactWindow">saveEditContactWindow</a></li><li><a href="global.html#saveVariable">saveVariable</a></li><li><a href="global.html#setValueInIput">setValueInIput</a></li><li><a href="global.html#showAssignetContacts2">showAssignetContacts2</a></li><li><a href="global.html#showDetailsOfContact">showDetailsOfContact</a></li><li><a href="global.html#sortByFirstLetter">sortByFirstLetter</a></li><li><a href="global.html#startAnimation">startAnimation</a></li><li><a href="global.html#upcomingDate">upcomingDate</a></li><li><a href="global.html#updateGreeting">updateGreeting</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addContactAnimation">addContactAnimation</a></li><li><a href="global.html#addContactToUserContacts">addContactToUserContacts</a></li><li><a href="global.html#addContacts">addContacts</a></li><li><a href="global.html#addSubTask">addSubTask</a></li><li><a href="global.html#addSubTask2">addSubTask2</a></li><li><a href="global.html#addedSubtask">addedSubtask</a></li><li><a href="global.html#calcAllTogether">calcAllTogether</a></li><li><a href="global.html#checkInputFields">checkInputFields</a></li><li><a href="global.html#clearArray">clearArray</a></li><li><a href="global.html#clearTasksArray">clearTasksArray</a></li><li><a href="global.html#closeCategoryContainer">closeCategoryContainer</a></li><li><a href="global.html#closeSelectContainer">closeSelectContainer</a></li><li><a href="global.html#createNewContact">createNewContact</a></li><li><a href="global.html#createNewTask">createNewTask</a></li><li><a href="global.html#createNewTaskFromBoard">createNewTaskFromBoard</a></li><li><a href="global.html#deleteContact">deleteContact</a></li><li><a href="global.html#deleteSubtask">deleteSubtask</a></li><li><a href="global.html#editContact">editContact</a></li><li><a href="global.html#editSubtask">editSubtask</a></li><li><a href="global.html#generateContactInSmall">generateContactInSmall</a></li><li><a href="global.html#generateRandomColor">generateRandomColor</a></li><li><a href="global.html#generateUserName">generateUserName</a></li><li><a href="global.html#getAllTasks">getAllTasks</a></li><li><a href="global.html#getAmountOfTasks">getAmountOfTasks</a></li><li><a href="global.html#getColorOfPriority">getColorOfPriority</a></li><li><a href="global.html#getContact4Delete">getContact4Delete</a></li><li><a href="global.html#getCurrentValues">getCurrentValues</a></li><li><a href="global.html#getInitialContacts">getInitialContacts</a></li><li><a href="global.html#getPriority">getPriority</a></li><li><a href="global.html#getSelectedUser">getSelectedUser</a></li><li><a href="global.html#getThePriority">getThePriority</a></li><li><a href="global.html#getUserContactData">getUserContactData</a></li><li><a href="global.html#getValues">getValues</a></li><li><a href="global.html#handleCheckboxClick">handleCheckboxClick</a></li><li><a href="global.html#ifStatementsOfcheckInputFields">ifStatementsOfcheckInputFields</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#loadCategory">loadCategory</a></li><li><a href="global.html#loadMoreVert">loadMoreVert</a></li><li><a href="global.html#loadTechnicalTask">loadTechnicalTask</a></li><li><a href="global.html#loadUserStory">loadUserStory</a></li><li><a href="global.html#pushContactInfo">pushContactInfo</a></li><li><a href="global.html#pushTaskInfo">pushTaskInfo</a></li><li><a href="global.html#removeClassesOFgetThePriority">removeClassesOFgetThePriority</a></li><li><a href="global.html#renderNumbers">renderNumbers</a></li><li><a href="global.html#renderNumverMobile">renderNumverMobile</a></li><li><a href="global.html#resetForm">resetForm</a></li><li><a href="global.html#saveEditContactWindow">saveEditContactWindow</a></li><li><a href="global.html#saveVariable">saveVariable</a></li><li><a href="global.html#setValueInIput">setValueInIput</a></li><li><a href="global.html#showAssignetContacts">showAssignetContacts</a></li><li><a href="global.html#showCategoryContacts">showCategoryContacts</a></li><li><a href="global.html#showCreateAnimation">showCreateAnimation</a></li><li><a href="global.html#showDetailsOfContact">showDetailsOfContact</a></li><li><a href="global.html#sortByFirstLetter">sortByFirstLetter</a></li><li><a href="global.html#startAnimation">startAnimation</a></li><li><a href="global.html#upcomingDate">upcomingDate</a></li><li><a href="global.html#updateGreeting">updateGreeting</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Dec 05 2023 13:24:01 GMT+0100 (Mitteleuropäische Normalzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Dec 09 2023 14:33:00 GMT+0100 (Mitteleuropäische Normalzeit)
 </footer>
 
 <script> prettyPrint(); </script>
