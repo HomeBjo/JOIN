@@ -699,7 +699,7 @@ body {
   }
 
 
- @media (max-width: 500px) {
+ /* @media (max-width: 500px) {
   .contentContainer {
     display: flex;
     flex-direction: column;
@@ -768,9 +768,9 @@ body {
   .inputfieldDateContainer{
     width: 320px;
   }
-} 
+}  */
 
-@media (max-width: 390px) {
+@media (max-width: 500px) {
   .selectContainer{
     width: 290px !important;
     height: 116px!important;
