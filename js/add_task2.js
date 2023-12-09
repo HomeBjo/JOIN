@@ -86,3 +86,53 @@ function renderSubtasksByAddTask() {
     });
 }
 
+/**
+ * This function is used for loads the userStoryID and updates the task category in the SelectTaskCatergory element.
+ */
+function loadUserStory() {
+  let Box = document.getElementById('userStoryID');
+  let currentValue = Box.innerHTML;
+  if (currentValue === "User Story") {
+    document.getElementById('SelectTaskCatergory').innerHTML = currentValue;
+  }
+}
+
+/**
+ * This function is used for retrieves the selected category from the categorySelect element and returns its trimmed value.
+ */
+function loadCategory() {
+  let getValue = document.getElementById('categorySelect').textContent.trim();
+  return getValue;
+}
+
+/**
+ * This function is used for retrieves the value of the input element with the id "subtaskValue."
+ */
+function addedSubtask() {
+  let box = document.getElementById("subtaskValue").value;
+  return box.textContent;
+}
+
+/**
+ * This function is used for Retrieves the text content of the element with the provided subtask ID.
+ */
+function editSubtask(subtaskId) {
+  let editedValue = document.getElementById(subtaskId).textContent;
+  console.log('Edit Subtask:', editedValue);
+
+}
+
+/**
+ * This function is used for deletes a subtask with the specified ID from the currentSubtasks array and the DOM.
+ */
+function deleteSubtask(subtaskId) {
+  const subtaskIndex = currentSubtasks.findIndex(task => task.id === subtaskId);
+  if (subtaskIndex !== -1) {
+    currentSubtasks.splice(subtaskIndex, 1);
+  }
+  const subtaskElement = document.getElementById(`currenT${subtaskId}`);
+  if (subtaskElement) {
+    subtaskElement.remove();
+  }
+}
+

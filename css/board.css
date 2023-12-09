@@ -771,6 +771,9 @@ body {
     top: 13px;
     right: 9px;
   }
+  .mobileButtonContainer{
+    width: 393px!important;
+  }
   .mobile{
     width: 440px!important;
   }
@@ -1290,6 +1293,9 @@ min-height: unset;
   .openCardsDetailsEdit{
     width: 426px;
   }
+  .header-sideMenuImg{
+    left: 279px;
+  }
   .inputFieldTitleBoardX  {
     width: 270px!important;
   }
@@ -1360,7 +1366,7 @@ min-height: unset;
     width: 270px !important;
   } 
   .buttonContainer{
-    gap: 23px !important;
+    gap: 15px !important;
   }
   .subtaskList{
     width: 270px;
