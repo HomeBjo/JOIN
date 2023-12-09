@@ -455,7 +455,7 @@ body {
   color: rgba(42, 54, 71, 1);
 }
 
-.userBoxContainer:hover{
+.userBoxContainerBox:hover{
   background-color: #d2e3ff;
   border-radius: 10px;
 }
@@ -672,6 +672,20 @@ body {
   height: 148px!important;
   overflow: auto;
 }
+.mobileSide::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 8px;
+  height: 8px;
+}
+.mobileSide::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+  width: 8px;
+}
+
 .subtaskContainerMobile{
   height: 250px;
   overflow: scroll;
@@ -704,6 +718,20 @@ body {
   overflow: scroll;
   height: 200px;
   overflow-x: hidden;
+}
+
+.selectContainerBoard::-webkit-scrollbar {
+  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 8px;
+  height: 8px;
+}
+.selectContainerBoard::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8a8a8;
+  width: 8px;
 }
 
 .selectedSubrasksMobile{
@@ -761,6 +789,9 @@ body {
   color: #007bff; 
 }
 
+.checkBox{
+  cursor: pointer;
+}
 
 
 @media (max-width: 1260px) {
@@ -880,19 +911,7 @@ min-height: unset;
   overflow: scroll;
   width: 401px;
 }
-.selectContainerBoard::-webkit-scrollbar {
-  -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  width: 8px;
-  height: 8px;
-}
-.selectContainerBoard::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #a8a8a8;
-  width: 8px;
-}
+
 .selectContainerX {
   display: flex;
   flex-direction: column;
@@ -1151,7 +1170,7 @@ min-height: unset;
     width: 330px!important;
   }
   .addContactstoassignBoard{
-    width: 255px !important;
+    width: 300px !important;
     margin-left: 16px;
   }
   /* .subtaskInput{
@@ -1345,7 +1364,7 @@ min-height: unset;
     width: 270px;
   }
   .addContactstoassignBoard{
-    width: 270px;
+    width: 246px !important;
   }
   .selectContainerX{
     width: 270px !important;

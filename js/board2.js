@@ -105,7 +105,6 @@ function handleCheckboxClick2(i, userName, getInitial, getColor) {
     if (!selectedUsers.some(user => user.name === userName)) {
       let selectedUser = getSelectedUser(userName, loggedInUser.contacts[i].email, loggedInUser.contacts[i].phone, getInitial, getColor);
       selectedUsers.push(selectedUser);
-      console.log(`selectedUsers hat ${selectedUsers.length}`);
       renderAddedContactBox(selectedUsers);
     }
   } else {

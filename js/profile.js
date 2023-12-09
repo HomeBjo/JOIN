@@ -1,22 +1,37 @@
 let loggedInUser;
 
+
+/**
+ * Initializes the user profile, includes HTML, and retrieves the logged-in user.
+ */
 async function initProfile() {
     await includeHTML();
     loggedInUser = await getLoggedInUser();
     showProfileInitials(loggedInUser);
 }
 
+
+/**
+ * Retrieves the currently logged-in user from storage.
+ */
 async function getLoggedInUser() {
     const userData = await getItem('loggedInUser');
     return JSON.parse(userData);
 }
 
+
+/**
+ * Greets the user by updating the displayed name.
+ */
 function greetUser(loggedInUser) {
     let name = document.getElementById('greet-name');
     name.textContent = loggedInUser.username;
 }
 
 
+/**
+ * Displays the user's initials in the profile section.
+ */
 function showProfileInitials(loggedInUser) {
     let initials = document.getElementById('profile-initials');
     let initialsMobile = document.getElementById('profile-initials-mobile');
@@ -40,6 +55,9 @@ function showProfileInitials(loggedInUser) {
 }
 
 
+/**
+ * Toggles the visibility of the profile settings section.
+ */
 function toggleSettings() {
     let settings = document.getElementById('profile-settings');
     let profile = document.getElementById('initials-div')
@@ -54,6 +72,9 @@ function toggleSettings() {
 }
 
 
+/**
+ * Toggles the visibility of the mobile profile settings section.
+ */
 function toggleSettingsMobile() {
     let settingsMobile = document.getElementById('profile-settings-mobile');
     let profileMobile = document.getElementById('initials-div-mobile')
@@ -68,11 +89,17 @@ function toggleSettingsMobile() {
 }
 
 
+/**
+ * Redirects the user to the help page.
+ */
 function loadHelp() {
     window.location.href = '../html/help.html';
 }
 
 
+/**
+ * Logs out the user by updating the logged-in user data and redirecting to the login page.
+ */
 async function logout() {
     try {
         await updateLoggedInUser({});
@@ -83,11 +110,17 @@ async function logout() {
 }
 
 
+/**
+ * Navigates back to the previous page in the browsing history.
+ */
 function returnBack() {
     window.history.back();
 }
 
 
+/**
+ * Highlights the title of the specified page.
+ */
 function highlightTitle(pageId) {
     let page = document.getElementById(pageId);
 
@@ -95,6 +128,9 @@ function highlightTitle(pageId) {
 }
 
 
+/**
+ * Highlights the title of the specified page with a different style.
+ */
 function highlightTitle2(pageId) {
     let page = document.getElementById(pageId);
 
@@ -102,13 +138,18 @@ function highlightTitle2(pageId) {
 }
 
 
+/**
+ * Highlights the title of the specified page in the mobile view.
+ */
 function highlightTitleMobile(pageId) {
     let page = document.getElementById(pageId);
 
     page.classList.add('highlighted-mobile');
 }
 
-
+/**
+ * Updates the data of the currently logged-in user.
+ */
 async function updateLoggedInUser(newValues) {
     const url = `${STORAGE_URL}?key=loggedInUser&token=${STORAGE_TOKEN}`;
     const payload = { key: 'loggedInUser', token: STORAGE_TOKEN, value: newValues };

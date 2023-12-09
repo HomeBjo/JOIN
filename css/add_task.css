@@ -390,6 +390,12 @@ body {
   display: flex;
 }
 
+.userBoxContainerBox:hover{
+  background-color: #d2e3ff;
+  border-radius: 10px;
+}
+
+
 .categoryContainer {
   display: flex;
   flex-direction: column;

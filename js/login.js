@@ -1,5 +1,6 @@
-
-
+/**
+ * This function initializes the start and loads important functions
+ */
 function init() {
     renderLogInCard();
     getRememberedUser();
@@ -8,18 +9,27 @@ function init() {
 }
 
 
+/**
+ * This function initializes the start and loads important functions for sing up
+ */
 function renderSignUpContent() {
     renderSignUpBody();
     renderSignUpCard();
 }
 
 
+/**
+ * This function initializes the start and loads important functions for log in
+ */
 function renderLogInContent() {
     renderLogInBody();
     renderLogInCard();
 }
 
 
+/**
+ * Updates the body elements to render the sign-up style.
+ */
 function renderSignUpBody() {
     let body = document.getElementById('body');
     let privacy = document.getElementById('privacy');
@@ -38,6 +48,9 @@ function renderSignUpBody() {
 }
 
 
+/**
+ * Updates the card elements to render the sign-up form.
+ */
 function renderSignUpCard() {
     let title = document.getElementById('title');
     let titleArrow = document.getElementById('arrow-left');
@@ -50,6 +63,9 @@ function renderSignUpCard() {
 }
 
 
+/**
+ * Updates the body elements to render the log-in style.
+ */
 function renderLogInBody() {
     let body = document.getElementById('body');
     let privacy = document.getElementById('privacy');
@@ -68,6 +84,9 @@ function renderLogInBody() {
 }
 
 
+/**
+ * Updates the card elements to render the log-in form.
+ */
 function renderLogInCard() {
     let title = document.getElementById('title');
     let titleArrow = document.getElementById('arrow-left');
@@ -79,7 +98,9 @@ function renderLogInCard() {
     form.innerHTML = logInFormTemplate();
 }
 
-
+/**
+ * Handles the login functionality, including validation and redirection.
+ */
 async function login() {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
@@ -108,6 +129,9 @@ async function login() {
 }
 
 
+/**
+ * Handles the case when the entered password is incorrect during login.
+ */
 function firstLoginElsePasrt(emailMessage, email, password, passwordMessage){
     emailMessage.innerHTML = '';
     email.classList.remove('red-bg');
@@ -116,6 +140,9 @@ function firstLoginElsePasrt(emailMessage, email, password, passwordMessage){
 }
 
 
+/**
+ * Handles the case when the entered email doesn't exist during login.
+ */
 function secondLoginElsePasrt(passwordMessage, password, email, emailMessage){
     passwordMessage.innerHTML = '';
     password.classList.remove('red-bg');
@@ -124,6 +151,9 @@ function secondLoginElsePasrt(passwordMessage, password, email, emailMessage){
 }
 
 
+/**
+ * Handles the guest login functionality and redirects to the summary page.
+ */
 async function guestLogin() {
     let user = users[2];
 
@@ -135,6 +165,9 @@ async function guestLogin() {
 }
 
 
+/**
+ * Retrieves and fills the input fields with the remembered user's data.
+ */
 async function getRememberedUser() {
     try {
         rememberedUser = JSON.parse(await getItem('rememberMe'));
@@ -145,6 +178,9 @@ async function getRememberedUser() {
 }
 
 
+/**
+ * Fills the input fields with the data of the remembered user.
+ */
 function fillInputs(rememberedUser) {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
@@ -156,6 +192,9 @@ function fillInputs(rememberedUser) {
 }
 
 
+/**
+ * Displays certain elements during the animation after a timeout.
+ */
 function showContentDuringAnimation() {
     setTimeout(function() {
         let elementsToDisplay = [

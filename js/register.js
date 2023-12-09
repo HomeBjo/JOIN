@@ -1,6 +1,9 @@
 let users = [];
 
 
+/**
+ * Generates a unique ID based on the current timestamp and a random letter.
+ */
 function generateUniqueId() {
     const currentDate = new Date();
     const timestamp = currentDate.getTime();
@@ -12,11 +15,17 @@ function generateUniqueId() {
 }
 
 
+/**
+ * Initializes the registration process.
+ */
 async function initRegister() {
     register();
 }
 
 
+/**
+ * Loads user data from storage.
+ */
 async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
@@ -26,30 +35,44 @@ async function loadUsers() {
 }
 
 
+/**
+ * Handles user registration, performs validation, and updates the UI accordingly.
+ */
 async function register() {
-    let signUpButton = document.getElementById('signup-button');
-    let username = document.getElementById('user-name');
-    let email = document.getElementById('email');
-    let password = document.getElementById('password');
-    let confirmPassword = document.getElementById('confirm-password');
-    let wrongPwMessage = document.getElementById('pw-fail');
-    let emailMessage = document.getElementById('email-fail');
+    const [signUpButton, username, email, password, confirmPassword, wrongPwMessage, emailMessage] = getValuesOfRegister();
 
     const emailExists = users.some(user => user.email === email.value);
 
     if (!emailExists) {
         if (password.value == confirmPassword.value) {
             await secondIfPartOfRegister(signUpButton, username, email, password, confirmPassword, wrongPwMessage);
-        }else{
+        } else {
             firstElsePartOfRegister(emailMessage, email, wrongPwMessage, password, confirmPassword);
         }
-    }else{
+    } else {
         emailMessage.innerHTML = /* html */ `<span>*Ups! your email already exists</span>`;
         email.classList.add('red-bg');
     }
 }
 
 
+function getValuesOfRegister() {
+    const signUpButton = document.getElementById('signup-button');
+    const username = document.getElementById('user-name');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm-password');
+    const wrongPwMessage = document.getElementById('pw-fail');
+    const emailMessage = document.getElementById('email-fail');
+
+    return [signUpButton, username, email, password, confirmPassword, wrongPwMessage, emailMessage];
+}
+
+
+
+/**
+ * Handles the case when the entered passwords do not match during registration.
+ */
 async function secondIfPartOfRegister(signUpButton, username, email, password, confirmPassword, wrongPwMessage){
     signUpButton.disabled = true;
     pushUserInfo(username, email, password);
@@ -64,6 +87,9 @@ async function secondIfPartOfRegister(signUpButton, username, email, password, c
 }
 
 
+/**
+ * Handles the successful completion of the registration process and triggers the animation.
+ */
 function firstElsePartOfRegister(emailMessage, email, wrongPwMessage, password, confirmPassword){
     emailMessage.innerHTML = '';
     email.classList.remove('red-bg');
@@ -73,6 +99,9 @@ function firstElsePartOfRegister(emailMessage, email, wrongPwMessage, password, 
 }
 
 
+/**
+ * Adds user information to the users array.
+ */
 function pushUserInfo(username, email, password, contacts) {
     const UNIQUE_ID = generateUniqueId();
 
@@ -86,6 +115,9 @@ function pushUserInfo(username, email, password, contacts) {
 }
 
 
+/**
+ * Resets the registration form after successful registration.
+ */
 function resetForm(signUpButton, username, email, password, confirmPassword) {
     username.value = '';
     email.value = '';
@@ -95,6 +127,9 @@ function resetForm(signUpButton, username, email, password, confirmPassword) {
 }
 
 
+/**
+ * Performs the success animation after a successful registration.
+ */
 async function signUpSuccessAnimation() {
     const successMessage = document.getElementById('successMessage');
     const overlay = document.getElementById('overlay');
@@ -107,6 +142,9 @@ async function signUpSuccessAnimation() {
 }
 
 
+/**
+ * Changes the image source and cursor style based on the password input length.
+ */
 function changeImage() {
     let passwordInput = document.getElementById('password');
     let passwordImage = document.getElementById('pw-img');
@@ -121,6 +159,9 @@ function changeImage() {
 }
 
 
+/**
+ * Changes the image source and cursor style based on the confirm password input length.
+ */
 function changeImage2() {
     let passwordInput = document.getElementById('confirm-password');
     let passwordImage = document.getElementById('cpw-img');
@@ -135,6 +176,9 @@ function changeImage2() {
 }
 
 
+/**
+ * Toggles the visibility of the password input and updates the eye icon accordingly.
+ */
 function toggleVisibility() {
     let passwordInput = document.getElementById('password');
     let passwordImage = document.getElementById('pw-img');
@@ -151,6 +195,9 @@ function toggleVisibility() {
 }
 
 
+/**
+ * Toggles the visibility of the confirm password input and updates the eye icon accordingly.
+ */
 function toggleVisibility2() {
     let passwordInput = document.getElementById('confirm-password');
     let passwordImage = document.getElementById('cpw-img');

@@ -1,10 +1,10 @@
 function showAssignetContactsHtml(getColor, getInitial, userName, i){
     return/*html*/ `
-    <div class="userBoxContainer displayFlex">
+    <label class="userBoxContainer displayFlex userBoxContainerBox">
       <div class="imgPerson displayFlex" style="background-color: ${getColor};">${getInitial}</div>
       <span class="userPosition">${userName}</span>
       <input type="checkbox" id="inputId${i}" onclick="handleCheckboxClick('${i}', '${userName}', '${getInitial}', '${getColor}')">
-    </div>`;
+    </label>`;
 }
 
 

@@ -297,7 +297,7 @@ function generateTemplateHtmlUserDate(contact) {
 
 function generateTemplateHtmlCreateNewTask2(contactData, i, selectedContacts) {
   return `
-        <div class="userBoxContainer displayFlex">
+        <div class="userBoxContainer displayFlex userBoxContainerBox">
           <div class="imgPerson displayFlex" style="background-color: ${contactData[i].color};">${contactData[i].initial}</div>
           <span class="userPosition">${contactData[i].name}</span>
           <input type="checkbox" id="inputId${i}" ${selectedContacts.some(user => user.name === contactData[i].name) ? 'checked' : ''} onclick="handleCheckboxClick2('${i}', '${contactData[i].name}', '${contactData[i].initial}', '${contactData[i].color}')">
@@ -307,7 +307,7 @@ function generateTemplateHtmlCreateNewTask2(contactData, i, selectedContacts) {
 
 function generateTemplateHtmlCreateNewTask22(selectedContacts, i) {
   return `
-        <div class="userBoxContainer displayFlex">
+        <div class="userBoxContainer displayFlex userBoxContainerBox">
           <div class="imgPerson displayFlex" style="background-color: ${selectedContacts[i].color};">${selectedContacts[i].initial}</div>
           <span class="userPosition">${selectedContacts[i].name}</span>
         </div>`;
@@ -316,11 +316,11 @@ function generateTemplateHtmlCreateNewTask22(selectedContacts, i) {
 
 function showAssignetContacts2Html(getColor, getInitial, userName, i, isChecked){
    return   /*html*/ `
-   <div class="userBoxContainer displayFlex">
+    <label class="userBoxContainer displayFlex userBoxContainerBox ${isChecked ? 'checked' : ''}" onclick="handleCheckboxClick2(${i}, '${userName}', '${getInitial}', '${getColor}', ${isChecked})">
      <div class="imgPerson displayFlex" style="background-color: ${getColor};">${getInitial}</div>
      <span class="userPosition">${userName}</span>
-     <input type="checkbox" id="inputId2${i}" ${isChecked ? 'checked' : ''} onclick="handleCheckboxClick2(${i}, '${userName}', '${getInitial}', '${getColor}', ${isChecked})">
-   </div>`;
+     <input type="checkbox" id="inputId2${i}" class="checkBox" ${isChecked ? 'checked' : ''} onclick="handleCheckboxClick2(${i}, '${userName}', '${getInitial}', '${getColor}', ${isChecked})">
+   </label>`;
 }
 
 
