@@ -339,3 +339,15 @@ function rederCurrentTasksHtml(id, value){
          </div>
       </div>`;
 }
+
+
+function  openSwitchCategoryHtml(elementId, event){     
+   return /*html*/`
+   <div class="switchWindow">
+     <div class="switchButtons" onclick="moveToMobile('toDo', '${elementId}', event)">To do</div>
+     <div class="switchButtons" onclick="moveToMobile('progress', '${elementId}', event)">In Progress</div>
+     <div class="switchButtons" onclick="moveToMobile('feedBack', '${elementId}', event)">At feedback</div>
+     <div class="switchButtons" onclick="moveToMobile('done', '${elementId}', event)">Done</div>
+     <div class="switchButtons" onclick="closeMoveToMobileWindow('${elementId}')">Close</div>
+   </div>`;
+}
