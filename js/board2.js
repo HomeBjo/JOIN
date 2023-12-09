@@ -136,6 +136,7 @@ async function deleteCard(taskId) {
     console.error('Task not found for deletion');
     return;
   }
+  document.getElementById(`closeCarD${taskId}`).innerHTML = '';
   getTaskInfo.splice(taskToDeleteIndex, 1);
   await setItem('newTask', JSON.stringify(getTaskInfo));
   updateHTML(getTaskInfo);
@@ -246,18 +247,16 @@ function openSwitchCategory(event, elementId) {
   let switchWindow = switchContainer.querySelector('.switchWindow');
 
   if (switchWindow) {
-    // Wenn das Menü bereits geöffnet ist, schließe es
     switchContainer.innerHTML = '';
   } else {
-    // Wenn das Menü nicht geöffnet ist, öffne es
-    switchContainer.innerHTML = `
-      <div class="switchWindow">
-        <div class="switchButtons" onclick="moveToMobile('toDo', '${elementId}', event)">To do</div>
-        <div class="switchButtons" onclick="moveToMobile('progress', '${elementId}', event)">In Progress</div>
-        <div class="switchButtons" onclick="moveToMobile('feedBack', '${elementId}', event)">Await feedback</div>
-        <div class="switchButtons" onclick="moveToMobile('done', '${elementId}', event)">Done</div>
-      </div>`;
+    switchContainer.innerHTML = openSwitchCategoryHtml(elementId, event);
   }
+}
+
+
+function closeMoveToMobileWindow(elementId){
+  event.stopPropagation();
+  document.getElementById(`switchContainer${elementId}`).innerHTML = '';
 }
 
 

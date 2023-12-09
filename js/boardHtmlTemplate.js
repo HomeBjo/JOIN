@@ -132,7 +132,9 @@ function generateTemplateHtmlSideMenu() {
 
 
 function generateTemplateHtmlFirstCard(task, currentIndex, priorityText, priorityImagePath, element) {
-  return `<div id="openCardContainer" onclick="closeCardContainer()"  class="openCardContainer" >
+  return `
+<div id="closeCarD${allTask[0][currentIndex]["id"]}" >
+<div id="openCardContainer" onclick="closeCardContainer()"  class="openCardContainer" >
   <div class="openCardsDetails" onclick="event.stopPropagation()">
      <div class="openCardTitle"> 
       <div><span class="userDetailsTitle">${allTask[0][currentIndex]["workCategory"]}</span></div>
@@ -177,7 +179,8 @@ function generateTemplateHtmlFirstCard(task, currentIndex, priorityText, priorit
      </div>
   </div>
 </div>
-</div>`;
+</div>
+<div>`;
 }
 
 
@@ -335,4 +338,16 @@ function rederCurrentTasksHtml(id, value){
            <img src="../assets/img/vector.svg" onclick="BoardRenderSubtasksByAddTask()" class="denyDeleteImg">
          </div>
       </div>`;
+}
+
+
+function  openSwitchCategoryHtml(elementId, event){     
+   return /*html*/`
+   <div class="switchWindow">
+     <div class="switchButtons" onclick="moveToMobile('toDo', '${elementId}', event)">To do</div>
+     <div class="switchButtons" onclick="moveToMobile('progress', '${elementId}', event)">In Progress</div>
+     <div class="switchButtons" onclick="moveToMobile('feedBack', '${elementId}', event)">At feedback</div>
+     <div class="switchButtons" onclick="moveToMobile('done', '${elementId}', event)">Done</div>
+     <div class="switchButtons" onclick="closeMoveToMobileWindow('${elementId}')">Close</div>
+   </div>`;
 }
