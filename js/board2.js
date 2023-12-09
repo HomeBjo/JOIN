@@ -1,3 +1,7 @@
+/**
+ * Edits an existing task with the specified ID by updating its details based on user inputs.
+ * @param {string} getId - The ID of the task to edit.
+ */
 async function editTask(getId) {
 
   let info = await getItem('newTask');
@@ -27,7 +31,17 @@ async function editTask(getId) {
   currentSubtasksBoard = [];
 }
 
-
+/**
+ * Updates the details of a task in the task information array.
+ * @param {Array} getTaskInfo - The array containing task information.
+ * @param {number} taskToEditIndex - The index of the task to edit.
+ * @param {string} getTitel - The title of the task.
+ * @param {string} getDiscriptionArea - The description of the task.
+ * @param {string} getCategory - The category of the task.
+ * @param {string} getPrio - The priority of the task.
+ * @param {Array} getSubtask - The array containing subtasks of the task.
+ * @param {Array} selectedUsers - The array containing selected users for the task.
+ */
 function getValueOfTaskInfo(getTaskInfo, taskToEditIndex, getTitel, getDiscriptionArea, getCategory, getPrio, getSubtask, selectedUsers){
   getTaskInfo[taskToEditIndex].title = getTitel;
   getTaskInfo[taskToEditIndex].description = getDiscriptionArea;
@@ -37,7 +51,10 @@ function getValueOfTaskInfo(getTaskInfo, taskToEditIndex, getTitel, getDiscripti
   getTaskInfo[taskToEditIndex].contacts = selectedUsers;
 }
 
-
+/**
+ * Creates a new task based on the edited details, updates the UI, and closes the edit container.
+ * @param {string} getId - The ID of the task being edited.
+ */
 function createNewTask2(getId) {
   editTask(getId);
   let selectedContacts = selectedUsers;
@@ -56,8 +73,8 @@ function createNewTask2(getId) {
 }
 
 /**
- * 
- * @param {string} loggedInUser -test test  
+ * Displays assigned contacts in the selectContainer2.
+ * @param {Object} loggedInUser - The logged-in user object.
  */
 function showAssignetContacts2(loggedInUser) {
   let box = document.getElementById("selectContainer2");
@@ -73,7 +90,13 @@ function showAssignetContacts2(loggedInUser) {
   }
 }
 
-
+/**
+ * Handles the click event on a checkbox, updating the selectedUsers array accordingly.
+ * @param {number} i - The index of the checkbox.
+ * @param {string} userName - The name of the user.
+ * @param {string} getInitial - The initial of the user.
+ * @param {string} getColor - The color associated with the user.
+ */
 function handleCheckboxClick2(i, userName, getInitial, getColor) {
   let checkbox = document.getElementById(`inputId2${i}`);
   let userId = `user_${i}`;
@@ -94,7 +117,9 @@ function handleCheckboxClick2(i, userName, getInitial, getColor) {
   }
 }
 
-
+/**
+ * Creates and returns a selected user object.
+ */
 function getSelectedUser(userName, userEmail, userPhone, getInitial, getColor){
   let selectedUser = {
     name: userName,
@@ -106,7 +131,10 @@ function getSelectedUser(userName, userEmail, userPhone, getInitial, getColor){
   return selectedUser;
 };
 
-
+/**
+ * Renders the added contact boxes in the specified container based on the selected users.
+ * @param {Array} selectedUsers - The array containing selected user objects.
+ */
 function renderAddedContactBox(selectedUsers) {
   let currentUsers = document.getElementById("addContactstoassign2");
   currentUsers.innerHTML = '';
@@ -120,13 +148,19 @@ function renderAddedContactBox(selectedUsers) {
   }
 }
 
-
+/**
+ * Loads the category value from the categorySelect2 element.
+ * @returns {string} - The value of the category.
+ */
 function loadCategory2() {
   let getValue = document.getElementById('categorySelect2').textContent.trim();
   return getValue;
 }
 
-
+/**
+ * Deletes a card with the specified task ID from the task information array and updates the UI.
+ * @param {string} taskId - The ID of the task to delete.
+ */
 async function deleteCard(taskId) {
   let idToDelete = Number(taskId);
   let info = await getItem('newTask');
@@ -142,6 +176,13 @@ async function deleteCard(taskId) {
   updateHTML(getTaskInfo);
 }
 
+/**
+ * Updates the priority selection based on the clicked priority option.
+ * @param {string} priority - The priority value ('low', 'medium', 'high').
+ * @param {string} lowId - The HTML element ID for the low priority option.
+ * @param {string} mediumId - The HTML element ID for the medium priority option.
+ * @param {string} highId - The HTML element ID for the high priority option.
+ */
 function getThePriority2(priority, lowId, mediumId, highId) {
   const low2 = document.getElementById(`${lowId}2`);
   const medium2 = document.getElementById(`${mediumId}2`);
@@ -163,7 +204,9 @@ function getThePriority2(priority, lowId, mediumId, highId) {
   }
 }
 
-
+/**
+ * Removes active and color classes from priority elements.
+ */
 function removeClassesOfGetThePriority2(low2, medium2, urgent2, lowIcon2, mediumIcon2, highIcon2){
   low2.classList.remove("active3");
   medium2.classList.remove("active2");
@@ -173,7 +216,9 @@ function removeClassesOfGetThePriority2(low2, medium2, urgent2, lowIcon2, medium
   highIcon2.classList.remove("colorIcon");
 }
 
-
+/**
+ * Adds active and color classes to the selected priority elements.
+ */
 function addClassesOfGetThePriority2(selectedPriority, low2, medium2, urgent2, lowIcon2, mediumIcon2, highIcon2){
   if (selectedPriority === 'low') {
     low2.classList.add("active3");
@@ -187,7 +232,9 @@ function addClassesOfGetThePriority2(selectedPriority, low2, medium2, urgent2, l
   }
 }
 
-
+/**
+ * Clears input fields and values on the side add task section.
+ */
 function clearSideAddTask() {
   let titleInput = document.getElementById('addTastTitel');
   let descriptionInput = document.getElementById('addTastTextArea');
@@ -199,7 +246,9 @@ function clearSideAddTask() {
   clearInputFieldsValuesBoard(titleInput, descriptionInput, dateInput, selectedContact, categorySelectBox, subtaskInputBox, subtaskContainer, subtaskContainer);
 }
 
-
+/**
+ * Clears input fields and values on the board section.
+ */
 function clearInputFieldsValuesBoard(titleInput, descriptionInput, dateInput, selectedContact, categorySelectBox, subtaskInputBox, subtaskContainer, subtaskContainer){
   titleInput.value=``;
   descriptionInput.value=``;
@@ -213,7 +262,9 @@ function clearInputFieldsValuesBoard(titleInput, descriptionInput, dateInput, se
   removeClassesOFgetThePriorityByCleanBoard();
 }
 
-
+/**
+ * Resets checkboxes and selected users on the side add task section.
+ */
 function resetCheckboxesBoard(){
   for (let i = 0; i < loggedInUser.contacts.length; i++) {
     let checkbox = document.getElementById(`inputId${i}`);
@@ -229,7 +280,9 @@ function resetCheckboxesBoard(){
   selectedUsers = [];
 }
 
-
+/**
+ * Removes priority-related classes on the side add task section.
+ */
 function removeClassesOFgetThePriorityByCleanBoard(){
   document.getElementById('low').classList.remove("active3");
   document.getElementById('medium').classList.remove("active2");
@@ -239,7 +292,11 @@ function removeClassesOFgetThePriorityByCleanBoard(){
   document.getElementById("urgentPriority").classList.remove("colorIcon");
 }
 
-
+/**
+ * Opens or closes the category switch window on the side add task section.
+ * @param {Event} event - The click event.
+ * @param {string} elementId - The ID of the element.
+ */
 function openSwitchCategory(event, elementId) {
   event.stopPropagation();
 
@@ -253,13 +310,21 @@ function openSwitchCategory(event, elementId) {
   }
 }
 
-
+/**
+ * Closes the mobile move window on the side add task section.
+ * @param {string} elementId - The ID of the element.
+ */
 function closeMoveToMobileWindow(elementId){
   event.stopPropagation();
   document.getElementById(`switchContainer${elementId}`).innerHTML = '';
 }
 
-
+/**
+ * Moves a task to a different category on the side add task section.
+ * @param {string} category - The category to move the task to.
+ * @param {string} elementId - The ID of the element.
+ * @param {Event} event - The click event.
+ */
 async function moveToMobile(category, elementId, event) {
   event.stopPropagation();
 
@@ -276,7 +341,10 @@ async function moveToMobile(category, elementId, event) {
   }
 }
 
-
+/**
+ * Renders the current tasks on the side add task section.
+ * @param {Array} selectedSubrasks - The array of selected subtasks.
+ */
 function rederCurrentTasks(selectedSubrasks) {
   let box = document.getElementById('selectedSubrasks');
   box.innerHTML = '';
@@ -295,38 +363,54 @@ function rederCurrentTasks(selectedSubrasks) {
   }
 }
 
-
+/**
+ * Closes the edit container on the side add task section.
+ */
 function closeEditContainer() {
   document.getElementById("openEditContainer").classList.add("d-none");
 }
 
-
+/**
+ * Generates HTML for a placeholder task in a category.
+ * @param {string} category - The category of the task.
+ * @returns {string} - The HTML for the placeholder task.
+ */
 function generatePlaceholderTasks(category) {
   return `<div class="placeholderTaskContainer" ><span>No tasks in ${category}</span></div>`;
 }
 
-
+/**
+ * Toggles the visibility of the current date calendar on the side add task section.
+ */
 function shwoCurrentDate() {
   document.getElementById('autoJsCalendar').classList.toggle('d-none');
 }
 
-
+/**
+ * Closes the second edit container on the side add task section.
+ */
 function closeEditContainer2() {
   document.getElementById("openEditContainer2").classList.add("d-none");
 }
 
-
+/**
+ * Toggles the visibility of the contacts container on the side add task section.
+ */
 function addContacts2() {
   let box = document.getElementById("selectContainer2");
   box.classList.toggle("d-none");
 }
 
-
+/**
+ * Toggles the visibility of the category container on the side add task section.
+ */
 function showCategoryContacts2() {
   document.getElementById("categoryContainer2").classList.toggle("d-none");
 }
 
-
+/**
+ * Loads the technical task on the side add task section.
+ */
 function loadTechnicalTask2() {
   let Box = document.getElementById('technicalTaskID2');
   let currentValue = Box.innerHTML;
@@ -335,7 +419,9 @@ function loadTechnicalTask2() {
   }
 }
 
-
+/**
+ * Loads the user story on the side add task section.
+ */
 function loadUserStory2() {
   let Box = document.getElementById('userStoryID2');
   let currentValue = Box.innerHTML;

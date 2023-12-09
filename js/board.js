@@ -394,36 +394,3 @@ function closeCardContainer() {
   document.getElementById("openCardContainer").classList.add("d-none");
 }
 
-/**
- * Opens the edit container, populates it with the details of the selected task, and hides the openCardContainer.
- * @param {number} element - The index of the selected task in the allTask array.
- */
-function openEditContainer(element) {
-  selectedUsers = allTask[0][element]["contacts"];
-  let selectedSubrasks = allTask[0][element]["subtasks"];
-  let getId = allTask[0][element]["id"];
-  document.getElementById("secondCardRenderContainer").classList.remove("d-none");
-  document.getElementById("openCardContainer").classList.add("d-none");
-
-  document.getElementById("secondCardRenderContainer").innerHTML = generateTemplateHtmlEditCard(allTask[0][element], element, getId);
-
-  renderContactsSmall(allTask[0][element]);
-  rederCurrentTasks(selectedSubrasks);
-}
-
-/**
- * Renders small contact boxes in the specified container based on the contacts of a task element.
- * @param {Object} element - The task element.
- */
-function renderContactsSmall(element) {
-  let box = document.getElementById('addContactstoassign2');
-  box.innerHTML = '';
-
-  for (let i = 0; i < element["contacts"].length; i++) {
-    const contact = element["contacts"][i];
-    box.innerHTML += `
-    <div id="${contact.id}" class="userBoxContainer displayFlex">
-      <div class="imgPerson displayFlex" style="background-color: ${contact["color"]};">${contact["initial"]}</div>
-    </div>`;
-  }
-}
