@@ -101,7 +101,7 @@ body {
 
 .description {
   height: 154px;
-  width: 440px;
+  width: 440px !important;
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -318,7 +318,7 @@ body {
 .SubtaskContent {
   display: flex;
   flex-direction: column;
-  height: 322px;
+  height: 246px;
   padding-top: 24px !important;
 }
 

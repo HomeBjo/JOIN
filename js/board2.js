@@ -136,6 +136,7 @@ async function deleteCard(taskId) {
     console.error('Task not found for deletion');
     return;
   }
+  document.getElementById(`closeCarD${taskId}`).innerHTML = '';
   getTaskInfo.splice(taskToDeleteIndex, 1);
   await setItem('newTask', JSON.stringify(getTaskInfo));
   updateHTML(getTaskInfo);

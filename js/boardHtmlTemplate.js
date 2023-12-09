@@ -132,7 +132,9 @@ function generateTemplateHtmlSideMenu() {
 
 
 function generateTemplateHtmlFirstCard(task, currentIndex, priorityText, priorityImagePath, element) {
-  return `<div id="openCardContainer" onclick="closeCardContainer()"  class="openCardContainer" >
+  return `
+<div id="closeCarD${allTask[0][currentIndex]["id"]}" >
+<div id="openCardContainer" onclick="closeCardContainer()"  class="openCardContainer" >
   <div class="openCardsDetails" onclick="event.stopPropagation()">
      <div class="openCardTitle"> 
       <div><span class="userDetailsTitle">${allTask[0][currentIndex]["workCategory"]}</span></div>
@@ -177,7 +179,8 @@ function generateTemplateHtmlFirstCard(task, currentIndex, priorityText, priorit
      </div>
   </div>
 </div>
-</div>`;
+</div>
+<div>`;
 }
 
 
