@@ -101,7 +101,7 @@ body {
 
 .description {
   height: 154px;
-  width: 440px !important;
+  width: 440px;
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -714,7 +714,7 @@ body {
   }
 
 
- /* @media (max-width: 500px) {
+  @media (max-width: 500px) {
   .contentContainer {
     display: flex;
     flex-direction: column;
@@ -781,9 +781,9 @@ body {
   .inputfieldDateContainer{
     width: 320px;
   }
-}  */
+}  
 
-@media (max-width: 500px) {
+@media (max-width: 360px) {
   .selectContainer{
     width: 290px !important;
     height: 116px!important;
@@ -792,7 +792,8 @@ body {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-  }
+    width: 330px;}
+
   .textArea {
     width: 242px;
   }
@@ -868,5 +869,9 @@ body {
   .inputfieldDateContainer{
     width: 248px;
   }
+  .addTask {
+    width: 452px;
+    padding: 1px;}
 }
+
 
