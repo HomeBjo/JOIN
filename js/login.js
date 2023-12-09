@@ -157,7 +157,6 @@ function secondLoginElsePasrt(passwordMessage, password, email, emailMessage){
 async function guestLogin() {
     let user = users[2];
 
-    console.log(user);
     if(user) {
         await setItem('loggedInUser', JSON.stringify(user));
         window.location.href = '../html/summary.html';

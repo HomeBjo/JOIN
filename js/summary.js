@@ -210,14 +210,6 @@ function getUrgentDate(highPriorityTasks) {
 }
 
 
-function upcomingDateIfStatement(tasks){
-    if (tasks === 0) {
-        console.log("No tasks available.");
-        return;
-    }
-}
-
-
 function upcomingDateIfHtml(date, dateMobile, formattedUrgentDate){
     date.innerHTML = /*html*/`<div class="showTheNumbers">${formattedUrgentDate}</div>`;
     dateMobile.innerHTML = /*html*/`<div class="showTheNumbers">${formattedUrgentDate}</div>`;

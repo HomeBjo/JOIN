@@ -99,13 +99,13 @@ function clearTasksArray() {
   }
 }
 
+
 /**
  * This function is used for  Pushes task information to storage after validating and processing input data.
  * Checks if a task with the same title already exists. If not, creates a new task object with the provided data.
  */
 async function pushTaskInfo(getTitle, getDescription, getDateValue, contactData, getCategory, selectedPriority,currentSubtasks,getTaskCategory) {
   getTitle = getTitle.trim();
-
   let existingTasks = [];
   try {
     const storedTasks = await getItem('newTask');
@@ -115,16 +115,11 @@ async function pushTaskInfo(getTitle, getDescription, getDateValue, contactData,
   } catch (e) {
     console.error('Error fetching existing tasks:', e);
   }
-
   const existingTaskIndex = existingTasks.findIndex((task) => task.title === getTitle);
-
   if (existingTaskIndex === -1) {
     let newTask = getValues(existingTasks.length, getTitle, getDescription, selectedPriority, getDateValue, contactData, getCategory,currentSubtasks, checked,getTaskCategory);
-
     existingTasks.push(newTask);
     await setItem('newTask', JSON.stringify(existingTasks));
-
-    console.log(existingTasks);
     await showCreateAnimation();
   } else {
     alert('Task bereits vorhanden');
@@ -193,12 +188,10 @@ function ifStatementsOfcheckInputFields(titleInput, titleFail, descriptionInput,
     titleFail.innerHTML = '<span>Title is required</span>';
     isValid = false;
   }
-
   if (descriptionInput.value.trim() === '') {
     descriptionFail.innerHTML = '<span>Description is required</span>';
     isValid = false;
   }
-
   if (dateInput.value.trim() === '') {
     dateFail.innerHTML = '<span>Due date is required</span>';
     isValid = false;

@@ -136,8 +136,6 @@ function addedSubtask() {
  */
 function editSubtask(subtaskId) {
   let editedValue = document.getElementById(subtaskId).textContent;
-  console.log('Edit Subtask:', editedValue);
-
 }
 
 /**
