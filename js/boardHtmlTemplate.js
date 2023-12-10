@@ -14,7 +14,7 @@ function generateTodoHTML(element, priorityImagePath) {
     <div class="cardContent">
       <div class="cardHeader">
         <p class="userStory">${element["workCategory"]}</p>
-        <img onclick="openSwitchCategory(event,${element["id"]})" id="switchCategoryBtn${element["id"]}" class="mobileDragSwitch" src="/assets/img/switchDirectionArrows.svg" alt="hier">
+        <img onclick="openSwitchCategory(event,${element["id"]})" id="switchCategoryBtn${element["id"]}" class="mobileDragSwitch" src="../assets/img/switchDirectionArrows.svg" alt="hier">
         <div class="switchContainer" id="switchContainer${element["id"]}" ></div>
       </div>
       <div class="cardDescription">

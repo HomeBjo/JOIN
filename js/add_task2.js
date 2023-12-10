@@ -132,13 +132,6 @@ function addedSubtask() {
 }
 
 /**
- * This function is used for Retrieves the text content of the element with the provided subtask ID.
- */
-function editSubtask(subtaskId) {
-  let editedValue = document.getElementById(subtaskId).textContent;
-}
-
-/**
  * This function is used for deletes a subtask with the specified ID from the currentSubtasks array and the DOM.
  */
 function deleteSubtask(subtaskId) {

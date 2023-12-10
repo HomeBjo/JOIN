@@ -442,6 +442,12 @@ body {
   margin: 24px;
 }
 
+.hoverByAddTask:hover{
+  background-color: #d2e3ff;
+  border-radius: 10px;
+  width: 440px;
+}
+
 .ClearBtn {
 
   width: 120px;
@@ -751,6 +757,9 @@ body {
   .SubtaskContent {
     width: 350px;
   }
+  .hoverByAddTask:hover{
+    width: 350px;
+  }
 
   .positionOfButtons {
     display: flex;
@@ -775,9 +784,9 @@ body {
     width: 352px !important;
     height: 116px!important;
   }
-  .technicalTask{
+  /* .technicalTask{
     width: 70vw;
-  }
+  } */
   .inputfieldDateContainer{
     width: 320px;
   }
@@ -825,7 +834,9 @@ body {
   .prioButtonGreen {
     width: 88px;
   }
-
+  .hoverByAddTask:hover{
+    width: 280px;
+  }
   .SubtaskContent {
     width: 280px;
   }
