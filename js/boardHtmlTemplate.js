@@ -278,7 +278,12 @@ function generateTemplateHtmlEditCard(task, element, getId) {
          
             </div>
             
-      </div>`;
+      </div>
+      <script>
+        document.getElementById("openEditContainer2").addEventListener("click", function(event) {
+            closeCategoryContainerOnBoardEdit(event);
+        });
+      </script>`;
 }
 
 

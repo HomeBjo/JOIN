@@ -93,6 +93,7 @@ function openEditContainer(element) {
 
   renderContactsSmall(allTask[0][element]);
   rederCurrentTasks(selectedSubrasks);
+  closeCategoryContainerOnBoardEdit(event);
 }
 
 /**
@@ -138,5 +139,14 @@ function loadUserStory2() {
   let currentValue = Box.innerHTML;
   if (currentValue === "User Story") {
     document.getElementById('SelectTaskCatergory2').innerHTML = currentValue;
+  }
+}
+
+
+function closeCategoryContainerOnBoardEdit(event){
+  let SelectContactsBox = document.getElementById("categoryContainer2");
+  let SelectContactsHeader = document.getElementById("categorySelect2");
+  if (!SelectContactsHeader.contains(event.target) && !SelectContactsBox.contains(event.target)) {
+    SelectContactsBox.classList.add("d-none");
   }
 }
