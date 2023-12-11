@@ -551,6 +551,7 @@ textarea::-webkit-scrollbar-thumb {
   height: 50px;
   margin-top: 25px;
   overflow: auto;
+  word-wrap: break-word;
 }
 .openCardText::-webkit-scrollbar {
   -webkit-box-shadow: inset 0 0 6px rgba(158, 158, 158, 0.1);
@@ -571,6 +572,7 @@ textarea::-webkit-scrollbar-thumb {
 }
 .openCardDescription{
   overflow: auto;
+  word-wrap: break-word;
   height: 90px;
 }
 .openCardDescription::-webkit-scrollbar {
