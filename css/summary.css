@@ -473,6 +473,7 @@ a{
     .showDate {
         width: 270px;
         height: 22vh;
+        margin-top: 24px;
     }
     .showTasksInBoard {
         width: 270px;
@@ -483,7 +484,7 @@ a{
         width: 270px;
     }
     .tasksInBoard {
-        height: 14vh;
+        height: 16vh;
         width: 125px;
         margin-top: 2px;
     }

@@ -71,9 +71,8 @@ async function createNewTaskFromBoard() {
     getTitel.value ='';
     getTextArea.value ='';
     getDateValue.value ='';
-  }
-  init();
-  
+    init();
+  } 
 }
 
 /**

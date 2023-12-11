@@ -800,6 +800,9 @@ body{
         top: 0;
         right: 0;
     }
+    #addBox{
+        display: none;
+    }
 }
 
 @media(max-width: 600px) {
@@ -814,6 +817,9 @@ body{
     }
     .nameHeaderContactDetails{
         font-size: 28px;
+    }
+    #addBox{
+        display: none;
     }
 }
 
@@ -835,9 +841,6 @@ body{
     .imgInInput{
         margin-left: -22px;
     } 
-}
-
-@media(max-width: 500px) {
     .inputField{
         width: 208px;
     }
@@ -874,6 +877,10 @@ body{
         flex-direction: column;
         align-items: flex-start;
     }
+    #addBox{
+        display: none;
+    }
+
 }
 
 @media(max-width: 380px) {
