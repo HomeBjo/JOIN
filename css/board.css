@@ -1172,6 +1172,11 @@ min-height: unset;
 
 
 @media (max-width: 1000px) {
+
+  .openCardDescriptionText{
+    font-size: 28px;
+   line-height: 1;
+  }
   .mobileInput
   {
   width: 330px!important;
@@ -1491,9 +1496,9 @@ min-height: unset;
   .editbuttonContainer{
     width: 270px !important;
   } 
-  /* .buttonContainer{
-    gap: 28px !important;
-  } */
+  .contentContainer{
+    padding-top: 20px!important;
+  }
   .subtaskList{
     width: auto;
   }
