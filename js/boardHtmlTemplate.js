@@ -41,7 +41,7 @@ function generateTodoHTML(element, priorityImagePath) {
 
 function generateTemplateHtmlSideMenu() {
   return `<div class="" id="menuContainerBox"onclick ="closeAddTaskMenu()" >
-   <div id="sideMenu" class="sideMenuStyle" onclick="event.stopPropagation()" >
+   <div id="sideMenu" class="sideMenuStyle" onclick="event.stopPropagation(), closeSelectContainer(event), closeCategoryContainer(event)" >
       <div class="header-sideMenu"><span>Add Task</span>
          <img onclick ="closeAddTaskMenu()" class="header-sideMenuImg" src="../assets/img/close.svg" alt="">
       </div>
@@ -186,8 +186,8 @@ function generateTemplateHtmlFirstCard(task, currentIndex, priorityText, priorit
 
 function generateTemplateHtmlEditCard(task, element, getId) {
   return `
-  <div id="openEditContainer2" onclick="closeEditContainer2()"  class="openCardContainer" >
-         <div onclick="event.stopPropagation()"  class="openCardsDetailsEdit">
+  <div id="openEditContainer2" onclick="closeEditContainer2()"  class="openCardContainer">
+         <div onclick="event.stopPropagation(), closeCategoryContainerOnBoardEdit(event), closeCategoryContainerOnBoardEditContacts(event)"  class="openCardsDetailsEdit">
             <div class="header-EditMenu">
                <img onclick ="closeEditContainer2()" class="header-editMenuImg" src="../assets/img/close.svg" alt="">
             </div>
@@ -278,12 +278,7 @@ function generateTemplateHtmlEditCard(task, element, getId) {
          
             </div>
             
-      </div>
-      <script>
-        document.getElementById("openEditContainer2").addEventListener("click", function(event) {
-            closeCategoryContainerOnBoardEdit(event);
-        });
-      </script>`;
+      </div>`;
 }
 
 

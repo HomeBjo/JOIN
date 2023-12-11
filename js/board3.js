@@ -93,7 +93,6 @@ function openEditContainer(element) {
 
   renderContactsSmall(allTask[0][element]);
   rederCurrentTasks(selectedSubrasks);
-  closeCategoryContainerOnBoardEdit(event);
 }
 
 /**
@@ -144,9 +143,18 @@ function loadUserStory2() {
 
 
 function closeCategoryContainerOnBoardEdit(event){
-  let SelectContactsBox = document.getElementById("categoryContainer2");
-  let SelectContactsHeader = document.getElementById("categorySelect2");
+  let SelectTaskBox = document.getElementById("categoryContainer2");
+  let SelectTaskHeader = document.getElementById("categorySelect2");
+  if (!SelectTaskHeader.contains(event.target) && !SelectTaskBox.contains(event.target)) {
+    SelectTaskBox.classList.add("d-none");
+  }
+}
+
+function closeCategoryContainerOnBoardEditContacts(event){
+  let SelectContactsBox = document.getElementById("selectContainer2");
+  let SelectContactsHeader = document.getElementById("assignedSelect2");
   if (!SelectContactsHeader.contains(event.target) && !SelectContactsBox.contains(event.target)) {
     SelectContactsBox.classList.add("d-none");
   }
 }
+
