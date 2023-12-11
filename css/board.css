@@ -447,6 +447,9 @@ textarea::-webkit-scrollbar-thumb {
   transition: all 225ms ease-in-out;
   padding: 48px 40px 48px 40px;
 }
+.openCardsDetails::-webkit-scrollbar {
+  display: none;
+}
 
 .openCardIcons {
   height: 24px;
