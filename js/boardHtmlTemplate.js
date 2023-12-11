@@ -193,14 +193,14 @@ function generateTemplateHtmlEditCard(task, element, getId) {
             <div class="addTask addTask-sideMenu editMenu">
             <div action="">
                <div class="topSektion topSektion-sideMenu">
-                  <div class="titleContainer"><input id="addTastTitel2" class="inputFieldTitleBoard" type="" placeholder="${allTask[0][element]["title"]}"></div>
+                  <div class="titleContainer"><input value="${allTask[0][element]["title"]}" id="addTastTitel2" class="inputFieldTitleBoard" type=""></div>
                   <div class="textfield-fail" id="tile-fail-message2"></div>
                   <div class="description">
                      <div class="descriptionContent">
                         <p class="descriptionText">Description</p>
                      </div>
-                     <textarea class="textArea" placeholder="${allTask[0][element]["description"]}" name="" id="addTastTextArea2" cols="30"
-                        rows="10"></textarea>
+                     <textarea class="textArea"name="" id="addTastTextArea2" cols="30"
+                        rows="10">${allTask[0][element]["description"]}</textarea>
                   </div>
                   <div class="textfield-fail" id="description-fail-message2"></div>
                   <div class="dateContent editMobileDate">
