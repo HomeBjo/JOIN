@@ -1321,6 +1321,13 @@ min-height: unset;
   }
 }
 @media (max-width: 560px) {
+  .contentContainer{
+    padding-top: 20px!important;
+
+  }
+  .inputSektion{
+   padding: 0px;
+  }
   .openCardsDetailsEdit{
     width: 426px;
   }
