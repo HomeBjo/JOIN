@@ -53,9 +53,7 @@ function generateTemplateHtmlSideMenu() {
                   <div id="tile-fail-message" class="tileFailMessage"></div>
                   <div class="description description-sideMenu">
                      <div class="descriptionContent">
-                       <p class="descriptionText">Description
-                       <p class="descriptionText small">(optional)</p>
-                       </p>
+                       <p class="descriptionText">Description</p>
                      </div>
                         <textarea  id="addTastTextArea" class="textArea textAreaBoard" placeholder="Enter a Description" name="" id="" cols="30" rows="10"></textarea>
                         <div id="description-fail-message" class="descriptionFailMessage"></div>   
@@ -199,9 +197,7 @@ function generateTemplateHtmlEditCard(task, element, getId) {
                   <div class="textfield-fail" id="tile-fail-message2"></div>
                   <div class="description">
                      <div class="descriptionContent">
-                        <p class="descriptionText">Description
-                        <p class="descriptionText small">(optional)</p>
-                        </p>
+                        <p class="descriptionText">Description</p>
                      </div>
                      <textarea class="textArea" placeholder="${allTask[0][element]["description"]}" name="" id="addTastTextArea2" cols="30"
                         rows="10"></textarea>
