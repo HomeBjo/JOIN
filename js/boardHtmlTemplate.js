@@ -61,7 +61,7 @@ function generateTemplateHtmlSideMenu() {
                   <div class="dateContentMobileDate">
                      <p class="dateTitle">Due date</p>
                     
-                    <input  class="inputfieldDateContainerBoard dateMobile" placeholder="tipe you date" type="date" id="dueDateValue" min="2018-01-01">
+                    <input  class="inputfieldDateContainerBoard dateMobile" placeholder="tipe you date" type="date" id="dueDateValue" min="2018-01-01" onclick="showCurrentDateBoard()">
                      <div class="textfield-fail" id="date-fail-message"></div>
                   </div>
                </div>
@@ -206,7 +206,7 @@ function generateTemplateHtmlEditCard(task, element, getId) {
                   <div class="dateContent editMobileDate">
                      <p class="dateTitle">Due date</p>
 
-                     <input  class="inputfieldDateContainerBoard" placeholder="tipe you date" type="date" min="2018-01-01">
+                     <input  class="inputfieldDateContainerBoard" placeholder="tipe you date" type="date" min="2018-01-01" onclick="showCurrentDateBoard()" id="dateEditBoard">
 
                      <div class="textfield-fail" id="date-fail-message2"></div>
                   </div>

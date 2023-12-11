@@ -145,3 +145,25 @@ function deleteSubtask(subtaskId) {
   }
 }
 
+
+/**
+ * This function sets the minimum of the date input to the current date to ensure
+ * that only future or today's dates can be selected. Past days cannot be selected.
+ */
+function checkDateAddTask() {
+  let inputDate = document.getElementById('dueDateValue');
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1;
+  let yyyy = today.getFullYear();
+
+  if (dd < 10) {
+      dd = '0' + dd;
+  }
+  if (mm < 10) {
+      mm = '0' + mm;
+  }
+
+  today = yyyy + '-' + mm + '-' + dd;
+  inputDate.min = today;
+}
