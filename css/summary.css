@@ -472,16 +472,20 @@ a{
 @media(max-width: 450px) {
     .showDate {
         width: 270px;
+        height: 22vh;
     }
     .showTasksInBoard {
         width: 270px;
+        height: 14vh;
+        margin-top: 4px;
     }
     .flex-row {
         width: 270px;
     }
     .tasksInBoard {
-        height: 153px;
+        height: 14vh;
         width: 125px;
+        margin-top: 2px;
     }
     .dateDeadline {
         font-size: 24px;
@@ -496,7 +500,7 @@ a{
     }
     .textInBoxes {
         font-size: 18px;
-        margin-top: 0;
+        margin-top: -24px;
     }
     .clockCircle {
         width: 52px;
@@ -529,5 +533,8 @@ a{
     .marginLeft{
         margin-left: 18px;
         margin-bottom: 48px;
+    }
+    .extraKlasse{
+        margin-top: -12px;
     }
 }
