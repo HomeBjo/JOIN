@@ -100,10 +100,10 @@ function generateTemplateHtmlSideMenu() {
                </div>
             </div>
             <div id="categoryContainer" class="categoryContainer d-none">
-               <div class="userBoxContainer">
+               <div class="userBoxContainer userBoxContainerBox">
                   <span class="userPosition" id="technicalTaskID" onclick="loadTechnicalTask()">Technical Task</span>
                </div>
-               <div class="userBoxContainer">
+               <div class="userBoxContainer userBoxContainerBox">
                   <span class="userPosition" id="userStoryID" onclick="loadUserStory()">User Story</span>
                </div>
             </div>
@@ -252,10 +252,10 @@ function generateTemplateHtmlEditCard(task, element, getId) {
                   </div>
                </div>
                <div id="categoryContainer2" class="categoryContainer d-none">
-                  <div class="userBoxContainer">
+                  <div class="userBoxContainer userBoxContainerEditCard">
                      <span class="userPosition" id="technicalTaskID2" onclick="loadTechnicalTask2()">Technical Task</span>
                   </div>
-                  <div class="userBoxContainer">
+                  <div class="userBoxContainer userBoxContainerEditCard">
                      <span class="userPosition" id="userStoryID2" onclick="loadUserStory2()">User Story</span>
                   </div>
                </div>
