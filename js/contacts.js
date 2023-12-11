@@ -207,6 +207,7 @@ function returnArrow() {
 
 
 function addNewContactBtn(){   
+    document.getElementById('addBox').classList.remove('d-none');
     document.getElementById('addBox').classList.add('backgoundBox');
     document.getElementById('boxOfAddingNewContact').classList.add('showSideWindow');
     document.getElementById('boxOfAddingNewContact').innerHTML = addNewContactBtnHtml();

@@ -316,6 +316,7 @@ body{
     width: 64px;
     height: 72px;
     object-fit: contain;
+    padding-top: 12px;
 }
 
 .h1AddContact{
@@ -728,6 +729,8 @@ body{
     .closeAddContactBox{
         margin-top: 10vh;
         margin-right: 12vw;
+        top: 1vh;
+        right: 1vw;
     }
     .blueBoxAddContact{
         border-top-right-radius: 30px;
@@ -876,7 +879,7 @@ body{
 @media(max-width: 380px) {
     .closeEditContactBox {
         margin-top: 11vh;
-        margin-right: 6vh;
+        margin-right: 8vh;
         top: 0;
         right: 0;
     }
@@ -891,6 +894,9 @@ body{
     }
     .arrow-left{
         right: 0;
+    }
+    #addBox{
+        display: none;
     }
 }
 

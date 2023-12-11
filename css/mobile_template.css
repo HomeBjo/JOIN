@@ -109,7 +109,7 @@ body {
 }
 
 .mobile-navbar {
-    position: fixed;
+    position: absolute;
     z-index: 50;
     bottom: 0;
     left: 0;
