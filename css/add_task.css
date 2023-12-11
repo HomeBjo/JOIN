@@ -676,7 +676,7 @@ body {
   }
   .addTask{
     width: 100vw;
-    height: calc(100vh - 222px) !important;
+    height: calc(100vh - 222px);
     display: flex;
     justify-content: center;
     
@@ -871,7 +871,8 @@ body {
     font-size: 14px;
   }
   .buttonContainer{
-    width: 280px;
+    width: 282px!important;
+    gap: 28px !important;
   }
   .createTaskBtn{
     width: 136px;
@@ -884,6 +885,13 @@ body {
   .addTask {
     width: 380px;
     padding: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .buttonContainer{
+    width: 270px !important;
+    gap: 22px !important;
   }
 }
 
