@@ -43,22 +43,17 @@ async function editTask(getId) {
  * @param {Array} selectedUsers - The array containing selected users for the task.
  */
 function getValueOfTaskInfo(getTaskInfo, taskToEditIndex, getTitel, getDiscriptionArea, getCategory, getPrio, getSubtask, selectedUsers){
-  // Aktualisiere die Grundinformationen des Tasks
+ 
   getTaskInfo[taskToEditIndex].title = getTitel;
   getTaskInfo[taskToEditIndex].description = getDiscriptionArea;
   getTaskInfo[taskToEditIndex].workCategory = getCategory;
   getTaskInfo[taskToEditIndex].priority = getPrio;
   getTaskInfo[taskToEditIndex].contacts = selectedUsers;
 
-  // Annahme: getSubtask ist ein Array von Subtasks, die aktualisiert werden sollen.
-  // Zum Beispiel: [{ id: 1, status: true }, { id: 2, status: false }]
-  // Hier fügst du die Logik ein, um den Status der Subtasks zu aktualisieren.
   if (getSubtask && Array.isArray(getSubtask)) {
     getTaskInfo[taskToEditIndex].subtasks.forEach(subtask => {
-      // Finde das entsprechende Subtask-Objekt in getSubtask, das den neuen Status enthält.
       const newSubtaskData = getSubtask.find(newSub => newSub.id === subtask.id);
       if (newSubtaskData) {
-        // Aktualisiere den Status des Subtasks
         subtask.status = newSubtaskData.status;
       }
     });
