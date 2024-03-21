@@ -19,7 +19,7 @@ async function editTask(getId) {
   let getDiscriptionArea = document.getElementById('addTastTextArea2').value;
   let getCategory = loadCategory2();
   let getPrio = selectedPriority;
-  let getSubtask = getTaskInfo.subtask;
+  let getSubtask = currentSubtasksBoard;
 
   getPrio = getPrio || 'low';
 
@@ -48,16 +48,8 @@ function getValueOfTaskInfo(getTaskInfo, taskToEditIndex, getTitel, getDiscripti
   getTaskInfo[taskToEditIndex].description = getDiscriptionArea;
   getTaskInfo[taskToEditIndex].workCategory = getCategory;
   getTaskInfo[taskToEditIndex].priority = getPrio;
+  getTaskInfo[taskToEditIndex].subtasks = getSubtask;
   getTaskInfo[taskToEditIndex].contacts = selectedUsers;
-
-  if (getSubtask && Array.isArray(getSubtask)) {
-    getTaskInfo[taskToEditIndex].subtasks.forEach(subtask => {
-      const newSubtaskData = getSubtask.find(newSub => newSub.id === subtask.id);
-      if (newSubtaskData) {
-        subtask.status = newSubtaskData.status;
-      }
-    });
-  }
 }
 
 /**
