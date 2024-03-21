@@ -43,6 +43,7 @@ async function editTask(getId) {
  * @param {Array} selectedUsers - The array containing selected users for the task.
  */
 function getValueOfTaskInfo(getTaskInfo, taskToEditIndex, getTitel, getDiscriptionArea, getCategory, getPrio, getSubtask, selectedUsers){
+ 
   getTaskInfo[taskToEditIndex].title = getTitel;
   getTaskInfo[taskToEditIndex].description = getDiscriptionArea;
   getTaskInfo[taskToEditIndex].workCategory = getCategory;

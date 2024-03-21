@@ -444,7 +444,7 @@ textarea::-webkit-scrollbar-thumb {
 }
 .openCardsDetails {
   background-color: #f5f5f5;
-  width: 50vw;
+  min-width: 24vw;
   height: 90vh;
   overflow: auto;
   z-index: 2;
