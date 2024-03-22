@@ -102,9 +102,6 @@ function loadHelp() {
  */
 async function logout() {
     try {
-        // Löschen des loggedInUser aus dem lokalen Speicher
-        await setItem('loggedInUser', JSON.stringify(null));
-        // Weiterleitung zum Login-Bildschirm
         window.location.href = '../html/login.html';
     } catch (error) {
         console.error('Error during logout:', error);
@@ -147,28 +144,4 @@ function highlightTitleMobile(pageId) {
     let page = document.getElementById(pageId);
 
     page.classList.add('highlighted-mobile');
-}
-
-/**
- * Updates the data of the currently logged-in user.
- */
-async function updateLoggedInUser(newValues) {
-    const url = `${STORAGE_URL}?key=loggedInUser&token=${STORAGE_TOKEN}`;
-    const payload = { key: 'loggedInUser', token: STORAGE_TOKEN, value: newValues };
-    
-    try {
-        const response = await fetch(url, { method: 'POST', body: JSON.stringify(payload) });
-        const responseData = await response.json();
-
-        console.log('Server Response:', responseData);
-
-        if (response.ok) {
-            console.log('loggedInUser updated successfully.');
-        } else {
-            throw 'Error updating loggedInUser.';
-        }
-    } catch (error) {
-        console.error('Error during updateLoggedInUser:', error);
-        throw error;
-    }
 }
