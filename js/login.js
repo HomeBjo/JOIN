@@ -1,6 +1,3 @@
-let rememberMe = false;
-
-
 /**
  * This function initializes the start and loads important functions
  */
