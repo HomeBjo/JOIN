@@ -304,8 +304,7 @@ function getContact4Delete(newName, newEmail, newPhone, initial, color) {
         contact.name === newName &&
         contact.email === newEmail &&
         contact.phone === newPhone &&
-        contact.initial === initial &&
-        contact.color === color
+        contact.initial === initial 
     );
 }
 
