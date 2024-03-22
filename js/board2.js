@@ -173,7 +173,7 @@ async function deleteCard(taskId) {
   document.getElementById(`closeCarD${taskId}`).innerHTML = '';
   getTaskInfo.splice(taskToDeleteIndex, 1);
   await setItem('newTask', JSON.stringify(getTaskInfo));
-  updateHTML(getTaskInfo);
+  init();
 }
 
 /**
