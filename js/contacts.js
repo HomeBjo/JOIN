@@ -277,8 +277,8 @@ function closeEditContactBox(){
  * here the contact is deleted. its values are checked and matched, only then is it deletedr
  * The array under loggedInUser.contacts is pushed into the backend so that we know that this contact no longer exists 
  */
-async function deleteContact(newName, newEmail, newPhone, initial, color) {
-    const contactToDelete = getContact4Delete(newName, newEmail, newPhone, initial, color);
+async function deleteContact(newName, newEmail, newPhone, initial) {
+    const contactToDelete = getContact4Delete(newName, newEmail, newPhone, initial);
 
     if (contactToDelete) {
         loggedInUser.contacts = loggedInUser.contacts.filter(contact =>
@@ -299,7 +299,7 @@ async function deleteContact(newName, newEmail, newPhone, initial, color) {
 /**
  * The contact to be deleted is selected here
  */
-function getContact4Delete(newName, newEmail, newPhone, initial, color) {
+function getContact4Delete(newName, newEmail, newPhone, initial) {
     return loggedInUser.contacts.find(contact =>
         contact.name === newName &&
         contact.email === newEmail &&
