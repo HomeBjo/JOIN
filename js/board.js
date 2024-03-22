@@ -380,12 +380,10 @@ function updateProgressBarOnload() {
     let totalSubtasks = element.subtasks.length;
     let percentage = Math.round((completedSubtasks / totalSubtasks) * 100);
 
-    if (numberOfSubtask != null) {
-      progressBar.style.width = `${percentage}%`;
-      progressBar.setAttribute('aria-valuenow', percentage);
-      progressBar.innerHTML = `<span>${percentage}%</span>`;
-      numberOfSubtask.innerHTML = `<span>${completedSubtasks}</span>`;
-    }
+    progressBar.style.width = `${percentage}%`;
+    progressBar.setAttribute('aria-valuenow', percentage);
+    progressBar.innerHTML = `<span>${percentage}%</span>`;
+    numberOfSubtask.innerHTML = `<span>${completedSubtasks}</span>`;
   }
 }
 
