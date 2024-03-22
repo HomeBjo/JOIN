@@ -863,9 +863,9 @@ textarea::-webkit-scrollbar-thumb {
   .mobileDragSwitch{
     filter: brightness(0) saturate(100%) invert(41%) sepia(88%) saturate(443%) hue-rotate(180deg) brightness(106%) contrast(108%);
     display: flex;
-    position: absolute;
-    top: 13px;
-    right: 9px;
+    position: relative;
+    top: -38px;
+    right: -191px;
   }
   .mobileButtonContainer{
     width: 393px!important;
