@@ -249,6 +249,7 @@ function closeAddContactBoxWithX(){
  */
 async function editContact(newName, newEmail, newPhone, initial, color){
     document.getElementById('addBox').classList.add('backgoundBox');
+    document.getElementById('boxOfEdingContact').classList.remove('d-none');
     document.getElementById('boxOfEdingContact').classList.add('showSideWindow');
     let valueBox = document.getElementById('boxOfEdingContact');
     valueBox.innerHTML = '';
