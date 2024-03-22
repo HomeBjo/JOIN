@@ -102,7 +102,9 @@ function loadHelp() {
  */
 async function logout() {
     try {
-        await updateLoggedInUser({});
+        // Löschen des loggedInUser aus dem lokalen Speicher
+        await setItem('loggedInUser', JSON.stringify(null));
+        // Weiterleitung zum Login-Bildschirm
         window.location.href = '../html/login.html';
     } catch (error) {
         console.error('Error during logout:', error);
