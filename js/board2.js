@@ -352,10 +352,12 @@ function rederCurrentTasks(selectedSubrasks) {
   for (let i = 0; i < selectedSubrasks.length; i++) {
     const value = selectedSubrasks[i].value;
     const id = selectedSubrasks[i].id;
+    const status = selectedSubrasks[i].status;
     const isSubtaskExist = currentSubtasksBoard.some(subtask => subtask.id === id);
     if (!isSubtaskExist) {
       currentSubtasksBoard.push({
         id: id,
+        status: status,
         value: value
       });
     }
