@@ -278,7 +278,7 @@ function closeEditContactBox(){
  * The array under loggedInUser.contacts is pushed into the backend so that we know that this contact no longer exists 
  */
 async function deleteContact(newName, newEmail, newPhone, initial) {
-    const contactToDelete = getContact4Delete(newName, newEmail, newPhone, initial);
+    const contactToDelete = await getContact4Delete(newName, newEmail, newPhone, initial);
 
     if (contactToDelete) {
         loggedInUser.contacts = loggedInUser.contacts.filter(contact =>
@@ -290,6 +290,7 @@ async function deleteContact(newName, newEmail, newPhone, initial) {
         await setItem('loggedInUser', JSON.stringify(loggedInUser));
         await setItem('users', JSON.stringify(users));
         await generateContactInSmall();
+        returnArrow();
         changeClassesAfterDelete();
     } else {
         console.error('Contact not found in loggedInUser.contacts array');
