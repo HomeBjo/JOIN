@@ -155,7 +155,7 @@ function secondLoginElsePasrt(passwordMessage, password, email, emailMessage){
  * Handles the guest login functionality and redirects to the summary page.
  */
 async function guestLogin() {
-    let user = users[8];
+    let user = users[0];
 
     if(user) {
         await setItem('loggedInUser', JSON.stringify(user));

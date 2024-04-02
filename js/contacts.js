@@ -288,6 +288,7 @@ async function deleteContact(newName, newEmail, newPhone, initial) {
         users[userIndex].contacts = loggedInUser.contacts;
 
         await setItem('loggedInUser', JSON.stringify(loggedInUser));
+        await setItem('users', JSON.stringify(users));
         await generateContactInSmall();
         changeClassesAfterDelete();
     } else {
@@ -324,6 +325,7 @@ async function saveEditContactWindow(newName, newEmail, newPhone) {
         users[userIndex].contacts = loggedInUser.contacts;
 
         await setItem('loggedInUser', JSON.stringify(loggedInUser));
+        await setItem('users', JSON.stringify(users));
         removeClassesAfterEdit();
         await generateContactInSmall();
     } else {
