@@ -127,7 +127,7 @@ async function generateContactInSmall() {
 /**
  * This function sorts the names of all contacts and displays them alphabetically 
  */
-async function sortByFirstLetter(contacts) {
+function sortByFirstLetter(contacts) {
     return contacts.sort((a, b) => {
         const nameA = a.name.toUpperCase();
         const nameB = b.name.toUpperCase();
