@@ -301,7 +301,7 @@ async function deleteContact(newName, newEmail, newPhone, initial) {
 /**
  * The contact to be deleted is selected here
  */
-function getContact4Delete(newName, newEmail, newPhone, initial) {
+async function getContact4Delete(newName, newEmail, newPhone, initial) {
     return loggedInUser.contacts.find(contact =>
         contact.name === newName &&
         contact.email === newEmail &&
