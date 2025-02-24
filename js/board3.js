@@ -11,6 +11,7 @@ function addSubTask2() {
       subtaskInput.value = '';
       currentSubtasksBoard.push({
         id: subtaskId,
+        status: false,
         value: subtaskValue,
       });
     }

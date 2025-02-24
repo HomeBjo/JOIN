@@ -77,7 +77,7 @@ function logInFormTemplate() {
         </div>
         <div class="login-button-div">
             <!-- Submit button -->
-            <button id="login-button" type="submit" class="btn btn-primary btn-block mb-4 mobile-width">Log in</button>
+            <button id="login-button" type="submit" class="btn btn-primary btn-block mb-4 mobile-width" onclick="login()">Log in</button>
             <button onclick="guestLogin()" id="guest-button" type="button" class="btn btn-outline-secondary btn-block mb-4 btn2">Guest log in</button>
         </div>
     </form>`;

@@ -155,7 +155,7 @@ function secondLoginElsePasrt(passwordMessage, password, email, emailMessage){
  * Handles the guest login functionality and redirects to the summary page.
  */
 async function guestLogin() {
-    let user = users[2];
+    let user = users[0];
 
     if(user) {
         await setItem('loggedInUser', JSON.stringify(user));
@@ -169,8 +169,15 @@ async function guestLogin() {
  */
 async function getRememberedUser() {
     try {
-        rememberedUser = JSON.parse(await getItem('rememberMe'));
-        fillInputs(rememberedUser);
+        let rememberedUser = JSON.parse(await getItem('rememberMe'));
+        // Zustand der Checkbox aktualisieren
+        let checkbox = document.getElementById('form2Example31');
+        if (checkbox) {
+            checkbox.checked = rememberedUser !== null;
+        }
+        if (rememberedUser) {
+            fillInputs(rememberedUser);
+        }
     } catch(e) {
         console.error('Loading error:', e);
     }

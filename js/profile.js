@@ -102,7 +102,9 @@ function loadHelp() {
  */
 async function logout() {
     try {
-        await updateLoggedInUser({});
+        // Löschen des loggedInUser aus dem lokalen Speicher
+        await setItem('loggedInUser', JSON.stringify(null));
+        // Weiterleitung zum Login-Bildschirm
         window.location.href = '../html/login.html';
     } catch (error) {
         console.error('Error during logout:', error);
@@ -158,10 +160,8 @@ async function updateLoggedInUser(newValues) {
         const response = await fetch(url, { method: 'POST', body: JSON.stringify(payload) });
         const responseData = await response.json();
 
-        console.log('Server Response:', responseData);
-
         if (response.ok) {
-            console.log('loggedInUser updated successfully.');
+           
         } else {
             throw 'Error updating loggedInUser.';
         }
@@ -170,3 +170,8 @@ async function updateLoggedInUser(newValues) {
         throw error;
     }
 }
+//  function checkRememberMeBox(){
+//     let checkbox = document.getElementById('form2Example31');
+//     console.log(rememberMe);
+//     checkbox.checked = rememberMe;
+// }

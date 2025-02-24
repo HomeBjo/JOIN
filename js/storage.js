@@ -1,20 +1,51 @@
-const STORAGE_TOKEN = 'QPHAFGT1Q3UF7KK0TZX16MUQNR784P9PTG8ZWE09';
-const STORAGE_URL= 'https://remote-storage.developerakademie.org/item';
-
-
-async function setItem(key, value) {
-    const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
-        .then(res => res.json());
+/**
+ * Initializes Firebase if it has not been loaded yet.
+ * Ensures that Firestore is available for data storage.
+ */
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
 }
 
 
-async function getItem(key) {
-    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json()).then(res => {
+/** 
+ * Firestore database instance.
+ * @type {firebase.firestore.Firestore}
+ */
+const db = firebase.firestore();
 
-        if (res.data) { 
-            return res.data.value;
-        } throw `Could not find data with key "${key}".`;
-    });
-}
+
+/**
+ * Stores a key-value pair in Firestore under the "storage" collection.
+ * @param {string} key - The unique key under which the value should be stored.
+ * @param {any} value - The data to be stored (can be an object, string, array, etc.).
+ * @returns {Promise<void>} A promise that resolves when the data is successfully stored.
+ */
+window.setItem = async function (key, value) {
+    try {
+        await db.collection("storage").doc(key).set({ data: value });
+        
+    } catch (error) {
+        console.error("Fehler beim Speichern:", error);
+    }
+};
+
+
+/**
+ * Retrieves data from Firestore based on a given key.
+ * @param {string} key - The unique key to retrieve data for.
+ * @returns {Promise<any>} A promise that resolves with the retrieved data or an empty array if no data is found.
+ */
+window.getItem = async function (key) {
+    try {
+        const doc = await db.collection("storage").doc(key).get();
+        if (doc.exists) {
+            return doc.data().data;
+        } else {
+            console.warn("Kein Dokument gefunden für:", key);
+            return [];
+        }
+    } catch (error) {
+        console.error("Fehler beim Abrufen:", error);
+        return [];
+    }
+};

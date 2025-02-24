@@ -106,8 +106,19 @@ function getInitialContacts(sortedContacts){
 async function generateContactInSmall() {
     let contact = document.getElementById('contactInSmall');
     contact.innerHTML = '';
+
     let loggedInUser = await getLoggedInUser() || { contacts: [] };
     let sortedContacts = sortByFirstLetter(loggedInUser.contacts);
+
+    if (sortedContacts.length === 0) {
+        contact.innerHTML = `
+            <div class="no-contacts-box">
+                <p>Keine Kontakte vorhanden</p>
+            </div>
+        `;
+        return;
+    }
+
     let currentLetter = null;
 
     for (let i = 0; i < sortedContacts.length; i++) {
@@ -115,6 +126,7 @@ async function generateContactInSmall() {
         let contactData = sortedContacts[i];
         let firstLetter = sortedContacts[i].name.charAt(0).toUpperCase();
         let color = sortedContacts[i].color;
+
         if (firstLetter !== currentLetter) {
             contact.innerHTML += generateContactInSmallHtml(firstLetter);
             currentLetter = firstLetter;
@@ -249,6 +261,7 @@ function closeAddContactBoxWithX(){
  */
 async function editContact(newName, newEmail, newPhone, initial, color){
     document.getElementById('addBox').classList.add('backgoundBox');
+    document.getElementById('boxOfEdingContact').classList.remove('d-none');
     document.getElementById('boxOfEdingContact').classList.add('showSideWindow');
     let valueBox = document.getElementById('boxOfEdingContact');
     valueBox.innerHTML = '';
@@ -276,8 +289,8 @@ function closeEditContactBox(){
  * here the contact is deleted. its values are checked and matched, only then is it deletedr
  * The array under loggedInUser.contacts is pushed into the backend so that we know that this contact no longer exists 
  */
-async function deleteContact(newName, newEmail, newPhone, initial, color) {
-    const contactToDelete = getContact4Delete(newName, newEmail, newPhone, initial, color);
+async function deleteContact(newName, newEmail, newPhone, initial) {
+    const contactToDelete = await getContact4Delete(newName, newEmail, newPhone, initial);
 
     if (contactToDelete) {
         loggedInUser.contacts = loggedInUser.contacts.filter(contact =>
@@ -287,7 +300,9 @@ async function deleteContact(newName, newEmail, newPhone, initial, color) {
         users[userIndex].contacts = loggedInUser.contacts;
 
         await setItem('loggedInUser', JSON.stringify(loggedInUser));
+        await setItem('users', JSON.stringify(users));
         await generateContactInSmall();
+        returnArrow();
         changeClassesAfterDelete();
     } else {
         console.error('Contact not found in loggedInUser.contacts array');
@@ -298,13 +313,12 @@ async function deleteContact(newName, newEmail, newPhone, initial, color) {
 /**
  * The contact to be deleted is selected here
  */
-function getContact4Delete(newName, newEmail, newPhone, initial, color) {
+async function getContact4Delete(newName, newEmail, newPhone, initial) {
     return loggedInUser.contacts.find(contact =>
         contact.name === newName &&
         contact.email === newEmail &&
         contact.phone === newPhone &&
-        contact.initial === initial &&
-        contact.color === color
+        contact.initial === initial 
     );
 }
 
@@ -324,6 +338,7 @@ async function saveEditContactWindow(newName, newEmail, newPhone) {
         users[userIndex].contacts = loggedInUser.contacts;
 
         await setItem('loggedInUser', JSON.stringify(loggedInUser));
+        await setItem('users', JSON.stringify(users));
         removeClassesAfterEdit();
         await generateContactInSmall();
     } else {

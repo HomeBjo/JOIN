@@ -306,8 +306,8 @@ function renderSubtasks(element, subtasks) {
     const isChecked = subtask.status === true;
 
     subtasksHTML += `<div class="subtaskCheckbox">
-      <input type="checkbox" id="${subtask.id}" name="${subtask.value}" value="${subtask.value}" ${isChecked ? 'checked' : ''} onclick="checkboxClicked('${element}', '${subtask.id}')">
-      <label for="${subtask.id}">${subtask.value}</label>
+      <input class="pointer" type="checkbox" id="${subtask.id}" name="${subtask.value}" value="${subtask.value}" ${isChecked ? 'checked' : ''} onclick="checkboxClicked('${element}', '${subtask.id}')">
+      <label class="pointer" for="${subtask.id}">${subtask.value}</label>
     </div>`;
   }
   return subtasksHTML;

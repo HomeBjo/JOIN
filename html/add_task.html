@@ -11,6 +11,10 @@
       <link rel="stylesheet" href="../css/add_task.css">
       <link rel="stylesheet" href="../css/mobile_template.css" />
       <link rel="stylesheet" href="../css/contacts.css">
+
+      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+      <script src="../js/config.js"></script>
       <script src="../js/board.js" defer></script>
       <script src="../js/board2.js" defer></script>
       <script src="../js/board3.js" defer></script>
@@ -51,7 +55,7 @@
                              <div class="modal-content curser">
                                <div class="modal-body curser">
                                  <div>
-                                    <input required id="dueDateValue" class="inputfieldDate" type="date" placeholder="dd/mm/yyyy" onclick="checkDateAddTask()">
+                                    <input required id="dueDateValue" max="2026-12-31" class="inputfieldDate" type="date" placeholder="dd/mm/yyyy" onclick="checkDateAddTask()">
                                  </div>
                                </div>
                              </div>
