@@ -106,8 +106,19 @@ function getInitialContacts(sortedContacts){
 async function generateContactInSmall() {
     let contact = document.getElementById('contactInSmall');
     contact.innerHTML = '';
+
     let loggedInUser = await getLoggedInUser() || { contacts: [] };
     let sortedContacts = sortByFirstLetter(loggedInUser.contacts);
+
+    if (sortedContacts.length === 0) {
+        contact.innerHTML = `
+            <div class="no-contacts-box">
+                <p>Keine Kontakte vorhanden</p>
+            </div>
+        `;
+        return;
+    }
+
     let currentLetter = null;
 
     for (let i = 0; i < sortedContacts.length; i++) {
@@ -115,6 +126,7 @@ async function generateContactInSmall() {
         let contactData = sortedContacts[i];
         let firstLetter = sortedContacts[i].name.charAt(0).toUpperCase();
         let color = sortedContacts[i].color;
+
         if (firstLetter !== currentLetter) {
             contact.innerHTML += generateContactInSmallHtml(firstLetter);
             currentLetter = firstLetter;

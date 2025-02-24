@@ -90,7 +90,7 @@ function clearTasksArray() {
     clearArray(); 
     setItem('newTask', JSON.stringify([])) 
       .then(() => {
-        console.log('Tasks array cleared');
+        
       })
       .catch((error) => {
         console.error('Error clearing tasks array:', error);

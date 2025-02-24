@@ -160,10 +160,8 @@ async function updateLoggedInUser(newValues) {
         const response = await fetch(url, { method: 'POST', body: JSON.stringify(payload) });
         const responseData = await response.json();
 
-        console.log('Server Response:', responseData);
-
         if (response.ok) {
-            console.log('loggedInUser updated successfully.');
+           
         } else {
             throw 'Error updating loggedInUser.';
         }
